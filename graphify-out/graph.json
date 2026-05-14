@@ -1,0 +1,5253 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "test_nucleo.rs",
+      "file_type": "code",
+      "source_file": "test_nucleo.rs",
+      "source_location": "L1",
+      "id": "test_nucleo_rs",
+      "community": 20,
+      "norm_label": "test_nucleo.rs"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "test_nucleo.rs",
+      "source_location": "L3",
+      "id": "tcode_test_nucleo_main",
+      "community": 20,
+      "norm_label": "main()"
+    },
+    {
+      "label": "test_git2.rs",
+      "file_type": "code",
+      "source_file": "test_git2.rs",
+      "source_location": "L1",
+      "id": "test_git2_rs",
+      "community": 18,
+      "norm_label": "test_git2.rs"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "test_git2.rs",
+      "source_location": "L3",
+      "id": "tcode_test_git2_main",
+      "community": 18,
+      "norm_label": "main()"
+    },
+    {
+      "label": "test_lsp.rs",
+      "file_type": "code",
+      "source_file": "test_lsp.rs",
+      "source_location": "L1",
+      "id": "test_lsp_rs",
+      "community": 19,
+      "norm_label": "test_lsp.rs"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "test_lsp.rs",
+      "source_location": "L5",
+      "id": "tcode_test_lsp_main",
+      "community": 19,
+      "norm_label": "main()"
+    },
+    {
+      "label": "test_parse.rs",
+      "file_type": "code",
+      "source_file": "test_parse.rs",
+      "source_location": "L1",
+      "id": "test_parse_rs",
+      "community": 17,
+      "norm_label": "test_parse.rs"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "test_parse.rs",
+      "source_location": "L2",
+      "id": "tcode_test_parse_main",
+      "community": 17,
+      "norm_label": "main()"
+    },
+    {
+      "label": "events.rs",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L1",
+      "id": "src_events_rs",
+      "community": 3,
+      "norm_label": "events.rs"
+    },
+    {
+      "label": "TextAreaRect",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L9",
+      "id": "src_events_textarearect",
+      "community": 3,
+      "norm_label": "textarearect"
+    },
+    {
+      "label": "ExplorerRect",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L12",
+      "id": "src_events_explorerrect",
+      "community": 3,
+      "norm_label": "explorerrect"
+    },
+    {
+      "label": "TabBarRect",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L16",
+      "id": "src_events_tabbarrect",
+      "community": 3,
+      "norm_label": "tabbarrect"
+    },
+    {
+      "label": "ModalRect",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L19",
+      "id": "src_events_modalrect",
+      "community": 3,
+      "norm_label": "modalrect"
+    },
+    {
+      "label": "TerminalRect",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L23",
+      "id": "src_events_terminalrect",
+      "community": 3,
+      "norm_label": "terminalrect"
+    },
+    {
+      "label": "ActivityBarRect",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L26",
+      "id": "src_events_activitybarrect",
+      "community": 3,
+      "norm_label": "activitybarrect"
+    },
+    {
+      "label": "UiRects",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L29",
+      "id": "src_events_uirects",
+      "community": 3,
+      "norm_label": "uirects"
+    },
+    {
+      "label": "handle_events()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L38",
+      "id": "src_events_handle_events",
+      "community": 3,
+      "norm_label": "handle_events()"
+    },
+    {
+      "label": "handle_key()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L51",
+      "id": "src_events_handle_key",
+      "community": 3,
+      "norm_label": "handle_key()"
+    },
+    {
+      "label": "handle_theme_picker_key()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L333",
+      "id": "src_events_handle_theme_picker_key",
+      "community": 3,
+      "norm_label": "handle_theme_picker_key()"
+    },
+    {
+      "label": "handle_prompt_key()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L344",
+      "id": "src_events_handle_prompt_key",
+      "community": 3,
+      "norm_label": "handle_prompt_key()"
+    },
+    {
+      "label": "handle_mouse()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L366",
+      "id": "src_events_handle_mouse",
+      "community": 3,
+      "norm_label": "handle_mouse()"
+    },
+    {
+      "label": "tab_index_at()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L472",
+      "id": "src_events_tab_index_at",
+      "community": 3,
+      "norm_label": "tab_index_at()"
+    },
+    {
+      "label": "handle_tab_bar_click()",
+      "file_type": "code",
+      "source_file": "src/events.rs",
+      "source_location": "L484",
+      "id": "src_events_handle_tab_bar_click",
+      "community": 3,
+      "norm_label": "handle_tab_bar_click()"
+    },
+    {
+      "label": "ui.rs",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L1",
+      "id": "src_ui_rs",
+      "community": 1,
+      "norm_label": "ui.rs"
+    },
+    {
+      "label": "HlSpan",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L45",
+      "id": "src_ui_hlspan",
+      "community": 1,
+      "norm_label": "hlspan"
+    },
+    {
+      "label": "Highlighter",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L53",
+      "id": "src_ui_highlighter",
+      "community": 1,
+      "norm_label": "highlighter"
+    },
+    {
+      "label": ".new()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L63",
+      "id": "src_ui_highlighter_new",
+      "community": 1,
+      "norm_label": ".new()"
+    },
+    {
+      "label": ".theme_names()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L75",
+      "id": "src_ui_highlighter_theme_names",
+      "community": 1,
+      "norm_label": ".theme_names()"
+    },
+    {
+      "label": ".ensure_cache()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L81",
+      "id": "src_ui_highlighter_ensure_cache",
+      "community": 1,
+      "norm_label": ".ensure_cache()"
+    },
+    {
+      "label": "draw()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L124",
+      "id": "src_ui_draw",
+      "community": 1,
+      "norm_label": "draw()"
+    },
+    {
+      "label": "draw_tab_bar()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L234",
+      "id": "src_ui_draw_tab_bar",
+      "community": 1,
+      "norm_label": "draw_tab_bar()"
+    },
+    {
+      "label": "draw_activity_bar()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L258",
+      "id": "src_ui_draw_activity_bar",
+      "community": 1,
+      "norm_label": "draw_activity_bar()"
+    },
+    {
+      "label": "draw_explorer()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L323",
+      "id": "src_ui_draw_explorer",
+      "community": 1,
+      "norm_label": "draw_explorer()"
+    },
+    {
+      "label": "draw_git_panel()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L369",
+      "id": "src_ui_draw_git_panel",
+      "community": 1,
+      "norm_label": "draw_git_panel()"
+    },
+    {
+      "label": "file_icon()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L415",
+      "id": "src_ui_file_icon",
+      "community": 1,
+      "norm_label": "file_icon()"
+    },
+    {
+      "label": "is_selected()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L434",
+      "id": "src_ui_is_selected",
+      "community": 1,
+      "norm_label": "is_selected()"
+    },
+    {
+      "label": "draw_editor()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L447",
+      "id": "src_ui_draw_editor",
+      "community": 1,
+      "norm_label": "draw_editor()"
+    },
+    {
+      "label": "draw_status_bar()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L615",
+      "id": "src_ui_draw_status_bar",
+      "community": 1,
+      "norm_label": "draw_status_bar()"
+    },
+    {
+      "label": "draw_help_overlay()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L657",
+      "id": "src_ui_draw_help_overlay",
+      "community": 1,
+      "norm_label": "draw_help_overlay()"
+    },
+    {
+      "label": "draw_folder_prompt()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L722",
+      "id": "src_ui_draw_folder_prompt",
+      "community": 1,
+      "norm_label": "draw_folder_prompt()"
+    },
+    {
+      "label": "draw_theme_picker()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L743",
+      "id": "src_ui_draw_theme_picker",
+      "community": 1,
+      "norm_label": "draw_theme_picker()"
+    },
+    {
+      "label": "draw_plugin_manager()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L785",
+      "id": "src_ui_draw_plugin_manager",
+      "community": 1,
+      "norm_label": "draw_plugin_manager()"
+    },
+    {
+      "label": "draw_terminal()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L826",
+      "id": "src_ui_draw_terminal",
+      "community": 1,
+      "norm_label": "draw_terminal()"
+    },
+    {
+      "label": "draw_fuzzy_finder()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L872",
+      "id": "src_ui_draw_fuzzy_finder",
+      "community": 1,
+      "norm_label": "draw_fuzzy_finder()"
+    },
+    {
+      "label": "draw_settings_modal()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L914",
+      "id": "src_ui_draw_settings_modal",
+      "community": 1,
+      "norm_label": "draw_settings_modal()"
+    },
+    {
+      "label": "draw_generic_prompt()",
+      "file_type": "code",
+      "source_file": "src/ui.rs",
+      "source_location": "L952",
+      "id": "src_ui_draw_generic_prompt",
+      "community": 1,
+      "norm_label": "draw_generic_prompt()"
+    },
+    {
+      "label": "main.rs",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L1",
+      "id": "src_main_rs",
+      "community": 3,
+      "norm_label": "main.rs"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L24",
+      "id": "src_main_main",
+      "community": 3,
+      "norm_label": "main()"
+    },
+    {
+      "label": "app.rs",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L1",
+      "id": "src_app_rs",
+      "community": 2,
+      "norm_label": "app.rs"
+    },
+    {
+      "label": "FileEntry",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L5",
+      "id": "src_app_fileentry",
+      "community": 2,
+      "norm_label": "fileentry"
+    },
+    {
+      "label": "SidebarPanel",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L12",
+      "id": "src_app_sidebarpanel",
+      "community": 2,
+      "norm_label": "sidebarpanel"
+    },
+    {
+      "label": "GitChange",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L19",
+      "id": "src_app_gitchange",
+      "community": 2,
+      "norm_label": "gitchange"
+    },
+    {
+      "label": "InputMode",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L25",
+      "id": "src_app_inputmode",
+      "community": 2,
+      "norm_label": "inputmode"
+    },
+    {
+      "label": "Tab",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L31",
+      "id": "src_app_tab",
+      "community": 2,
+      "norm_label": "tab"
+    },
+    {
+      "label": ".welcome()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L47",
+      "id": "src_app_tab_welcome",
+      "community": 2,
+      "norm_label": ".welcome()"
+    },
+    {
+      "label": ".from_file()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L68",
+      "id": "src_app_tab_from_file",
+      "community": 2,
+      "norm_label": ".from_file()"
+    },
+    {
+      "label": ".update_git_marks()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L85",
+      "id": "src_app_tab_update_git_marks",
+      "community": 2,
+      "norm_label": ".update_git_marks()"
+    },
+    {
+      "label": "Focus",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L147",
+      "id": "src_app_focus",
+      "community": 2,
+      "norm_label": "focus"
+    },
+    {
+      "label": "App",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L153",
+      "id": "src_app_app",
+      "community": 0,
+      "norm_label": "app"
+    },
+    {
+      "label": ".new()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L207",
+      "id": "src_app_app_new",
+      "community": 2,
+      "norm_label": ".new()"
+    },
+    {
+      "label": ".update_git_status()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L267",
+      "id": "src_app_app_update_git_status",
+      "community": 11,
+      "norm_label": ".update_git_status()"
+    },
+    {
+      "label": ".save_session()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L296",
+      "id": "src_app_app_save_session",
+      "community": 11,
+      "norm_label": ".save_session()"
+    },
+    {
+      "label": ".save_all()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L307",
+      "id": "src_app_app_save_all",
+      "community": 4,
+      "norm_label": ".save_all()"
+    },
+    {
+      "label": ".sync_lsp_active_tab()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L321",
+      "id": "src_app_app_sync_lsp_active_tab",
+      "community": 8,
+      "norm_label": ".sync_lsp_active_tab()"
+    },
+    {
+      "label": ".trigger_completion()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L334",
+      "id": "src_app_app_trigger_completion",
+      "community": 8,
+      "norm_label": ".trigger_completion()"
+    },
+    {
+      "label": ".apply_completion()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L347",
+      "id": "src_app_app_apply_completion",
+      "community": 8,
+      "norm_label": ".apply_completion()"
+    },
+    {
+      "label": ".insert_char()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L380",
+      "id": "src_app_app_insert_char",
+      "community": 8,
+      "norm_label": ".insert_char()"
+    },
+    {
+      "label": ".backspace()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L393",
+      "id": "src_app_app_backspace",
+      "community": 8,
+      "norm_label": ".backspace()"
+    },
+    {
+      "label": ".delete_char()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L415",
+      "id": "src_app_app_delete_char",
+      "community": 8,
+      "norm_label": ".delete_char()"
+    },
+    {
+      "label": ".enter()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L432",
+      "id": "src_app_app_enter",
+      "community": 8,
+      "norm_label": ".enter()"
+    },
+    {
+      "label": ".tab_insert()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L448",
+      "id": "src_app_app_tab_insert",
+      "community": 8,
+      "norm_label": ".tab_insert()"
+    },
+    {
+      "label": ".get_selection_text()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L454",
+      "id": "src_app_app_get_selection_text",
+      "community": 13,
+      "norm_label": ".get_selection_text()"
+    },
+    {
+      "label": ".copy()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L473",
+      "id": "src_app_app_copy",
+      "community": 13,
+      "norm_label": ".copy()"
+    },
+    {
+      "label": ".paste()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L485",
+      "id": "src_app_app_paste",
+      "community": 8,
+      "norm_label": ".paste()"
+    },
+    {
+      "label": ".toggle_fuzzy_finder()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L505",
+      "id": "src_app_app_toggle_fuzzy_finder",
+      "community": 12,
+      "norm_label": ".toggle_fuzzy_finder()"
+    },
+    {
+      "label": ".update_fuzzy_results()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L517",
+      "id": "src_app_app_update_fuzzy_results",
+      "community": 12,
+      "norm_label": ".update_fuzzy_results()"
+    },
+    {
+      "label": ".fuzzy_up()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L527",
+      "id": "src_app_app_fuzzy_up",
+      "community": 0,
+      "norm_label": ".fuzzy_up()"
+    },
+    {
+      "label": ".fuzzy_down()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L533",
+      "id": "src_app_app_fuzzy_down",
+      "community": 0,
+      "norm_label": ".fuzzy_down()"
+    },
+    {
+      "label": ".fuzzy_enter()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L539",
+      "id": "src_app_app_fuzzy_enter",
+      "community": 15,
+      "norm_label": ".fuzzy_enter()"
+    },
+    {
+      "label": ".open_file_path()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L549",
+      "id": "src_app_app_open_file_path",
+      "community": 15,
+      "norm_label": ".open_file_path()"
+    },
+    {
+      "label": ".open_settings()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L556",
+      "id": "src_app_app_open_settings",
+      "community": 0,
+      "norm_label": ".open_settings()"
+    },
+    {
+      "label": ".settings_next()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L564",
+      "id": "src_app_app_settings_next",
+      "community": 0,
+      "norm_label": ".settings_next()"
+    },
+    {
+      "label": ".settings_prev()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L570",
+      "id": "src_app_app_settings_prev",
+      "community": 0,
+      "norm_label": ".settings_prev()"
+    },
+    {
+      "label": ".settings_enter()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L576",
+      "id": "src_app_app_settings_enter",
+      "community": 11,
+      "norm_label": ".settings_enter()"
+    },
+    {
+      "label": ".confirm_settings_prompt()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L602",
+      "id": "src_app_app_confirm_settings_prompt",
+      "community": 11,
+      "norm_label": ".confirm_settings_prompt()"
+    },
+    {
+      "label": ".cancel_settings_prompt()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L622",
+      "id": "src_app_app_cancel_settings_prompt",
+      "community": 0,
+      "norm_label": ".cancel_settings_prompt()"
+    },
+    {
+      "label": ".move_left()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L628",
+      "id": "src_app_app_move_left",
+      "community": 0,
+      "norm_label": ".move_left()"
+    },
+    {
+      "label": ".move_right()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L640",
+      "id": "src_app_app_move_right",
+      "community": 0,
+      "norm_label": ".move_right()"
+    },
+    {
+      "label": ".move_up()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L651",
+      "id": "src_app_app_move_up",
+      "community": 0,
+      "norm_label": ".move_up()"
+    },
+    {
+      "label": ".move_down()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L660",
+      "id": "src_app_app_move_down",
+      "community": 0,
+      "norm_label": ".move_down()"
+    },
+    {
+      "label": ".home()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L669",
+      "id": "src_app_app_home",
+      "community": 0,
+      "norm_label": ".home()"
+    },
+    {
+      "label": ".end()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L671",
+      "id": "src_app_app_end",
+      "community": 0,
+      "norm_label": ".end()"
+    },
+    {
+      "label": ".mouse_click()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L678",
+      "id": "src_app_app_mouse_click",
+      "community": 0,
+      "norm_label": ".mouse_click()"
+    },
+    {
+      "label": ".mouse_drag()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L689",
+      "id": "src_app_app_mouse_drag",
+      "community": 0,
+      "norm_label": ".mouse_drag()"
+    },
+    {
+      "label": ".scroll_up()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L698",
+      "id": "src_app_app_scroll_up",
+      "community": 0,
+      "norm_label": ".scroll_up()"
+    },
+    {
+      "label": ".scroll_down()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L703",
+      "id": "src_app_app_scroll_down",
+      "community": 0,
+      "norm_label": ".scroll_down()"
+    },
+    {
+      "label": ".ensure_cursor_visible()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L710",
+      "id": "src_app_app_ensure_cursor_visible",
+      "community": 0,
+      "norm_label": ".ensure_cursor_visible()"
+    },
+    {
+      "label": ".save()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L729",
+      "id": "src_app_app_save",
+      "community": 11,
+      "norm_label": ".save()"
+    },
+    {
+      "label": ".next_tab()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L751",
+      "id": "src_app_app_next_tab",
+      "community": 0,
+      "norm_label": ".next_tab()"
+    },
+    {
+      "label": ".prev_tab()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L757",
+      "id": "src_app_app_prev_tab",
+      "community": 0,
+      "norm_label": ".prev_tab()"
+    },
+    {
+      "label": ".get_active_tab()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L767",
+      "id": "src_app_app_get_active_tab",
+      "community": 13,
+      "norm_label": ".get_active_tab()"
+    },
+    {
+      "label": ".get_active_tab_mut()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L771",
+      "id": "src_app_app_get_active_tab_mut",
+      "community": 8,
+      "norm_label": ".get_active_tab_mut()"
+    },
+    {
+      "label": ".delete_selection()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L775",
+      "id": "src_app_app_delete_selection",
+      "community": 8,
+      "norm_label": ".delete_selection()"
+    },
+    {
+      "label": ".close_tab()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L816",
+      "id": "src_app_app_close_tab",
+      "community": 14,
+      "norm_label": ".close_tab()"
+    },
+    {
+      "label": ".close_tab_at()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L820",
+      "id": "src_app_app_close_tab_at",
+      "community": 14,
+      "norm_label": ".close_tab_at()"
+    },
+    {
+      "label": ".switch_to_tab()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L833",
+      "id": "src_app_app_switch_to_tab",
+      "community": 0,
+      "norm_label": ".switch_to_tab()"
+    },
+    {
+      "label": ".open_file_from_path()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L839",
+      "id": "src_app_app_open_file_from_path",
+      "community": 2,
+      "norm_label": ".open_file_from_path()"
+    },
+    {
+      "label": ".terminal_scroll_up()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L858",
+      "id": "src_app_app_terminal_scroll_up",
+      "community": 0,
+      "norm_label": ".terminal_scroll_up()"
+    },
+    {
+      "label": ".terminal_scroll_down()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L865",
+      "id": "src_app_app_terminal_scroll_down",
+      "community": 0,
+      "norm_label": ".terminal_scroll_down()"
+    },
+    {
+      "label": ".open_folder()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L871",
+      "id": "src_app_app_open_folder",
+      "community": 2,
+      "norm_label": ".open_folder()"
+    },
+    {
+      "label": ".file_tree_up()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L888",
+      "id": "src_app_app_file_tree_up",
+      "community": 0,
+      "norm_label": ".file_tree_up()"
+    },
+    {
+      "label": ".file_tree_down()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L892",
+      "id": "src_app_app_file_tree_down",
+      "community": 0,
+      "norm_label": ".file_tree_down()"
+    },
+    {
+      "label": ".file_tree_enter()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L898",
+      "id": "src_app_app_file_tree_enter",
+      "community": 2,
+      "norm_label": ".file_tree_enter()"
+    },
+    {
+      "label": ".file_tree_click()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L909",
+      "id": "src_app_app_file_tree_click",
+      "community": 2,
+      "norm_label": ".file_tree_click()"
+    },
+    {
+      "label": ".start_folder_prompt()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L925",
+      "id": "src_app_app_start_folder_prompt",
+      "community": 0,
+      "norm_label": ".start_folder_prompt()"
+    },
+    {
+      "label": ".confirm_folder_prompt()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L931",
+      "id": "src_app_app_confirm_folder_prompt",
+      "community": 2,
+      "norm_label": ".confirm_folder_prompt()"
+    },
+    {
+      "label": ".cancel_prompt()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L939",
+      "id": "src_app_app_cancel_prompt",
+      "community": 0,
+      "norm_label": ".cancel_prompt()"
+    },
+    {
+      "label": ".toggle_help()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L945",
+      "id": "src_app_app_toggle_help",
+      "community": 0,
+      "norm_label": ".toggle_help()"
+    },
+    {
+      "label": ".toggle_theme_picker()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L949",
+      "id": "src_app_app_toggle_theme_picker",
+      "community": 11,
+      "norm_label": ".toggle_theme_picker()"
+    },
+    {
+      "label": ".theme_up()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L959",
+      "id": "src_app_app_theme_up",
+      "community": 0,
+      "norm_label": ".theme_up()"
+    },
+    {
+      "label": ".theme_down()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L963",
+      "id": "src_app_app_theme_down",
+      "community": 0,
+      "norm_label": ".theme_down()"
+    },
+    {
+      "label": ".theme_apply()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L969",
+      "id": "src_app_app_theme_apply",
+      "community": 0,
+      "norm_label": ".theme_apply()"
+    },
+    {
+      "label": ".theme_click()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L977",
+      "id": "src_app_app_theme_click",
+      "community": 0,
+      "norm_label": ".theme_click()"
+    },
+    {
+      "label": ".toggle_plugin_manager()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L986",
+      "id": "src_app_app_toggle_plugin_manager",
+      "community": 16,
+      "norm_label": ".toggle_plugin_manager()"
+    },
+    {
+      "label": ".refresh_plugin_info()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L993",
+      "id": "src_app_app_refresh_plugin_info",
+      "community": 16,
+      "norm_label": ".refresh_plugin_info()"
+    },
+    {
+      "label": "read_directory()",
+      "file_type": "code",
+      "source_file": "src/app.rs",
+      "source_location": "L1011",
+      "id": "src_app_read_directory",
+      "community": 2,
+      "norm_label": "read_directory()"
+    },
+    {
+      "label": "plugin.rs",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L1",
+      "id": "src_plugin_rs",
+      "community": 7,
+      "norm_label": "plugin.rs"
+    },
+    {
+      "label": "PluginCommand",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L14",
+      "id": "src_plugin_plugincommand",
+      "community": 7,
+      "norm_label": "plugincommand"
+    },
+    {
+      "label": "EditorApi",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L25",
+      "id": "src_plugin_editorapi",
+      "community": 7,
+      "norm_label": "editorapi"
+    },
+    {
+      "label": "LoadedPlugin",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L35",
+      "id": "src_plugin_loadedplugin",
+      "community": 7,
+      "norm_label": "loadedplugin"
+    },
+    {
+      "label": "PluginEngine",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L44",
+      "id": "src_plugin_pluginengine",
+      "community": 7,
+      "norm_label": "pluginengine"
+    },
+    {
+      "label": ".new()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L50",
+      "id": "src_plugin_pluginengine_new",
+      "community": 7,
+      "norm_label": ".new()"
+    },
+    {
+      "label": ".load_plugins()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L79",
+      "id": "src_plugin_pluginengine_load_plugins",
+      "community": 7,
+      "norm_label": ".load_plugins()"
+    },
+    {
+      "label": ".loaded_count()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L109",
+      "id": "src_plugin_pluginengine_loaded_count",
+      "community": 7,
+      "norm_label": ".loaded_count()"
+    },
+    {
+      "label": ".make_api()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L114",
+      "id": "src_plugin_pluginengine_make_api",
+      "community": 7,
+      "norm_label": ".make_api()"
+    },
+    {
+      "label": ".apply_commands()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L128",
+      "id": "src_plugin_pluginengine_apply_commands",
+      "community": 7,
+      "norm_label": ".apply_commands()"
+    },
+    {
+      "label": ".run_hook()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L144",
+      "id": "src_plugin_pluginengine_run_hook",
+      "community": 7,
+      "norm_label": ".run_hook()"
+    },
+    {
+      "label": ".run_on_init()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L163",
+      "id": "src_plugin_pluginengine_run_on_init",
+      "community": 7,
+      "norm_label": ".run_on_init()"
+    },
+    {
+      "label": ".run_on_save()",
+      "file_type": "code",
+      "source_file": "src/plugin.rs",
+      "source_location": "L168",
+      "id": "src_plugin_pluginengine_run_on_save",
+      "community": 7,
+      "norm_label": ".run_on_save()"
+    },
+    {
+      "label": "config.rs",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L1",
+      "id": "src_config_rs",
+      "community": 4,
+      "norm_label": "config.rs"
+    },
+    {
+      "label": "Config",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L6",
+      "id": "src_config_config",
+      "community": 4,
+      "norm_label": "config"
+    },
+    {
+      "label": ".default()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L14",
+      "id": "src_config_config_default",
+      "community": 1,
+      "norm_label": ".default()"
+    },
+    {
+      "label": ".config_path()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L25",
+      "id": "src_config_config_config_path",
+      "community": 4,
+      "norm_label": ".config_path()"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L32",
+      "id": "src_config_config_load",
+      "community": 4,
+      "norm_label": ".load()"
+    },
+    {
+      "label": ".save()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L44",
+      "id": "src_config_config_save",
+      "community": 4,
+      "norm_label": ".save()"
+    },
+    {
+      "label": "Session",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L52",
+      "id": "src_config_session",
+      "community": 4,
+      "norm_label": "session"
+    },
+    {
+      "label": ".session_path()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L58",
+      "id": "src_config_session_session_path",
+      "community": 4,
+      "norm_label": ".session_path()"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L65",
+      "id": "src_config_session_load",
+      "community": 4,
+      "norm_label": ".load()"
+    },
+    {
+      "label": ".save()",
+      "file_type": "code",
+      "source_file": "src/config.rs",
+      "source_location": "L75",
+      "id": "src_config_session_save",
+      "community": 4,
+      "norm_label": ".save()"
+    },
+    {
+      "label": "fuzzy.rs",
+      "file_type": "code",
+      "source_file": "src/fuzzy.rs",
+      "source_location": "L1",
+      "id": "src_fuzzy_rs",
+      "community": 12,
+      "norm_label": "fuzzy.rs"
+    },
+    {
+      "label": "scan_directory()",
+      "file_type": "code",
+      "source_file": "src/fuzzy.rs",
+      "source_location": "L3",
+      "id": "src_fuzzy_scan_directory",
+      "community": 12,
+      "norm_label": "scan_directory()"
+    },
+    {
+      "label": "match_files()",
+      "file_type": "code",
+      "source_file": "src/fuzzy.rs",
+      "source_location": "L30",
+      "id": "src_fuzzy_match_files",
+      "community": 12,
+      "norm_label": "match_files()"
+    },
+    {
+      "label": "pty.rs",
+      "file_type": "code",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L1",
+      "id": "src_term_pty_rs",
+      "community": 4,
+      "norm_label": "pty.rs"
+    },
+    {
+      "label": "PtyCommand",
+      "file_type": "code",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L5",
+      "id": "term_pty_ptycommand",
+      "community": 4,
+      "norm_label": "ptycommand"
+    },
+    {
+      "label": "Pty",
+      "file_type": "code",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L10",
+      "id": "term_pty_pty",
+      "community": 4,
+      "norm_label": "pty"
+    },
+    {
+      "label": ".write()",
+      "file_type": "code",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L16",
+      "id": "term_pty_pty_write",
+      "community": 4,
+      "norm_label": ".write()"
+    },
+    {
+      "label": ".resize()",
+      "file_type": "code",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L21",
+      "id": "term_pty_pty_resize",
+      "community": 4,
+      "norm_label": ".resize()"
+    },
+    {
+      "label": "spawn_pty()",
+      "file_type": "code",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L31",
+      "id": "term_pty_spawn_pty",
+      "community": 4,
+      "norm_label": "spawn_pty()"
+    },
+    {
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L1",
+      "id": "src_term_mod_rs",
+      "community": 9,
+      "norm_label": "mod.rs"
+    },
+    {
+      "label": "TermCell",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L7",
+      "id": "term_mod_termcell",
+      "community": 9,
+      "norm_label": "termcell"
+    },
+    {
+      "label": "TerminalState",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L12",
+      "id": "term_mod_terminalstate",
+      "community": 9,
+      "norm_label": "terminalstate"
+    },
+    {
+      "label": ".new()",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L24",
+      "id": "term_mod_terminalstate_new",
+      "community": 9,
+      "norm_label": ".new()"
+    },
+    {
+      "label": ".resize()",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L37",
+      "id": "term_mod_terminalstate_resize",
+      "community": 9,
+      "norm_label": ".resize()"
+    },
+    {
+      "label": ".print()",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L44",
+      "id": "term_mod_terminalstate_print",
+      "community": 9,
+      "norm_label": ".print()"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L64",
+      "id": "term_mod_terminalstate_execute",
+      "community": 9,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": ".csi_dispatch()",
+      "file_type": "code",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L82",
+      "id": "term_mod_terminalstate_csi_dispatch",
+      "community": 9,
+      "norm_label": ".csi_dispatch()"
+    },
+    {
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L1",
+      "id": "src_lsp_mod_rs",
+      "community": 6,
+      "norm_label": "mod.rs"
+    },
+    {
+      "label": "JsonRpcRequest",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L11",
+      "id": "lsp_mod_jsonrpcrequest",
+      "community": 6,
+      "norm_label": "jsonrpcrequest"
+    },
+    {
+      "label": "JsonRpcNotification",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L19",
+      "id": "lsp_mod_jsonrpcnotification",
+      "community": 6,
+      "norm_label": "jsonrpcnotification"
+    },
+    {
+      "label": "LspMessage",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L26",
+      "id": "lsp_mod_lspmessage",
+      "community": 6,
+      "norm_label": "lspmessage"
+    },
+    {
+      "label": "LspClient",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L32",
+      "id": "lsp_mod_lspclient",
+      "community": 6,
+      "norm_label": "lspclient"
+    },
+    {
+      "label": ".new()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L38",
+      "id": "lsp_mod_lspclient_new",
+      "community": 6,
+      "norm_label": ".new()"
+    },
+    {
+      "label": ".send_request()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L119",
+      "id": "lsp_mod_lspclient_send_request",
+      "community": 6,
+      "norm_label": ".send_request()"
+    },
+    {
+      "label": ".send_notification()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L136",
+      "id": "lsp_mod_lspclient_send_notification",
+      "community": 6,
+      "norm_label": ".send_notification()"
+    },
+    {
+      "label": ".initialize()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L149",
+      "id": "lsp_mod_lspclient_initialize",
+      "community": 6,
+      "norm_label": ".initialize()"
+    },
+    {
+      "label": ".initialized()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L160",
+      "id": "lsp_mod_lspclient_initialized",
+      "community": 6,
+      "norm_label": ".initialized()"
+    },
+    {
+      "label": ".did_open()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L164",
+      "id": "lsp_mod_lspclient_did_open",
+      "community": 6,
+      "norm_label": ".did_open()"
+    },
+    {
+      "label": ".did_change()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L177",
+      "id": "lsp_mod_lspclient_did_change",
+      "community": 6,
+      "norm_label": ".did_change()"
+    },
+    {
+      "label": ".completion()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L190",
+      "id": "lsp_mod_lspclient_completion",
+      "community": 6,
+      "norm_label": ".completion()"
+    },
+    {
+      "label": ".definition()",
+      "file_type": "code",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L204",
+      "id": "lsp_mod_lspclient_definition",
+      "community": 6,
+      "norm_label": ".definition()"
+    },
+    {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L1",
+      "id": "graphify_script_js",
+      "community": 10,
+      "norm_label": "script.js"
+    },
+    {
+      "label": "elem",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L6",
+      "id": "graphify_script_elem",
+      "community": 10,
+      "norm_label": "elem"
+    },
+    {
+      "label": "infoPanel",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L7",
+      "id": "graphify_script_infopanel",
+      "community": 10,
+      "norm_label": "infopanel"
+    },
+    {
+      "label": "nodeName",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L8",
+      "id": "graphify_script_nodename",
+      "community": 10,
+      "norm_label": "nodename"
+    },
+    {
+      "label": "nodeType",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L9",
+      "id": "graphify_script_nodetype",
+      "community": 10,
+      "norm_label": "nodetype"
+    },
+    {
+      "label": "nodePath",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L10",
+      "id": "graphify_script_nodepath",
+      "community": 10,
+      "norm_label": "nodepath"
+    },
+    {
+      "label": "Graph",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L12",
+      "id": "graphify_script_graph",
+      "community": 10,
+      "norm_label": "graph"
+    },
+    {
+      "label": "bckgDimensions",
+      "file_type": "code",
+      "source_file": "graphify/script.js",
+      "source_location": "L47",
+      "id": "graphify_script_bckgdimensions",
+      "community": 10,
+      "norm_label": "bckgdimensions"
+    },
+    {
+      "label": "extract_data.py",
+      "file_type": "code",
+      "source_file": "scratch/extract_data.py",
+      "source_location": "L1",
+      "id": "scratch_extract_data_py",
+      "community": 9,
+      "norm_label": "extract_data.py"
+    },
+    {
+      "label": "get_project_data()",
+      "file_type": "code",
+      "source_file": "scratch/extract_data.py",
+      "source_location": "L5",
+      "id": "scratch_extract_data_get_project_data",
+      "community": 9,
+      "norm_label": "get_project_data()"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 5,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "tcode",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "tcode_readme_tcode",
+      "community": 5,
+      "norm_label": "tcode"
+    },
+    {
+      "label": "Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L8",
+      "id": "tcode_readme_features",
+      "community": 5,
+      "norm_label": "features"
+    },
+    {
+      "label": "Keyboard Shortcuts",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L26",
+      "id": "tcode_readme_keyboard_shortcuts",
+      "community": 5,
+      "norm_label": "keyboard shortcuts"
+    },
+    {
+      "label": "General",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L28",
+      "id": "tcode_readme_general",
+      "community": 5,
+      "norm_label": "general"
+    },
+    {
+      "label": "Terminal & IDE",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L44",
+      "id": "tcode_readme_terminal_ide",
+      "community": 5,
+      "norm_label": "terminal & ide"
+    },
+    {
+      "label": "Editor & Selection",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L50",
+      "id": "tcode_readme_editor_selection",
+      "community": 5,
+      "norm_label": "editor & selection"
+    },
+    {
+      "label": "Installation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "id": "tcode_readme_installation",
+      "community": 5,
+      "norm_label": "installation"
+    },
+    {
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L62",
+      "id": "tcode_readme_prerequisites",
+      "community": 5,
+      "norm_label": "prerequisites"
+    },
+    {
+      "label": "Build from Source",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "id": "tcode_readme_build_from_source",
+      "community": 5,
+      "norm_label": "build from source"
+    },
+    {
+      "label": "code:bash (git clone https://github.com/yourusername/tcode.git)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L67",
+      "id": "tcode_readme_codeblock_1",
+      "community": 5,
+      "norm_label": "code:bash (git clone https://github.com/yourusername/tcode.git)"
+    },
+    {
+      "label": "Plugins",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L75",
+      "id": "tcode_readme_plugins",
+      "community": 5,
+      "norm_label": "plugins"
+    },
+    {
+      "label": "code:rust (fn on_load() {)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L80",
+      "id": "tcode_readme_codeblock_2",
+      "community": 5,
+      "norm_label": "code:rust (fn on_load() {)"
+    },
+    {
+      "label": "Themes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L90",
+      "id": "tcode_readme_themes",
+      "community": 5,
+      "norm_label": "themes"
+    },
+    {
+      "label": "License",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L94",
+      "id": "tcode_readme_license",
+      "community": 5,
+      "norm_label": "license"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "test_nucleo.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "test_nucleo_rs",
+      "target": "tcode_test_nucleo_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "test_git2.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "test_git2_rs",
+      "target": "tcode_test_git2_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "test_lsp.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "test_lsp_rs",
+      "target": "tcode_test_lsp_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "test_parse.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "test_parse_rs",
+      "target": "tcode_test_parse_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_textarearect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_explorerrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_tabbarrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_modalrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_terminalrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_activitybarrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_uirects",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_handle_events",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_handle_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L333",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_handle_theme_picker_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L344",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_handle_prompt_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L366",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_handle_mouse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L472",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_tab_index_at",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L484",
+      "weight": 1.0,
+      "source": "src_events_rs",
+      "target": "src_events_handle_tab_bar_click",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "src_events_handle_events",
+      "target": "src_events_handle_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_events_handle_events",
+      "target": "src_events_handle_mouse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main.rs",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "src_main_main",
+      "target": "src_events_handle_events"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "src_events_handle_key",
+      "target": "src_events_handle_theme_picker_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "src_events_handle_key",
+      "target": "src_events_handle_prompt_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "src_events_handle_mouse",
+      "target": "src_events_handle_tab_bar_click",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L456",
+      "weight": 1.0,
+      "source": "src_events_handle_mouse",
+      "target": "src_events_tab_index_at",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/events.rs",
+      "source_location": "L485",
+      "weight": 1.0,
+      "source": "src_events_handle_tab_bar_click",
+      "target": "src_events_tab_index_at",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_hlspan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_highlighter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L234",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_tab_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_activity_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L323",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_explorer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L369",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_git_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L415",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_file_icon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L434",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_is_selected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L447",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_editor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L615",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_status_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L657",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_help_overlay",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L722",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_folder_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L743",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_theme_picker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L785",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_plugin_manager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L826",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_terminal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L872",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_fuzzy_finder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L914",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_settings_modal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L952",
+      "weight": 1.0,
+      "source": "src_ui_rs",
+      "target": "src_ui_draw_generic_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "src_ui_highlighter",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "src_ui_highlighter",
+      "target": "src_ui_highlighter_theme_names",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "src_ui_highlighter",
+      "target": "src_ui_highlighter_ensure_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "src_ui_highlighter_ensure_cache",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "src_ui_draw_tab_bar",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L297",
+      "weight": 1.0,
+      "source": "src_ui_draw_activity_bar",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L357",
+      "weight": 1.0,
+      "source": "src_ui_draw_explorer",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L381",
+      "weight": 1.0,
+      "source": "src_ui_draw_git_panel",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L504",
+      "weight": 1.0,
+      "source": "src_ui_draw_editor",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L629",
+      "weight": 1.0,
+      "source": "src_ui_draw_status_bar",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L662",
+      "weight": 1.0,
+      "source": "src_ui_draw_help_overlay",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L723",
+      "weight": 1.0,
+      "source": "src_ui_draw_folder_prompt",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L749",
+      "weight": 1.0,
+      "source": "src_ui_draw_theme_picker",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L791",
+      "weight": 1.0,
+      "source": "src_ui_draw_plugin_manager",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L837",
+      "weight": 1.0,
+      "source": "src_ui_draw_terminal",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L877",
+      "weight": 1.0,
+      "source": "src_ui_draw_fuzzy_finder",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L920",
+      "weight": 1.0,
+      "source": "src_ui_draw_settings_modal",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L957",
+      "weight": 1.0,
+      "source": "src_ui_draw_generic_prompt",
+      "target": "src_ui_highlighter_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_highlighter_ensure_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_tab_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_activity_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_explorer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_git_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_editor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_terminal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_status_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_help_overlay",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_theme_picker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_plugin_manager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_fuzzy_finder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_folder_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L204",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_settings_modal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_ui_draw_generic_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "src_ui_draw",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main.rs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_main_main",
+      "target": "src_ui_draw"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "src_ui_draw_tab_bar",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "src_ui_draw_activity_bar",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L350",
+      "weight": 1.0,
+      "source": "src_ui_draw_explorer",
+      "target": "src_ui_file_icon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L329",
+      "weight": 1.0,
+      "source": "src_ui_draw_explorer",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L371",
+      "weight": 1.0,
+      "source": "src_ui_draw_git_panel",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ui.rs",
+      "source_location": "L532",
+      "weight": 1.0,
+      "source": "src_ui_draw_editor",
+      "target": "src_ui_is_selected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L451",
+      "weight": 1.0,
+      "source": "src_ui_draw_editor",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L632",
+      "weight": 1.0,
+      "source": "src_ui_draw_status_bar",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L666",
+      "weight": 1.0,
+      "source": "src_ui_draw_help_overlay",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L726",
+      "weight": 1.0,
+      "source": "src_ui_draw_folder_prompt",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L753",
+      "weight": 1.0,
+      "source": "src_ui_draw_theme_picker",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L795",
+      "weight": 1.0,
+      "source": "src_ui_draw_plugin_manager",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L827",
+      "weight": 1.0,
+      "source": "src_ui_draw_terminal",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L881",
+      "weight": 1.0,
+      "source": "src_ui_draw_fuzzy_finder",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L924",
+      "weight": 1.0,
+      "source": "src_ui_draw_settings_modal",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/ui.rs",
+      "source_location": "L967",
+      "weight": 1.0,
+      "source": "src_ui_draw_generic_prompt",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_main_rs",
+      "target": "src_main_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main.rs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_main_main",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main.rs",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "src_main_main",
+      "target": "term_pty_spawn_pty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_fileentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_sidebarpanel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_gitchange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_inputmode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_focus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L1011",
+      "weight": 1.0,
+      "source": "src_app_rs",
+      "target": "src_app_read_directory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "src_app_tab",
+      "target": "src_app_tab_welcome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "src_app_tab",
+      "target": "src_app_tab_from_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "src_app_tab",
+      "target": "src_app_tab_update_git_marks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "src_app_app_new",
+      "target": "src_app_tab_welcome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L216",
+      "weight": 1.0,
+      "source": "src_app_app_new",
+      "target": "src_app_tab_from_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L550",
+      "weight": 1.0,
+      "source": "src_app_app_open_file_path",
+      "target": "src_app_tab_from_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L847",
+      "weight": 1.0,
+      "source": "src_app_app_open_file_from_path",
+      "target": "src_app_tab_from_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "src_app_tab_update_git_marks",
+      "target": "src_app_app_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_update_git_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L296",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_save_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L307",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_save_all",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_sync_lsp_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L334",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_trigger_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L347",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_apply_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L380",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_insert_char",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_backspace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L415",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_delete_char",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L432",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_enter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L448",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_tab_insert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L454",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_get_selection_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L473",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_copy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L485",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_paste",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L505",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_toggle_fuzzy_finder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L517",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_update_fuzzy_results",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L527",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_fuzzy_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L533",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_fuzzy_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L539",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_fuzzy_enter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L549",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_open_file_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L556",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_open_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L564",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_settings_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L570",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_settings_prev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L576",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_settings_enter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L602",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_confirm_settings_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L622",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_cancel_settings_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L628",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_move_left",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L640",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_move_right",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L651",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_move_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L660",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_move_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L669",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L671",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_end",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L678",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_mouse_click",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L689",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_mouse_drag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L698",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_scroll_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L703",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_scroll_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L710",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_ensure_cursor_visible",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L729",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L751",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_next_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L757",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_prev_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L767",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_get_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L771",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_get_active_tab_mut",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L775",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_delete_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L816",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_close_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L820",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_close_tab_at",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L833",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_switch_to_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L839",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_open_file_from_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L858",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_terminal_scroll_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L865",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_terminal_scroll_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L871",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_open_folder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L888",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_file_tree_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L892",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_file_tree_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L898",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_file_tree_enter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L909",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_file_tree_click",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L925",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_start_folder_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L931",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_confirm_folder_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L939",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_cancel_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L945",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_toggle_help",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L949",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_toggle_theme_picker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L959",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_theme_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L963",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_theme_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L969",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_theme_apply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L977",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_theme_click",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L986",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_toggle_plugin_manager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L993",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_app_refresh_plugin_info",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L1012",
+      "weight": 1.0,
+      "source": "src_app_read_directory",
+      "target": "src_app_app_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "src_app_app_update_git_status",
+      "target": "src_app_app_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L463",
+      "weight": 1.0,
+      "source": "src_app_app_get_selection_text",
+      "target": "src_app_app_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L740",
+      "weight": 1.0,
+      "source": "src_app_app_save",
+      "target": "src_app_app_update_git_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L304",
+      "weight": 1.0,
+      "source": "src_app_app_save_session",
+      "target": "src_app_app_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app.rs",
+      "source_location": "L312",
+      "weight": 1.0,
+      "source": "src_app_app_save_all",
+      "target": "term_pty_pty_write"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L372",
+      "weight": 1.0,
+      "source": "src_app_app_apply_completion",
+      "target": "src_app_app_sync_lsp_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L389",
+      "weight": 1.0,
+      "source": "src_app_app_insert_char",
+      "target": "src_app_app_sync_lsp_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L402",
+      "weight": 1.0,
+      "source": "src_app_app_backspace",
+      "target": "src_app_app_sync_lsp_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L421",
+      "weight": 1.0,
+      "source": "src_app_app_delete_char",
+      "target": "src_app_app_sync_lsp_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L444",
+      "weight": 1.0,
+      "source": "src_app_app_enter",
+      "target": "src_app_app_sync_lsp_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "src_app_app_insert_char",
+      "target": "src_app_app_trigger_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L403",
+      "weight": 1.0,
+      "source": "src_app_app_backspace",
+      "target": "src_app_app_trigger_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L422",
+      "weight": 1.0,
+      "source": "src_app_app_delete_char",
+      "target": "src_app_app_trigger_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L445",
+      "weight": 1.0,
+      "source": "src_app_app_enter",
+      "target": "src_app_app_trigger_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L381",
+      "weight": 1.0,
+      "source": "src_app_app_insert_char",
+      "target": "src_app_app_delete_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L449",
+      "weight": 1.0,
+      "source": "src_app_app_tab_insert",
+      "target": "src_app_app_insert_char",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L500",
+      "weight": 1.0,
+      "source": "src_app_app_paste",
+      "target": "src_app_app_insert_char",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L394",
+      "weight": 1.0,
+      "source": "src_app_app_backspace",
+      "target": "src_app_app_delete_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L416",
+      "weight": 1.0,
+      "source": "src_app_app_delete_char",
+      "target": "src_app_app_delete_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L433",
+      "weight": 1.0,
+      "source": "src_app_app_enter",
+      "target": "src_app_app_delete_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L498",
+      "weight": 1.0,
+      "source": "src_app_app_paste",
+      "target": "src_app_app_enter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L455",
+      "weight": 1.0,
+      "source": "src_app_app_get_selection_text",
+      "target": "src_app_app_get_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L474",
+      "weight": 1.0,
+      "source": "src_app_app_copy",
+      "target": "src_app_app_get_selection_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L477",
+      "weight": 1.0,
+      "source": "src_app_app_copy",
+      "target": "src_app_app_get_active_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L494",
+      "weight": 1.0,
+      "source": "src_app_app_paste",
+      "target": "src_app_app_delete_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L511",
+      "weight": 1.0,
+      "source": "src_app_app_toggle_fuzzy_finder",
+      "target": "src_app_app_update_fuzzy_results",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app.rs",
+      "source_location": "L518",
+      "weight": 1.0,
+      "source": "src_app_app_update_fuzzy_results",
+      "target": "src_fuzzy_scan_directory"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app.rs",
+      "source_location": "L522",
+      "weight": 1.0,
+      "source": "src_app_app_update_fuzzy_results",
+      "target": "src_fuzzy_match_files"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L543",
+      "weight": 1.0,
+      "source": "src_app_app_fuzzy_enter",
+      "target": "src_app_app_open_file_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L591",
+      "weight": 1.0,
+      "source": "src_app_app_settings_enter",
+      "target": "src_app_app_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L596",
+      "weight": 1.0,
+      "source": "src_app_app_settings_enter",
+      "target": "src_app_app_toggle_theme_picker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L608",
+      "weight": 1.0,
+      "source": "src_app_app_confirm_settings_prompt",
+      "target": "src_app_app_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app.rs",
+      "source_location": "L735",
+      "weight": 1.0,
+      "source": "src_app_app_save",
+      "target": "term_pty_pty_write"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L776",
+      "weight": 1.0,
+      "source": "src_app_app_delete_selection",
+      "target": "src_app_app_get_active_tab_mut",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L817",
+      "weight": 1.0,
+      "source": "src_app_app_close_tab",
+      "target": "src_app_app_close_tab_at",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L903",
+      "weight": 1.0,
+      "source": "src_app_app_file_tree_enter",
+      "target": "src_app_app_open_file_from_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L879",
+      "weight": 1.0,
+      "source": "src_app_app_open_folder",
+      "target": "src_app_read_directory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L901",
+      "weight": 1.0,
+      "source": "src_app_app_file_tree_enter",
+      "target": "src_app_app_open_folder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L936",
+      "weight": 1.0,
+      "source": "src_app_app_confirm_folder_prompt",
+      "target": "src_app_app_open_folder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L913",
+      "weight": 1.0,
+      "source": "src_app_app_file_tree_click",
+      "target": "src_app_app_file_tree_enter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L980",
+      "weight": 1.0,
+      "source": "src_app_app_theme_click",
+      "target": "src_app_app_theme_apply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.rs",
+      "source_location": "L989",
+      "weight": 1.0,
+      "source": "src_app_app_toggle_plugin_manager",
+      "target": "src_app_app_refresh_plugin_info",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_plugin_rs",
+      "target": "src_plugin_plugincommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_plugin_rs",
+      "target": "src_plugin_editorapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "src_plugin_rs",
+      "target": "src_plugin_loadedplugin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_plugin_rs",
+      "target": "src_plugin_pluginengine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_load_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_loaded_count",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_make_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_apply_commands",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_run_hook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_run_on_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine",
+      "target": "src_plugin_pluginengine_run_on_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine_make_api",
+      "target": "src_plugin_pluginengine_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine_run_hook",
+      "target": "src_plugin_pluginengine_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine_run_hook",
+      "target": "src_plugin_pluginengine_make_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine_run_hook",
+      "target": "src_plugin_pluginengine_apply_commands",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine_run_on_init",
+      "target": "src_plugin_pluginengine_run_hook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/plugin.rs",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "src_plugin_pluginengine_run_on_save",
+      "target": "src_plugin_pluginengine_run_hook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_config_rs",
+      "target": "src_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "src_config_rs",
+      "target": "src_config_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_config_config",
+      "target": "src_config_config_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_config_config",
+      "target": "src_config_config_config_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_config_config",
+      "target": "src_config_config_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_config_config",
+      "target": "src_config_config_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "src_config_config_load",
+      "target": "src_config_config_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "src_config_session_load",
+      "target": "src_config_config_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/term/pty.rs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "term_pty_spawn_pty",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/term/mod.rs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate_new",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/term/mod.rs",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate_csi_dispatch",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_initialize",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L197",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_completion",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_definition",
+      "target": "src_config_config_default"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_config_config_load",
+      "target": "src_config_config_config_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_config_config_save",
+      "target": "src_config_config_config_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_config_config_load",
+      "target": "src_config_session_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/config.rs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_config_config_save",
+      "target": "term_pty_pty_write"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "src_config_session",
+      "target": "src_config_session_session_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "src_config_session",
+      "target": "src_config_session_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "src_config_session",
+      "target": "src_config_session_save",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "src_config_session_load",
+      "target": "src_config_session_session_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config.rs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "src_config_session_save",
+      "target": "src_config_session_session_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/config.rs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "src_config_session_save",
+      "target": "term_pty_pty_write"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/fuzzy.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_fuzzy_rs",
+      "target": "src_fuzzy_scan_directory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/fuzzy.rs",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_fuzzy_rs",
+      "target": "src_fuzzy_match_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_term_pty_rs",
+      "target": "term_pty_ptycommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_term_pty_rs",
+      "target": "term_pty_pty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_term_pty_rs",
+      "target": "term_pty_spawn_pty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "term_pty_pty",
+      "target": "term_pty_pty_write",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/pty.rs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "term_pty_pty",
+      "target": "term_pty_pty_resize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_term_mod_rs",
+      "target": "term_mod_termcell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_term_mod_rs",
+      "target": "term_mod_terminalstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate",
+      "target": "term_mod_terminalstate_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate",
+      "target": "term_mod_terminalstate_resize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate",
+      "target": "term_mod_terminalstate_print",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate",
+      "target": "term_mod_terminalstate_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate",
+      "target": "term_mod_terminalstate_csi_dispatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate_print",
+      "target": "term_mod_terminalstate_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate_csi_dispatch",
+      "target": "term_mod_terminalstate_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate_print",
+      "target": "term_mod_terminalstate_resize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/term/mod.rs",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "term_mod_terminalstate_csi_dispatch",
+      "target": "term_mod_terminalstate_resize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scratch/extract_data.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "scratch_extract_data_get_project_data",
+      "target": "term_mod_terminalstate_print"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_lsp_mod_rs",
+      "target": "lsp_mod_jsonrpcrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_lsp_mod_rs",
+      "target": "lsp_mod_jsonrpcnotification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_lsp_mod_rs",
+      "target": "lsp_mod_lspmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_lsp_mod_rs",
+      "target": "lsp_mod_lspclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_send_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_send_notification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_initialize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_initialized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_did_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_did_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_completion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L204",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient",
+      "target": "lsp_mod_lspclient_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_initialize",
+      "target": "lsp_mod_lspclient_send_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_completion",
+      "target": "lsp_mod_lspclient_send_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_definition",
+      "target": "lsp_mod_lspclient_send_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_initialized",
+      "target": "lsp_mod_lspclient_send_notification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_did_open",
+      "target": "lsp_mod_lspclient_send_notification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lsp/mod.rs",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "lsp_mod_lspclient_did_change",
+      "target": "lsp_mod_lspclient_send_notification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_elem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_infopanel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_nodename",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_nodetype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_nodepath",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify/script.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "graphify_script_js",
+      "target": "graphify_script_bckgdimensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/extract_data.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "scratch_extract_data_py",
+      "target": "scratch_extract_data_get_project_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme_md",
+      "target": "tcode_readme_tcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tcode_readme_tcode",
+      "target": "tcode_readme_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "tcode_readme_tcode",
+      "target": "tcode_readme_keyboard_shortcuts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tcode_readme_tcode",
+      "target": "tcode_readme_installation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "tcode_readme_tcode",
+      "target": "tcode_readme_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "tcode_readme_tcode",
+      "target": "tcode_readme_themes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "tcode_readme_tcode",
+      "target": "tcode_readme_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "tcode_readme_keyboard_shortcuts",
+      "target": "tcode_readme_general",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "tcode_readme_keyboard_shortcuts",
+      "target": "tcode_readme_terminal_ide",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "tcode_readme_keyboard_shortcuts",
+      "target": "tcode_readme_editor_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "tcode_readme_installation",
+      "target": "tcode_readme_prerequisites",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "tcode_readme_installation",
+      "target": "tcode_readme_build_from_source",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "tcode_readme_build_from_source",
+      "target": "tcode_readme_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "tcode_readme_plugins",
+      "target": "tcode_readme_codeblock_2",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

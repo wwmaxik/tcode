@@ -1,0 +1,74 @@
+{
+  "/home/wwmaxik/tcode/test_nucleo.rs": {
+    "mtime": 1778351305.8981977,
+    "hash": "d7efc4697b28e969469121e19ad52071"
+  },
+  "/home/wwmaxik/tcode/test_git2.rs": {
+    "mtime": 1778391999.4935765,
+    "hash": "184452b5155268b0f2b98a842b85c38c"
+  },
+  "/home/wwmaxik/tcode/test_lsp.rs": {
+    "mtime": 1778509637.3259153,
+    "hash": "94f23553cab0e8b3f981210b5757f2a6"
+  },
+  "/home/wwmaxik/tcode/test_parse.rs": {
+    "mtime": 1778350988.3075695,
+    "hash": "7cf96083e35a6744052544e366f96139"
+  },
+  "/home/wwmaxik/tcode/src/events.rs": {
+    "mtime": 1778511590.5664682,
+    "hash": "edd67e7299c516a62f4ec3acc9f2c8cd"
+  },
+  "/home/wwmaxik/tcode/src/ui.rs": {
+    "mtime": 1778512081.0669758,
+    "hash": "2f6e7e53eade17112f44e6dbba9a7960"
+  },
+  "/home/wwmaxik/tcode/src/main.rs": {
+    "mtime": 1778392213.7116385,
+    "hash": "44e03dc4d9db175bc26be65ed6c62541"
+  },
+  "/home/wwmaxik/tcode/src/app.rs": {
+    "mtime": 1778511635.7988863,
+    "hash": "86da6af6bd718eeaa96b01a0d34534d6"
+  },
+  "/home/wwmaxik/tcode/src/plugin.rs": {
+    "mtime": 1778348443.2798576,
+    "hash": "c2c9f9e65f080d3288d1058fa4fff31e"
+  },
+  "/home/wwmaxik/tcode/src/config.rs": {
+    "mtime": 1778351093.8724244,
+    "hash": "7e82431d2938d5e0aee1faecd3fdbd3a"
+  },
+  "/home/wwmaxik/tcode/src/fuzzy.rs": {
+    "mtime": 1778353731.8942223,
+    "hash": "11392c3229ae2dafaec9adb0cdd4b27f"
+  },
+  "/home/wwmaxik/tcode/src/term/pty.rs": {
+    "mtime": 1778353720.5101254,
+    "hash": "c6d1fc4d02c5538dbfbedbeb1eea92fa"
+  },
+  "/home/wwmaxik/tcode/src/term/mod.rs": {
+    "mtime": 1778356531.2663393,
+    "hash": "5857100c831c7b0c3f2f8767c7c9a0ee"
+  },
+  "/home/wwmaxik/tcode/src/lsp/mod.rs": {
+    "mtime": 1778392077.3703296,
+    "hash": "f96e5eb5c57e1d77a49dd369e7fd7f33"
+  },
+  "/home/wwmaxik/tcode/graphify/script.js": {
+    "mtime": 1778752338.899337,
+    "hash": "1b05abfcec342b8585ea00a2a733070c"
+  },
+  "/home/wwmaxik/tcode/scratch/extract_data.py": {
+    "mtime": 1778752311.5952008,
+    "hash": "8a0dddffd65c2e0b09196f7b9ee35f11"
+  },
+  "/home/wwmaxik/tcode/README.md": {
+    "mtime": 1778512303.0521953,
+    "hash": "001a2e68268913f09d629d3bcf39fabe"
+  },
+  "/home/wwmaxik/tcode/graphify/index.html": {
+    "mtime": 1778752330.291268,
+    "hash": "93c56fb10c5e03f660b68742bd04e2f2"
+  }
+}

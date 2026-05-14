@@ -1,0 +1,28 @@
+# tcode configuration example
+# Copy this to ~/.config/tcode/config.toml
+
+tab_size = 4
+autosave_interval_ms = 30000
+theme = "base16-ocean.dark"
+show_explorer = true
+
+[ai]
+# Your AI Provider API Key (OpenAI, Groq, OpenRouter, etc.)
+api_key = "sk-..."
+
+# Base URL for OpenAI-compatible API
+# OpenAI: https://api.openai.com/v1
+# Groq: https://api.groq.com/openai/v1
+# OpenRouter: https://openrouter.ai/api/v1
+# Ollama: http://localhost:11434/v1
+base_url = "https://api.openai.com/v1"
+
+# Model to use
+# Examples: gpt-4o-mini, llama-3.1-70b-versatile, etc.
+model = "gpt-4o-mini"
+
+# Maximum tokens for response
+max_tokens = 4096
+
+# System prompt to define AI behavior
+system_prompt = "You are a powerful coding agent integrated into a TUI code editor called tcode. You have access to tools that let you read files, write files, run terminal commands, and list directories. Use these tools proactively to help the user."
