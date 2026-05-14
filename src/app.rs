@@ -94,21 +94,17 @@ impl Tab {
     }
 
     pub fn update_git_marks(&mut self, repo: Option<&git2::Repository>, cwd: &Path) {
-        if let Some(repo) = repo {
-            if let Some(path) = &self.file_path {
-                if let Ok(rel_path) = path.strip_prefix(cwd) {
+        if let Some(repo) = repo
+            && let Some(path) = &self.file_path
+                && let Ok(rel_path) = path.strip_prefix(cwd) {
                     let mut original_content = Vec::new();
-                    if let Ok(head) = repo.head() {
-                        if let Ok(tree) = head.peel_to_tree() {
-                            if let Ok(entry) = tree.get_path(rel_path) {
-                                if let Ok(obj) = entry.to_object(repo) {
-                                    if let Some(blob) = obj.as_blob() {
+                    if let Ok(head) = repo.head()
+                        && let Ok(tree) = head.peel_to_tree()
+                            && let Ok(entry) = tree.get_path(rel_path)
+                                && let Ok(obj) = entry.to_object(repo)
+                                    && let Some(blob) = obj.as_blob() {
                                         original_content = blob.content().to_vec();
                                     }
-                                }
-                            }
-                        }
-                    }
 
                     let current_content = self.lines.join("\n").into_bytes();
                     if let Ok(patch) = git2::Patch::from_buffers(
@@ -149,8 +145,6 @@ impl Tab {
                         self.git_marks = marks;
                     }
                 }
-            }
-        }
     }
 }
 
@@ -343,15 +337,14 @@ impl App {
 
     pub fn save_all(&mut self) {
         for tab in &mut self.tabs {
-            if tab.dirty {
-                if let Some(path) = &tab.file_path {
+            if tab.dirty
+                && let Some(path) = &tab.file_path {
                     let content = tab.lines.join("\n");
                     if std::fs::write(path, content).is_ok() {
                         tab.dirty = false;
                         self.just_saved = true;
                     }
                 }
-            }
         }
     }
 
@@ -394,8 +387,8 @@ impl App {
     }
 
     pub fn apply_completion(&mut self) {
-        if let Some(completions) = self.lsp_completions.take() {
-            if self.lsp_completion_selected < completions.len() {
+        if let Some(completions) = self.lsp_completions.take()
+            && self.lsp_completion_selected < completions.len() {
                 let item = &completions[self.lsp_completion_selected];
                 let text_to_insert = item
                     .insert_text
@@ -427,7 +420,6 @@ impl App {
                 t.text_version += 1;
                 self.sync_lsp_active_tab();
             }
-        }
         self.lsp_completion_selected = 0;
     }
 

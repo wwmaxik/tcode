@@ -686,11 +686,7 @@ fn draw_editor(
                         continue;
                     }
 
-                    let start_in_span = if tab.scroll_x > col_offset {
-                        tab.scroll_x - col_offset
-                    } else {
-                        0
-                    };
+                    let start_in_span = tab.scroll_x.saturating_sub(col_offset);
                     let visible_text = &hl_span.text[start_in_span..];
 
                     for (char_idx, ch) in visible_text.chars().enumerate() {
@@ -700,8 +696,8 @@ fn draw_editor(
                             .bg(bg)
                             .add_modifier(hl_span.modifier);
 
-                        if let Some(sel_start) = tab.selection_start {
-                            if is_selected(
+                        if let Some(sel_start) = tab.selection_start
+                            && is_selected(
                                 li,
                                 absolute_col,
                                 sel_start,
@@ -709,7 +705,6 @@ fn draw_editor(
                             ) {
                                 final_style = final_style.bg(theme::ACCENT).fg(theme::BG);
                             }
-                        }
                         spans.push(Span::styled(ch.to_string(), final_style));
                     }
                     col_offset += text_len;
@@ -746,9 +741,9 @@ fn draw_editor(
     }
 
     // ── Autocomplete Modal ──
-    if app.focus == crate::app::Focus::Editor && app.input_mode == InputMode::Editing {
-        if let Some(completions) = &app.lsp_completions {
-            if !completions.is_empty() {
+    if app.focus == crate::app::Focus::Editor && app.input_mode == InputMode::Editing
+        && let Some(completions) = &app.lsp_completions
+            && !completions.is_empty() {
                 let max_w = 40u16;
                 let max_h = 10u16;
                 let items_len = completions.len() as u16;
@@ -812,8 +807,6 @@ fn draw_editor(
                     f.render_widget(List::new(items).block(block), rect);
                 }
             }
-        }
-    }
 
     (text_area.x, text_area.y, text_area.width, text_area.height)
 }
@@ -1529,12 +1522,12 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
     let prompt_text = if app.ai_state.is_streaming {
         " ⏳ Agent working...".to_string()
     } else {
-        let display = if app.ai_state.input_buffer.is_empty() {
+        
+        if app.ai_state.input_buffer.is_empty() {
             " Ask the AI agent...".to_string()
         } else {
             format!(" {}", app.ai_state.input_buffer)
-        };
-        display
+        }
     };
 
     let input_style = if app.ai_state.input_buffer.is_empty() && !app.ai_state.is_streaming {

@@ -294,18 +294,10 @@ fn handle_key(app: &mut App, key: KeyEvent, rects: UiRects) {
             KeyCode::Left => app.ai_input_left(),
             KeyCode::Right => app.ai_input_right(),
             KeyCode::Up => {
-                if key.modifiers.contains(KeyModifiers::SHIFT) {
-                    app.ai_scroll_up();
-                } else {
-                    app.ai_scroll_up();
-                }
+                app.ai_scroll_up();
             }
             KeyCode::Down => {
-                if key.modifiers.contains(KeyModifiers::SHIFT) {
-                    app.ai_scroll_down();
-                } else {
-                    app.ai_scroll_down();
-                }
+                app.ai_scroll_down();
             }
             KeyCode::Char(ch) => app.ai_input_char(ch),
             _ => {}
@@ -354,8 +346,8 @@ fn handle_key(app: &mut App, key: KeyEvent, rects: UiRects) {
     }
 
     // ── Autocomplete Menu ──
-    if let Some(completions) = &app.lsp_completions {
-        if !completions.is_empty() {
+    if let Some(completions) = &app.lsp_completions
+        && !completions.is_empty() {
             match key.code {
                 KeyCode::Up => {
                     if app.lsp_completion_selected > 0 {
@@ -385,7 +377,6 @@ fn handle_key(app: &mut App, key: KeyEvent, rects: UiRects) {
                 }
             }
         }
-    }
 
     // ── Normal editor keys ──
     let has_shift = key.modifiers.contains(KeyModifiers::SHIFT);
@@ -576,22 +567,19 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
             }
         }
         MouseEventKind::Up(MouseButton::Left) => {
-            if let Some(t) = app.get_active_tab_mut() {
-                if let Some(start) = t.selection_start {
-                    if start == (t.cursor_row, t.cursor_col) {
+            if let Some(t) = app.get_active_tab_mut()
+                && let Some(start) = t.selection_start
+                    && start == (t.cursor_row, t.cursor_col) {
                         t.selection_start = None;
                     }
-                }
-            }
         }
 
         // ── Middle-click on tab bar → close that tab ──
         MouseEventKind::Down(MouseButton::Middle) => {
-            if row >= rects.tab_bar.y && row < rects.tab_bar.y + rects.tab_bar.height {
-                if let Some(idx) = tab_index_at(app, col) {
+            if row >= rects.tab_bar.y && row < rects.tab_bar.y + rects.tab_bar.height
+                && let Some(idx) = tab_index_at(app, col) {
                     app.close_tab_at(idx);
                 }
-            }
         }
 
         MouseEventKind::ScrollUp => app.scroll_up(3),

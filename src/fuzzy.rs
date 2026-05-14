@@ -19,11 +19,10 @@ pub fn scan_directory(dir: &Path) -> Vec<String> {
 
                 if path.is_dir() {
                     dirs_to_scan.push(path);
-                } else if path.is_file() {
-                    if let Ok(rel_path) = path.strip_prefix(dir) {
+                } else if path.is_file()
+                    && let Ok(rel_path) = path.strip_prefix(dir) {
                         files.push(rel_path.to_string_lossy().to_string());
                     }
-                }
             }
         }
     }

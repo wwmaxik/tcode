@@ -72,9 +72,8 @@ impl LspClient {
                     if line.trim().is_empty() {
                         break;
                     }
-                    if line.starts_with("Content-Length: ") {
-                        content_length =
-                            line["Content-Length: ".len()..].trim().parse().unwrap_or(0);
+                    if let Some(stripped) = line.strip_prefix("Content-Length: ") {
+                        content_length = stripped.trim().parse().unwrap_or(0);
                     }
                 }
 
@@ -148,7 +147,7 @@ impl LspClient {
     }
 
     pub fn initialize(&mut self, root_url: url::Url) -> i64 {
-        let root_uri = lsp_types::Uri::from_str(&root_url.to_string()).unwrap();
+        let root_uri = lsp_types::Uri::from_str(root_url.as_ref()).unwrap();
         #[allow(deprecated)]
         let params = InitializeParams {
             process_id: Some(std::process::id()),
@@ -168,7 +167,7 @@ impl LspClient {
     }
 
     pub fn did_open(&self, url: url::Url, text: String, version: i32) {
-        let uri = lsp_types::Uri::from_str(&url.to_string()).unwrap();
+        let uri = lsp_types::Uri::from_str(url.as_ref()).unwrap();
         let params = DidOpenTextDocumentParams {
             text_document: TextDocumentItem {
                 uri,
@@ -184,7 +183,7 @@ impl LspClient {
     }
 
     pub fn did_change(&self, url: url::Url, text: String, version: i32) {
-        let uri = lsp_types::Uri::from_str(&url.to_string()).unwrap();
+        let uri = lsp_types::Uri::from_str(url.as_ref()).unwrap();
         let params = DidChangeTextDocumentParams {
             text_document: VersionedTextDocumentIdentifier { uri, version },
             content_changes: vec![TextDocumentContentChangeEvent {
@@ -200,7 +199,7 @@ impl LspClient {
     }
 
     pub fn completion(&mut self, url: url::Url, line: u32, character: u32) -> i64 {
-        let uri = lsp_types::Uri::from_str(&url.to_string()).unwrap();
+        let uri = lsp_types::Uri::from_str(url.as_ref()).unwrap();
         let params = CompletionParams {
             text_document_position: TextDocumentPositionParams {
                 text_document: TextDocumentIdentifier { uri },

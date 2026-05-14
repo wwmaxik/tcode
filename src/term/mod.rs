@@ -104,7 +104,7 @@ impl Perform for TerminalState {
                 }
                 for param in params {
                     let mut iter = param.iter();
-                    while let Some(&code) = iter.next() {
+                    for &code in iter {
                         match code {
                             0 => self.current_style = Style::default(),
                             1 => {

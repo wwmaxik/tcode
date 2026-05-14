@@ -401,6 +401,7 @@ pub enum DisplayMessage {
     ToolUse(ToolExecution),
 }
 
+#[derive(Default)]
 pub struct AiState {
     /// Display messages for the chat UI.
     pub display_messages: Vec<DisplayMessage>,
@@ -416,20 +417,6 @@ pub struct AiState {
     pub stream_tick: u8,
 }
 
-impl Default for AiState {
-    fn default() -> Self {
-        Self {
-            display_messages: Vec::new(),
-            api_messages: Vec::new(),
-            input_buffer: String::new(),
-            input_cursor: 0,
-            scroll_offset: 0,
-            is_streaming: false,
-            streaming_buffer: String::new(),
-            stream_tick: 0,
-        }
-    }
-}
 
 impl AiState {
     /// Extract code blocks from the last assistant message.
@@ -577,8 +564,8 @@ pub fn run_agent(
             };
 
             // Check if the model wants to call tools
-            if finish_reason == "tool_calls" || message.get("tool_calls").is_some() {
-                if let Some(tool_calls) = message.get("tool_calls").and_then(|v| v.as_array()) {
+            if (finish_reason == "tool_calls" || message.get("tool_calls").is_some())
+                && let Some(tool_calls) = message.get("tool_calls").and_then(|v| v.as_array()) {
                     // Add the assistant message with tool_calls to history
                     let tc_parsed: Vec<ToolCall> = tool_calls
                         .iter()
@@ -613,15 +600,12 @@ pub fn run_agent(
                         let _ = tx.send(AiEvent::ToolUse(exec));
 
                         // If file was modified, notify UI to refresh
-                        if tc.function.name == "write_file" {
-                            if let Ok(args) =
+                        if tc.function.name == "write_file"
+                            && let Ok(args) =
                                 serde_json::from_str::<serde_json::Value>(&tc.function.arguments)
-                            {
-                                if let Some(path) = args.get("path").and_then(|v| v.as_str()) {
+                                && let Some(path) = args.get("path").and_then(|v| v.as_str()) {
                                     let _ = tx.send(AiEvent::FileModified(path.to_string()));
                                 }
-                            }
-                        }
 
                         // Add tool result to messages
                         current_messages.push(ChatMessage::tool_result(&tc.id, &result));
@@ -630,7 +614,6 @@ pub fn run_agent(
                     // Continue the loop — the model will process tool results
                     continue;
                 }
-            }
 
             // No tool calls — this is the final text response
             if let Some(content) = message.get("content").and_then(|v| v.as_str()) {
