@@ -53,6 +53,6 @@ pub fn match_files(query: &str, files: Vec<String>) -> Vec<String> {
         }
     }
 
-    matches.sort_by(|a, b| b.0.cmp(&a.0));
+    matches.sort_by_key(|m| std::cmp::Reverse(m.0));
     matches.into_iter().take(50).map(|(_, f)| f).collect()
 }

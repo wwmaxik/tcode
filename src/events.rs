@@ -443,21 +443,15 @@ fn handle_prompt_key(app: &mut App, key: KeyEvent) {
     match key.code {
         KeyCode::Enter => app.confirm_folder_prompt(),
         KeyCode::Esc => app.cancel_prompt(),
-        KeyCode::Backspace => {
-            if app.input_cursor > 0 {
-                app.input_cursor -= 1;
-                app.input_buffer.remove(app.input_cursor);
-            }
+        KeyCode::Backspace if app.input_cursor > 0 => {
+            app.input_cursor -= 1;
+            app.input_buffer.remove(app.input_cursor);
         }
-        KeyCode::Left => {
-            if app.input_cursor > 0 {
-                app.input_cursor -= 1;
-            }
+        KeyCode::Left if app.input_cursor > 0 => {
+            app.input_cursor -= 1;
         }
-        KeyCode::Right => {
-            if app.input_cursor < app.input_buffer.len() {
-                app.input_cursor += 1;
-            }
+        KeyCode::Right if app.input_cursor < app.input_buffer.len() => {
+            app.input_cursor += 1;
         }
         KeyCode::Char(ch) => {
             app.input_buffer.insert(app.input_cursor, ch);
@@ -556,16 +550,15 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
                 app.mouse_click(r, c);
             }
         }
-        MouseEventKind::Drag(MouseButton::Left) => {
+        MouseEventKind::Drag(MouseButton::Left)
             if col >= rects.text_area.x
                 && col < rects.text_area.x + rects.text_area.width
                 && row >= rects.text_area.y
-                && row < rects.text_area.y + rects.text_area.height
-            {
-                let r = (row - rects.text_area.y) as usize;
-                let c = (col - rects.text_area.x) as usize;
-                app.mouse_drag(r, c);
-            }
+                && row < rects.text_area.y + rects.text_area.height =>
+        {
+            let r = (row - rects.text_area.y) as usize;
+            let c = (col - rects.text_area.x) as usize;
+            app.mouse_drag(r, c);
         }
         MouseEventKind::Up(MouseButton::Left) => {
             if let Some(t) = app.get_active_tab_mut()
