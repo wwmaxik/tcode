@@ -162,26 +162,18 @@ fn handle_key(app: &mut App, key: KeyEvent, rects: UiRects) {
         match key.code {
             KeyCode::Enter => app.confirm_settings_prompt(),
             KeyCode::Esc => app.cancel_settings_prompt(),
-            KeyCode::Backspace => {
-                if app.input_cursor > 0 {
-                    app.input_cursor -= 1;
-                    app.input_buffer.remove(app.input_cursor);
-                }
+            KeyCode::Backspace if app.input_cursor > 0 => {
+                app.input_cursor -= 1;
+                app.input_buffer.remove(app.input_cursor);
             }
-            KeyCode::Delete => {
-                if app.input_cursor < app.input_buffer.len() {
-                    app.input_buffer.remove(app.input_cursor);
-                }
+            KeyCode::Delete if app.input_cursor < app.input_buffer.len() => {
+                app.input_buffer.remove(app.input_cursor);
             }
-            KeyCode::Left => {
-                if app.input_cursor > 0 {
-                    app.input_cursor -= 1;
-                }
+            KeyCode::Left if app.input_cursor > 0 => {
+                app.input_cursor -= 1;
             }
-            KeyCode::Right => {
-                if app.input_cursor < app.input_buffer.len() {
-                    app.input_cursor += 1;
-                }
+            KeyCode::Right if app.input_cursor < app.input_buffer.len() => {
+                app.input_cursor += 1;
             }
             KeyCode::Char(ch) => {
                 app.input_buffer.insert(app.input_cursor, ch);
