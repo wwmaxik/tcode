@@ -1,15 +1,15 @@
-pub mod config;
-pub mod fuzzy;
-mod app;
-mod events;
-mod plugin;
-mod ui;
-pub mod term;
-pub mod lsp;
 pub mod ai;
+mod app;
+pub mod config;
+mod events;
+pub mod fuzzy;
+pub mod lsp;
+mod plugin;
+pub mod term;
+mod ui;
 
-use std::io;
 use std::env;
+use std::io;
 
 use crossterm::{
     event::{DisableMouseCapture, EnableMouseCapture},
@@ -99,13 +99,15 @@ async fn main() -> io::Result<()> {
         while let Ok(data) = pty_event_rx.try_recv() {
             app.terminal_parser.advance(&mut app.terminal, &data);
         }
-        
+
         while let Ok(msg) = lsp_rx.try_recv() {
             // Simplified handling for MVP
             match msg {
                 lsp::LspMessage::Notification(method, params) => {
                     if method == "textDocument/publishDiagnostics" {
-                        if let Ok(params) = serde_json::from_value::<lsp_types::PublishDiagnosticsParams>(params) {
+                        if let Ok(params) =
+                            serde_json::from_value::<lsp_types::PublishDiagnosticsParams>(params)
+                        {
                             app.lsp_diagnostics = params.diagnostics;
                         }
                     }
@@ -118,17 +120,31 @@ async fn main() -> io::Result<()> {
                             client.initialized();
                             for tab in &app.tabs {
                                 if let Some(path) = &tab.file_path {
-                                    let abs_path = if path.is_absolute() { path.clone() } else { cwd.join(path) };
+                                    let abs_path = if path.is_absolute() {
+                                        path.clone()
+                                    } else {
+                                        cwd.join(path)
+                                    };
                                     if let Ok(url) = url::Url::from_file_path(abs_path) {
-                                        client.did_open(url, tab.lines.join("\n"), tab.text_version as i32);
+                                        client.did_open(
+                                            url,
+                                            tab.lines.join("\n"),
+                                            tab.text_version as i32,
+                                        );
                                     }
                                 }
                             }
                         }
-                    } else if let Ok(completions) = serde_json::from_value::<lsp_types::CompletionResponse>(result) {
+                    } else if let Ok(completions) =
+                        serde_json::from_value::<lsp_types::CompletionResponse>(result)
+                    {
                         match completions {
-                            lsp_types::CompletionResponse::Array(arr) => app.lsp_completions = Some(arr),
-                            lsp_types::CompletionResponse::List(list) => app.lsp_completions = Some(list.items),
+                            lsp_types::CompletionResponse::Array(arr) => {
+                                app.lsp_completions = Some(arr)
+                            }
+                            lsp_types::CompletionResponse::List(list) => {
+                                app.lsp_completions = Some(list.items)
+                            }
                         }
                     }
                 }
@@ -145,14 +161,20 @@ async fn main() -> io::Result<()> {
                         app.ai_state.stream_tick = app.ai_state.stream_tick.wrapping_add(1);
                     }
                     ai::AiEvent::ToolUse(exec) => {
-                        app.ai_state.display_messages.push(ai::DisplayMessage::ToolUse(exec));
+                        app.ai_state
+                            .display_messages
+                            .push(ai::DisplayMessage::ToolUse(exec));
                         app.status_msg = "AI Agent: Using tools...".into();
                     }
                     ai::AiEvent::Done => {
                         if !app.ai_state.streaming_buffer.is_empty() {
                             let response = app.ai_state.streaming_buffer.clone();
-                            app.ai_state.display_messages.push(ai::DisplayMessage::Assistant(response.clone()));
-                            app.ai_state.api_messages.push(ai::ChatMessage::assistant(&response));
+                            app.ai_state
+                                .display_messages
+                                .push(ai::DisplayMessage::Assistant(response.clone()));
+                            app.ai_state
+                                .api_messages
+                                .push(ai::ChatMessage::assistant(&response));
                             app.ai_state.streaming_buffer.clear();
                         }
                         app.ai_state.is_streaming = false;
@@ -161,7 +183,9 @@ async fn main() -> io::Result<()> {
                         break; // rx is now None
                     }
                     ai::AiEvent::Error(msg) => {
-                        app.ai_state.display_messages.push(ai::DisplayMessage::Assistant(format!("⚠ Error: {}", msg)));
+                        app.ai_state
+                            .display_messages
+                            .push(ai::DisplayMessage::Assistant(format!("⚠ Error: {}", msg)));
                         app.status_msg = format!("AI Error: {}", msg);
                     }
                     ai::AiEvent::FileModified(path) => {
@@ -177,7 +201,9 @@ async fn main() -> io::Result<()> {
                             if tab.file_path.as_deref() == Some(full_path.as_path()) {
                                 if let Ok(content) = std::fs::read_to_string(&full_path) {
                                     tab.lines = content.lines().map(String::from).collect();
-                                    if tab.lines.is_empty() { tab.lines.push(String::new()); }
+                                    if tab.lines.is_empty() {
+                                        tab.lines.push(String::new());
+                                    }
                                     tab.dirty = false;
                                     tab.text_version += 1;
                                 }
@@ -213,9 +239,16 @@ async fn main() -> io::Result<()> {
         })?;
 
         let cur_term_size = (rects.terminal.width, rects.terminal.height);
-        if app.show_terminal && cur_term_size != last_term_size && cur_term_size.0 > 0 && cur_term_size.1 > 0 {
+        if app.show_terminal
+            && cur_term_size != last_term_size
+            && cur_term_size.0 > 0
+            && cur_term_size.1 > 0
+        {
             if let Some(tx) = &app.pty_tx {
-                let _ = tx.send(crate::term::pty::PtyCommand::Resize(cur_term_size.1, cur_term_size.0)); // rows, cols
+                let _ = tx.send(crate::term::pty::PtyCommand::Resize(
+                    cur_term_size.1,
+                    cur_term_size.0,
+                )); // rows, cols
             }
             last_term_size = cur_term_size;
         }

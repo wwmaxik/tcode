@@ -55,9 +55,12 @@ impl Tab {
                 "}".into(),
                 "".into(),
             ],
-            cursor_row: 0, cursor_col: 0,
-            scroll_offset: 0, scroll_x: 0,
-            dirty: false, file_path: None,
+            cursor_row: 0,
+            cursor_col: 0,
+            scroll_offset: 0,
+            scroll_x: 0,
+            dirty: false,
+            file_path: None,
             name: "welcome".into(),
             text_version: 0,
             git_marks: Vec::new(),
@@ -68,14 +71,22 @@ impl Tab {
     pub fn from_file(path: &Path) -> Result<Self, String> {
         let content = fs::read_to_string(path).map_err(|e| format!("{}", e))?;
         let mut lines: Vec<String> = content.lines().map(String::from).collect();
-        if lines.is_empty() { lines.push(String::new()); }
-        let name = path.file_name()
+        if lines.is_empty() {
+            lines.push(String::new());
+        }
+        let name = path
+            .file_name()
             .map(|n| n.to_string_lossy().to_string())
             .unwrap_or_else(|| "untitled".into());
         Ok(Self {
-            lines, cursor_row: 0, cursor_col: 0,
-            scroll_offset: 0, scroll_x: 0,
-            dirty: false, file_path: Some(path.to_path_buf()), name,
+            lines,
+            cursor_row: 0,
+            cursor_col: 0,
+            scroll_offset: 0,
+            scroll_x: 0,
+            dirty: false,
+            file_path: Some(path.to_path_buf()),
+            name,
             text_version: 0,
             git_marks: Vec::new(),
             selection_start: None,
@@ -194,10 +205,10 @@ pub struct App {
     pub fuzzy_query: String,
     pub fuzzy_results: Vec<String>,
     pub fuzzy_selected: usize,
-    
+
     pub show_settings: bool,
     pub settings_selected: usize,
-    
+
     // ── Sidebar Panels ──
     pub sidebar_panel: SidebarPanel,
     pub git_changes: Vec<GitChange>,
@@ -216,7 +227,7 @@ impl App {
         let file_tree = read_directory(&cwd);
         let clipboard = arboard::Clipboard::new().ok();
         let git_repo = git2::Repository::discover(&cwd).ok();
-        
+
         let mut tabs = Vec::new();
         for file in &session.open_files {
             if let Ok(tab) = Tab::from_file(Path::new(file)) {
@@ -233,11 +244,18 @@ impl App {
             tabs,
             active_tab,
             status_msg: "Ready — Ctrl+H for help".into(),
-            file_tree, file_tree_selected: 0, file_tree_scroll: 0,
-            focus: if config.show_explorer { Focus::Explorer } else { Focus::Editor },
+            file_tree,
+            file_tree_selected: 0,
+            file_tree_scroll: 0,
+            focus: if config.show_explorer {
+                Focus::Explorer
+            } else {
+                Focus::Editor
+            },
             cwd,
             input_mode: InputMode::Editing,
-            input_buffer: String::new(), input_cursor: 0,
+            input_buffer: String::new(),
+            input_cursor: 0,
             show_help: false,
             just_saved: false,
             show_theme_picker: false,
@@ -294,7 +312,10 @@ impl App {
                     } else {
                         "?"
                     };
-                    changes.push(GitChange { path, status: marker.to_string() });
+                    changes.push(GitChange {
+                        path,
+                        status: marker.to_string(),
+                    });
                 }
             }
             self.git_changes = changes;
@@ -304,8 +325,14 @@ impl App {
     // ── Session & Saving ────────────────────────────────────────
 
     pub fn save_session(&self) {
-        let open_files = self.tabs.iter()
-            .filter_map(|t| t.file_path.as_ref().map(|p| p.to_string_lossy().to_string()))
+        let open_files = self
+            .tabs
+            .iter()
+            .filter_map(|t| {
+                t.file_path
+                    .as_ref()
+                    .map(|p| p.to_string_lossy().to_string())
+            })
             .collect();
         let session = crate::config::Session {
             open_files,
@@ -313,7 +340,7 @@ impl App {
         };
         session.save();
     }
-    
+
     pub fn save_all(&mut self) {
         for tab in &mut self.tabs {
             if tab.dirty {
@@ -329,11 +356,17 @@ impl App {
     }
 
     pub fn sync_lsp_active_tab(&self) {
-        if !self.lsp_initialized { return; }
+        if !self.lsp_initialized {
+            return;
+        }
         if let Some(client) = &self.lsp_client {
             let tab = &self.tabs[self.active_tab];
             if let Some(path) = &tab.file_path {
-                let abs_path = if path.is_absolute() { path.clone() } else { self.cwd.join(path) };
+                let abs_path = if path.is_absolute() {
+                    path.clone()
+                } else {
+                    self.cwd.join(path)
+                };
                 if let Ok(url) = url::Url::from_file_path(abs_path) {
                     client.did_change(url, tab.lines.join("\n"), tab.text_version as i32);
                 }
@@ -342,11 +375,17 @@ impl App {
     }
 
     pub fn trigger_completion(&mut self) {
-        if !self.lsp_initialized { return; }
+        if !self.lsp_initialized {
+            return;
+        }
         if let Some(client) = &mut self.lsp_client {
             let tab = &self.tabs[self.active_tab];
             if let Some(path) = &tab.file_path {
-                let abs_path = if path.is_absolute() { path.clone() } else { self.cwd.join(path) };
+                let abs_path = if path.is_absolute() {
+                    path.clone()
+                } else {
+                    self.cwd.join(path)
+                };
                 if let Ok(url) = url::Url::from_file_path(abs_path) {
                     client.completion(url, tab.cursor_row as u32, tab.cursor_col as u32);
                 }
@@ -358,13 +397,19 @@ impl App {
         if let Some(completions) = self.lsp_completions.take() {
             if self.lsp_completion_selected < completions.len() {
                 let item = &completions[self.lsp_completion_selected];
-                let text_to_insert = item.insert_text.clone().unwrap_or_else(|| item.label.clone());
-                
+                let text_to_insert = item
+                    .insert_text
+                    .clone()
+                    .unwrap_or_else(|| item.label.clone());
+
                 let t = &mut self.tabs[self.active_tab];
                 // Simple MVP: backspace until we hit a non-alphanumeric char
                 while t.cursor_col > 0 {
                     let prev_idx = t.lines[t.cursor_row][..t.cursor_col]
-                        .char_indices().last().map(|(i,_)| i).unwrap_or(0);
+                        .char_indices()
+                        .last()
+                        .map(|(i, _)| i)
+                        .unwrap_or(0);
                     let ch = t.lines[t.cursor_row][prev_idx..].chars().next().unwrap();
                     if ch.is_alphanumeric() || ch == '_' {
                         t.lines[t.cursor_row].remove(prev_idx);
@@ -373,12 +418,13 @@ impl App {
                         break;
                     }
                 }
-                
+
                 for ch in text_to_insert.chars() {
                     t.lines[t.cursor_row].insert(t.cursor_col, ch);
                     t.cursor_col += ch.len_utf8();
                 }
-                t.dirty = true; t.text_version += 1;
+                t.dirty = true;
+                t.text_version += 1;
                 self.sync_lsp_active_tab();
             }
         }
@@ -395,20 +441,27 @@ impl App {
         }
         t.lines[t.cursor_row].insert(t.cursor_col, ch);
         t.cursor_col += ch.len_utf8();
-        t.dirty = true; t.text_version += 1;
+        t.dirty = true;
+        t.text_version += 1;
         self.sync_lsp_active_tab();
         self.trigger_completion();
     }
 
     pub fn backspace(&mut self) {
-        if self.delete_selection() { return; }
+        if self.delete_selection() {
+            return;
+        }
         let t = &mut self.tabs[self.active_tab];
         if t.cursor_col > 0 {
             let prev = t.lines[t.cursor_row][..t.cursor_col]
-                .char_indices().last().map(|(i,_)| i).unwrap_or(0);
+                .char_indices()
+                .last()
+                .map(|(i, _)| i)
+                .unwrap_or(0);
             t.lines[t.cursor_row].remove(prev);
             t.cursor_col = prev;
-            t.dirty = true; t.text_version += 1;
+            t.dirty = true;
+            t.text_version += 1;
             self.sync_lsp_active_tab();
             self.trigger_completion();
         } else if t.cursor_row > 0 {
@@ -416,24 +469,29 @@ impl App {
             t.cursor_row -= 1;
             t.cursor_col = t.lines[t.cursor_row].len();
             t.lines[t.cursor_row].push_str(&cur);
-            t.dirty = true; t.text_version += 1;
+            t.dirty = true;
+            t.text_version += 1;
             self.sync_lsp_active_tab();
             self.trigger_completion();
         }
     }
 
     pub fn delete_char(&mut self) {
-        if self.delete_selection() { return; }
+        if self.delete_selection() {
+            return;
+        }
         let t = &mut self.tabs[self.active_tab];
         if t.cursor_col < t.lines[t.cursor_row].len() {
             t.lines[t.cursor_row].remove(t.cursor_col);
-            t.dirty = true; t.text_version += 1;
+            t.dirty = true;
+            t.text_version += 1;
             self.sync_lsp_active_tab();
             self.trigger_completion();
         } else if t.cursor_row + 1 < t.lines.len() {
             let next = t.lines.remove(t.cursor_row + 1);
             t.lines[t.cursor_row].push_str(&next);
-            t.dirty = true; t.text_version += 1;
+            t.dirty = true;
+            t.text_version += 1;
             self.sync_lsp_active_tab();
             self.trigger_completion();
         }
@@ -450,13 +508,16 @@ impl App {
         t.cursor_row += 1;
         t.lines.insert(t.cursor_row, rem);
         t.cursor_col = 0;
-        t.dirty = true; t.text_version += 1;
+        t.dirty = true;
+        t.text_version += 1;
         self.sync_lsp_active_tab();
         self.trigger_completion();
     }
 
     pub fn tab_insert(&mut self) {
-        for _ in 0..4 { self.insert_char(' '); }
+        for _ in 0..4 {
+            self.insert_char(' ');
+        }
     }
 
     // ── Clipboard & Fuzzy Finder ────────────────────────────────
@@ -465,8 +526,12 @@ impl App {
         let tab = self.get_active_tab()?;
         let start = tab.selection_start?;
         let end = (tab.cursor_row, tab.cursor_col);
-        let (r1, c1, r2, c2) = if start < end { (start.0, start.1, end.0, end.1) } else { (end.0, end.1, start.0, start.1) };
-        
+        let (r1, c1, r2, c2) = if start < end {
+            (start.0, start.1, end.0, end.1)
+        } else {
+            (end.0, end.1, start.0, start.1)
+        };
+
         if r1 == r2 {
             Some(tab.lines[r1][c1..c2].to_string())
         } else {
@@ -484,7 +549,10 @@ impl App {
         let text = if let Some(sel) = self.get_selection_text() {
             sel
         } else {
-            let tab = match self.get_active_tab() { Some(t) => t, None => return };
+            let tab = match self.get_active_tab() {
+                Some(t) => t,
+                None => return,
+            };
             tab.lines[tab.cursor_row].clone()
         };
         if let Some(cb) = &mut self.clipboard {
@@ -493,16 +561,20 @@ impl App {
     }
 
     pub fn paste(&mut self) {
-        if self.tabs.is_empty() { return; }
+        if self.tabs.is_empty() {
+            return;
+        }
         let text = if let Some(cb) = &mut self.clipboard {
             cb.get_text().unwrap_or_default()
         } else {
             return;
         };
-        if text.is_empty() { return; }
-        
+        if text.is_empty() {
+            return;
+        }
+
         self.delete_selection();
-        
+
         for ch in text.chars() {
             if ch == '\n' {
                 self.enter();
@@ -555,7 +627,7 @@ impl App {
         self.show_fuzzy_finder = false;
         self.focus = crate::app::Focus::Editor;
     }
-    
+
     pub fn open_file_path(&mut self, path: &Path) {
         if let Ok(tab) = Tab::from_file(path) {
             self.tabs.push(tab);
@@ -572,7 +644,8 @@ impl App {
     }
 
     pub fn settings_next(&mut self) {
-        if self.settings_selected + 1 < 4 { // We have 4 settings items
+        if self.settings_selected + 1 < 4 {
+            // We have 4 settings items
             self.settings_selected += 1;
         }
     }
@@ -585,23 +658,31 @@ impl App {
 
     pub fn settings_enter(&mut self) {
         match self.settings_selected {
-            0 => { // Tab Size
+            0 => {
+                // Tab Size
                 self.input_mode = InputMode::Prompt;
                 self.input_buffer = self.config.tab_size.to_string();
                 self.input_cursor = self.input_buffer.len();
                 // We'll parse this in prompt_result
             }
-            1 => { // Autosave
+            1 => {
+                // Autosave
                 self.input_mode = InputMode::Prompt;
                 self.input_buffer = self.config.autosave_interval_ms.to_string();
                 self.input_cursor = self.input_buffer.len();
             }
-            2 => { // Show Explorer
+            2 => {
+                // Show Explorer
                 self.config.show_explorer = !self.config.show_explorer;
                 self.config.save();
-                self.focus = if self.config.show_explorer { Focus::Explorer } else { Focus::Editor };
+                self.focus = if self.config.show_explorer {
+                    Focus::Explorer
+                } else {
+                    Focus::Editor
+                };
             }
-            3 => { // Theme
+            3 => {
+                // Theme
                 self.show_settings = false;
                 self.toggle_theme_picker();
             }
@@ -612,13 +693,15 @@ impl App {
     pub fn confirm_settings_prompt(&mut self) {
         let input = self.input_buffer.clone();
         match self.settings_selected {
-            0 => { // Tab Size
+            0 => {
+                // Tab Size
                 if let Ok(val) = input.parse::<u16>() {
                     self.config.tab_size = val;
                     self.config.save();
                 }
             }
-            1 => { // Autosave Interval
+            1 => {
+                // Autosave Interval
                 if let Ok(val) = input.parse::<u64>() {
                     self.config.autosave_interval_ms = val;
                     self.config.save();
@@ -639,7 +722,10 @@ impl App {
         let t = &mut self.tabs[self.active_tab];
         if t.cursor_col > 0 {
             let prev = t.lines[t.cursor_row][..t.cursor_col]
-                .char_indices().last().map(|(i,_)| i).unwrap_or(0);
+                .char_indices()
+                .last()
+                .map(|(i, _)| i)
+                .unwrap_or(0);
             t.cursor_col = prev;
         } else if t.cursor_row > 0 {
             t.cursor_row -= 1;
@@ -650,7 +736,10 @@ impl App {
     pub fn move_right(&mut self) {
         let t = &mut self.tabs[self.active_tab];
         if t.cursor_col < t.lines[t.cursor_row].len() {
-            let ch = t.lines[t.cursor_row][t.cursor_col..].chars().next().unwrap();
+            let ch = t.lines[t.cursor_row][t.cursor_col..]
+                .chars()
+                .next()
+                .unwrap();
             t.cursor_col += ch.len_utf8();
         } else if t.cursor_row + 1 < t.lines.len() {
             t.cursor_row += 1;
@@ -663,7 +752,9 @@ impl App {
         if t.cursor_row > 0 {
             t.cursor_row -= 1;
             let len = t.lines[t.cursor_row].len();
-            if t.cursor_col > len { t.cursor_col = len; }
+            if t.cursor_col > len {
+                t.cursor_col = len;
+            }
         }
     }
 
@@ -672,11 +763,15 @@ impl App {
         if t.cursor_row + 1 < t.lines.len() {
             t.cursor_row += 1;
             let len = t.lines[t.cursor_row].len();
-            if t.cursor_col > len { t.cursor_col = len; }
+            if t.cursor_col > len {
+                t.cursor_col = len;
+            }
         }
     }
 
-    pub fn home(&mut self) { self.tabs[self.active_tab].cursor_col = 0; }
+    pub fn home(&mut self) {
+        self.tabs[self.active_tab].cursor_col = 0;
+    }
 
     pub fn end(&mut self) {
         let t = &mut self.tabs[self.active_tab];
@@ -712,13 +807,17 @@ impl App {
 
     pub fn scroll_down(&mut self, n: usize, vh: usize) {
         let t = &mut self.tabs[self.active_tab];
-        if vh == 0 { return; }
+        if vh == 0 {
+            return;
+        }
         let max = t.lines.len().saturating_sub(1); // can scroll until last line is visible
         t.scroll_offset = (t.scroll_offset + n).min(max);
     }
 
     pub fn ensure_cursor_visible(&mut self, vh: usize) {
-        if vh == 0 { return; }
+        if vh == 0 {
+            return;
+        }
         let t = &mut self.tabs[self.active_tab];
         // Keep a margin of 3 lines from top/bottom edges when possible
         let margin = 3.min(vh / 2);
@@ -808,7 +907,7 @@ impl App {
             // Multiline delete
             let first_part = tab.lines[r1][..c1].to_string();
             let last_part = &tab.lines[r2][c2.min(tab.lines[r2].len())..];
-            
+
             tab.lines[r1] = first_part + last_part;
             for _ in 0..(r2 - r1) {
                 tab.lines.remove(r1 + 1);
@@ -896,7 +995,9 @@ impl App {
     }
 
     pub fn file_tree_up(&mut self) {
-        if self.file_tree_selected > 0 { self.file_tree_selected -= 1; }
+        if self.file_tree_selected > 0 {
+            self.file_tree_selected -= 1;
+        }
     }
 
     pub fn file_tree_down(&mut self) {
@@ -928,8 +1029,6 @@ impl App {
         }
     }
 
-
-
     // ── Prompt ───────────────────────────────────────────────────
 
     pub fn start_folder_prompt(&mut self) {
@@ -952,7 +1051,9 @@ impl App {
         self.input_cursor = 0;
     }
 
-    pub fn toggle_help(&mut self) { self.show_help = !self.show_help; }
+    pub fn toggle_help(&mut self) {
+        self.show_help = !self.show_help;
+    }
 
     // ── Theme picker ────────────────────────────────────────────
 
@@ -960,14 +1061,18 @@ impl App {
         self.show_theme_picker = !self.show_theme_picker;
         if self.show_theme_picker {
             // Find current theme in list
-            self.theme_selected = self.theme_list.iter()
+            self.theme_selected = self
+                .theme_list
+                .iter()
                 .position(|t| t == &self.current_theme)
                 .unwrap_or(0);
         }
     }
 
     pub fn theme_up(&mut self) {
-        if self.theme_selected > 0 { self.theme_selected -= 1; }
+        if self.theme_selected > 0 {
+            self.theme_selected -= 1;
+        }
     }
 
     pub fn theme_down(&mut self) {
@@ -1007,7 +1112,8 @@ impl App {
             for e in entries.flatten() {
                 let path = e.path();
                 if path.extension().and_then(|x| x.to_str()) == Some("rhai") {
-                    let name = path.file_name()
+                    let name = path
+                        .file_name()
                         .map(|n| n.to_string_lossy().to_string())
                         .unwrap_or_default();
                     self.plugin_info.push((name, true)); // true = loaded
@@ -1048,9 +1154,13 @@ impl App {
         };
 
         // Add to display messages (show only the user's text, not the context)
-        self.ai_state.display_messages.push(crate::ai::DisplayMessage::User(input.clone()));
+        self.ai_state
+            .display_messages
+            .push(crate::ai::DisplayMessage::User(input.clone()));
         // Add to API messages (with context)
-        self.ai_state.api_messages.push(crate::ai::ChatMessage::user(&user_content));
+        self.ai_state
+            .api_messages
+            .push(crate::ai::ChatMessage::user(&user_content));
 
         self.ai_state.input_buffer.clear();
         self.ai_state.input_cursor = 0;
@@ -1059,9 +1169,9 @@ impl App {
         self.ai_state.stream_tick = 0;
 
         // Build full API message list with system prompt
-        let mut full_messages = vec![
-            crate::ai::ChatMessage::system(&self.config.ai.system_prompt),
-        ];
+        let mut full_messages = vec![crate::ai::ChatMessage::system(
+            &self.config.ai.system_prompt,
+        )];
         // Add conversation history (keep last ~40 API messages for context)
         let history_start = self.ai_state.api_messages.len().saturating_sub(40);
         for msg in &self.ai_state.api_messages[history_start..] {
@@ -1083,7 +1193,9 @@ impl App {
         }
         let tab = &self.tabs[self.active_tab];
         let file_name = &tab.name;
-        let ext = tab.file_path.as_ref()
+        let ext = tab
+            .file_path
+            .as_ref()
             .and_then(|p| p.extension())
             .and_then(|e| e.to_str())
             .unwrap_or("txt");
@@ -1107,7 +1219,13 @@ impl App {
 
         format!(
             "[Current file: {} ({}) — cursor at line {}, col {}]\n```{}\n{}{}\n```",
-            file_name, ext, tab.cursor_row + 1, tab.cursor_col + 1, ext, content, truncated
+            file_name,
+            ext,
+            tab.cursor_row + 1,
+            tab.cursor_col + 1,
+            ext,
+            content,
+            truncated
         )
     }
 
@@ -1129,14 +1247,19 @@ impl App {
     }
 
     pub fn ai_input_char(&mut self, ch: char) {
-        self.ai_state.input_buffer.insert(self.ai_state.input_cursor, ch);
+        self.ai_state
+            .input_buffer
+            .insert(self.ai_state.input_cursor, ch);
         self.ai_state.input_cursor += ch.len_utf8();
     }
 
     pub fn ai_input_backspace(&mut self) {
         if self.ai_state.input_cursor > 0 {
             let prev = self.ai_state.input_buffer[..self.ai_state.input_cursor]
-                .char_indices().last().map(|(i, _)| i).unwrap_or(0);
+                .char_indices()
+                .last()
+                .map(|(i, _)| i)
+                .unwrap_or(0);
             self.ai_state.input_buffer.remove(prev);
             self.ai_state.input_cursor = prev;
         }
@@ -1144,21 +1267,29 @@ impl App {
 
     pub fn ai_input_delete(&mut self) {
         if self.ai_state.input_cursor < self.ai_state.input_buffer.len() {
-            self.ai_state.input_buffer.remove(self.ai_state.input_cursor);
+            self.ai_state
+                .input_buffer
+                .remove(self.ai_state.input_cursor);
         }
     }
 
     pub fn ai_input_left(&mut self) {
         if self.ai_state.input_cursor > 0 {
             let prev = self.ai_state.input_buffer[..self.ai_state.input_cursor]
-                .char_indices().last().map(|(i, _)| i).unwrap_or(0);
+                .char_indices()
+                .last()
+                .map(|(i, _)| i)
+                .unwrap_or(0);
             self.ai_state.input_cursor = prev;
         }
     }
 
     pub fn ai_input_right(&mut self) {
         if self.ai_state.input_cursor < self.ai_state.input_buffer.len() {
-            let ch = self.ai_state.input_buffer[self.ai_state.input_cursor..].chars().next().unwrap();
+            let ch = self.ai_state.input_buffer[self.ai_state.input_cursor..]
+                .chars()
+                .next()
+                .unwrap();
             self.ai_state.input_cursor += ch.len_utf8();
         }
     }
@@ -1186,18 +1317,30 @@ pub fn read_directory(path: &Path) -> Vec<FileEntry> {
     let mut entries = Vec::new();
     if let Some(parent) = path.parent() {
         entries.push(FileEntry {
-            name: "..".into(), path: parent.to_path_buf(), is_dir: true,
+            name: "..".into(),
+            path: parent.to_path_buf(),
+            is_dir: true,
         });
     }
     let (mut dirs, mut files) = (Vec::new(), Vec::new());
     if let Ok(rd) = fs::read_dir(path) {
         for e in rd.flatten() {
             let name = e.file_name().to_string_lossy().to_string();
-            if name.starts_with('.') { continue; }
+            if name.starts_with('.') {
+                continue;
+            }
             let p = e.path();
             let is_dir = e.file_type().map(|t| t.is_dir()).unwrap_or(false);
-            let entry = FileEntry { name, path: p, is_dir };
-            if is_dir { dirs.push(entry); } else { files.push(entry); }
+            let entry = FileEntry {
+                name,
+                path: p,
+                is_dir,
+            };
+            if is_dir {
+                dirs.push(entry);
+            } else {
+                files.push(entry);
+            }
         }
     }
     dirs.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));

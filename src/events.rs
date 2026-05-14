@@ -6,28 +6,62 @@ use std::time::Duration;
 use crate::app::{App, InputMode};
 
 #[derive(Default, Clone, Copy)]
-pub struct TextAreaRect { pub x: u16, pub y: u16, pub width: u16, pub height: u16 }
+pub struct TextAreaRect {
+    pub x: u16,
+    pub y: u16,
+    pub width: u16,
+    pub height: u16,
+}
 
 #[derive(Default, Clone, Copy)]
-pub struct ExplorerRect { pub x: u16, pub y: u16, pub width: u16, pub height: u16 }
+pub struct ExplorerRect {
+    pub x: u16,
+    pub y: u16,
+    pub width: u16,
+    pub height: u16,
+}
 
 #[allow(dead_code)]
 #[derive(Default, Clone, Copy)]
-pub struct TabBarRect { pub x: u16, pub y: u16, pub width: u16, pub height: u16 }
+pub struct TabBarRect {
+    pub x: u16,
+    pub y: u16,
+    pub width: u16,
+    pub height: u16,
+}
 
 #[derive(Default, Clone, Copy)]
-pub struct ModalRect { pub x: u16, pub y: u16, pub width: u16, pub height: u16, pub active: bool }
+pub struct ModalRect {
+    pub x: u16,
+    pub y: u16,
+    pub width: u16,
+    pub height: u16,
+    pub active: bool,
+}
 
 #[allow(dead_code)]
 #[derive(Default, Clone, Copy)]
-pub struct TerminalRect { pub width: u16, pub height: u16 }
+pub struct TerminalRect {
+    pub width: u16,
+    pub height: u16,
+}
 
 #[derive(Default, Clone, Copy)]
-pub struct ActivityBarRect { pub x: u16, pub y: u16, pub width: u16, pub height: u16 }
+pub struct ActivityBarRect {
+    pub x: u16,
+    pub y: u16,
+    pub width: u16,
+    pub height: u16,
+}
 
 #[derive(Default, Clone, Copy)]
 #[allow(dead_code)]
-pub struct AiPanelRect { pub x: u16, pub y: u16, pub width: u16, pub height: u16 }
+pub struct AiPanelRect {
+    pub x: u16,
+    pub y: u16,
+    pub width: u16,
+    pub height: u16,
+}
 
 #[derive(Default, Clone, Copy)]
 pub struct UiRects {
@@ -114,42 +148,48 @@ fn handle_key(app: &mut App, key: KeyEvent, rects: UiRects) {
         return;
     }
 
-fn handle_settings_modal_key(app: &mut App, key: KeyEvent, _rects: UiRects) {
-    match key.code {
-        KeyCode::Up => app.settings_prev(),
-        KeyCode::Down => app.settings_next(),
-        KeyCode::Enter => app.settings_enter(),
-        KeyCode::Esc => app.show_settings = false,
-        _ => {}
+    fn handle_settings_modal_key(app: &mut App, key: KeyEvent, _rects: UiRects) {
+        match key.code {
+            KeyCode::Up => app.settings_prev(),
+            KeyCode::Down => app.settings_next(),
+            KeyCode::Enter => app.settings_enter(),
+            KeyCode::Esc => app.show_settings = false,
+            _ => {}
+        }
     }
-}
 
-fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
-    match key.code {
-        KeyCode::Enter => app.confirm_settings_prompt(),
-        KeyCode::Esc => app.cancel_settings_prompt(),
-        KeyCode::Backspace => {
-            if app.input_cursor > 0 {
-                app.input_cursor -= 1;
-                app.input_buffer.remove(app.input_cursor);
+    fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
+        match key.code {
+            KeyCode::Enter => app.confirm_settings_prompt(),
+            KeyCode::Esc => app.cancel_settings_prompt(),
+            KeyCode::Backspace => {
+                if app.input_cursor > 0 {
+                    app.input_cursor -= 1;
+                    app.input_buffer.remove(app.input_cursor);
+                }
             }
-        }
-        KeyCode::Delete => {
-            if app.input_cursor < app.input_buffer.len() {
-                app.input_buffer.remove(app.input_cursor);
+            KeyCode::Delete => {
+                if app.input_cursor < app.input_buffer.len() {
+                    app.input_buffer.remove(app.input_cursor);
+                }
             }
+            KeyCode::Left => {
+                if app.input_cursor > 0 {
+                    app.input_cursor -= 1;
+                }
+            }
+            KeyCode::Right => {
+                if app.input_cursor < app.input_buffer.len() {
+                    app.input_cursor += 1;
+                }
+            }
+            KeyCode::Char(ch) => {
+                app.input_buffer.insert(app.input_cursor, ch);
+                app.input_cursor += 1;
+            }
+            _ => {}
         }
-        KeyCode::Left => { if app.input_cursor > 0 { app.input_cursor -= 1; } }
-        KeyCode::Right => {
-            if app.input_cursor < app.input_buffer.len() { app.input_cursor += 1; }
-        }
-        KeyCode::Char(ch) => {
-            app.input_buffer.insert(app.input_cursor, ch);
-            app.input_cursor += 1;
-        }
-        _ => {}
     }
-}
 
     // ── Ctrl combos ──
     if key.modifiers.contains(KeyModifiers::CONTROL) {
@@ -162,7 +202,7 @@ fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
                 } else {
                     app.focus = crate::app::Focus::Explorer;
                 }
-            },
+            }
             KeyCode::Char('h') => app.toggle_help(),
             KeyCode::Char('o') => app.start_folder_prompt(),
             KeyCode::Char('w') => app.close_tab(),
@@ -177,7 +217,7 @@ fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
                 } else {
                     app.focus = crate::app::Focus::Editor;
                 }
-            },
+            }
             KeyCode::Char('t') => app.toggle_theme_picker(),
             KeyCode::Char('u') => app.toggle_plugin_manager(),
             KeyCode::Char('l') => app.open_settings(),
@@ -233,8 +273,14 @@ fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
         // Ctrl combos within AI chat
         if key.modifiers.contains(KeyModifiers::CONTROL) {
             match key.code {
-                KeyCode::Char('l') => { app.ai_insert_code(); return; }
-                KeyCode::Char('d') => { app.ai_clear_history(); return; }
+                KeyCode::Char('l') => {
+                    app.ai_insert_code();
+                    return;
+                }
+                KeyCode::Char('d') => {
+                    app.ai_clear_history();
+                    return;
+                }
                 _ => {}
             }
         }
@@ -312,11 +358,15 @@ fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
         if !completions.is_empty() {
             match key.code {
                 KeyCode::Up => {
-                    if app.lsp_completion_selected > 0 { app.lsp_completion_selected -= 1; }
+                    if app.lsp_completion_selected > 0 {
+                        app.lsp_completion_selected -= 1;
+                    }
                     return;
                 }
                 KeyCode::Down => {
-                    if app.lsp_completion_selected + 1 < completions.len() { app.lsp_completion_selected += 1; }
+                    if app.lsp_completion_selected + 1 < completions.len() {
+                        app.lsp_completion_selected += 1;
+                    }
                     return;
                 }
                 KeyCode::Enter => {
@@ -329,7 +379,7 @@ fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
                 }
                 _ => {
                     // Let typing continue, but dismiss completions unless it's a typed char?
-                    // Actually, if they type, we should just dismiss the old completions 
+                    // Actually, if they type, we should just dismiss the old completions
                     // and wait for the new one from did_change.
                     app.lsp_completions = None;
                 }
@@ -344,7 +394,17 @@ fn handle_generic_prompt_key(app: &mut App, key: KeyEvent) {
         let t = &mut app.tabs[tab_idx];
         if has_shift && t.selection_start.is_none() {
             t.selection_start = Some((t.cursor_row, t.cursor_col));
-        } else if !has_shift && matches!(key.code, KeyCode::Left | KeyCode::Right | KeyCode::Up | KeyCode::Down | KeyCode::Home | KeyCode::End) {
+        } else if !has_shift
+            && matches!(
+                key.code,
+                KeyCode::Left
+                    | KeyCode::Right
+                    | KeyCode::Up
+                    | KeyCode::Down
+                    | KeyCode::Home
+                    | KeyCode::End
+            )
+        {
             t.selection_start = None;
         }
     }
@@ -397,9 +457,15 @@ fn handle_prompt_key(app: &mut App, key: KeyEvent) {
                 app.input_buffer.remove(app.input_cursor);
             }
         }
-        KeyCode::Left => { if app.input_cursor > 0 { app.input_cursor -= 1; } }
+        KeyCode::Left => {
+            if app.input_cursor > 0 {
+                app.input_cursor -= 1;
+            }
+        }
         KeyCode::Right => {
-            if app.input_cursor < app.input_buffer.len() { app.input_cursor += 1; }
+            if app.input_cursor < app.input_buffer.len() {
+                app.input_cursor += 1;
+            }
         }
         KeyCode::Char(ch) => {
             app.input_buffer.insert(app.input_cursor, ch);
@@ -440,16 +506,33 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
                 return;
             }
             // ── Click on activity bar ──
-            if col >= rects.activity_bar.x && col < rects.activity_bar.x + rects.activity_bar.width
-                && row >= rects.activity_bar.y && row < rects.activity_bar.y + rects.activity_bar.height
+            if col >= rects.activity_bar.x
+                && col < rects.activity_bar.x + rects.activity_bar.width
+                && row >= rects.activity_bar.y
+                && row < rects.activity_bar.y + rects.activity_bar.height
             {
                 let rel_row = (row - rects.activity_bar.y) as usize;
                 match rel_row {
-                    0..=2 => { app.sidebar_panel = crate::app::SidebarPanel::Explorer; app.config.show_explorer = true; }
-                    3..=5 => { app.sidebar_panel = crate::app::SidebarPanel::Git; app.config.show_explorer = true; app.update_git_status(); }
-                    6..=8 => { app.sidebar_panel = crate::app::SidebarPanel::Search; app.config.show_explorer = true; }
-                    9..=11 => { app.sidebar_panel = crate::app::SidebarPanel::Plugins; app.config.show_explorer = true; }
-                    r if r >= rects.activity_bar.height as usize - 6 && r < rects.activity_bar.height as usize - 3 => {
+                    0..=2 => {
+                        app.sidebar_panel = crate::app::SidebarPanel::Explorer;
+                        app.config.show_explorer = true;
+                    }
+                    3..=5 => {
+                        app.sidebar_panel = crate::app::SidebarPanel::Git;
+                        app.config.show_explorer = true;
+                        app.update_git_status();
+                    }
+                    6..=8 => {
+                        app.sidebar_panel = crate::app::SidebarPanel::Search;
+                        app.config.show_explorer = true;
+                    }
+                    9..=11 => {
+                        app.sidebar_panel = crate::app::SidebarPanel::Plugins;
+                        app.config.show_explorer = true;
+                    }
+                    r if r >= rects.activity_bar.height as usize - 6
+                        && r < rects.activity_bar.height as usize - 3 =>
+                    {
                         app.open_settings();
                     }
                     r if r >= rects.activity_bar.height as usize - 3 => {
@@ -460,8 +543,10 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
                 return;
             }
             // ── Click on explorer ──
-            if col >= rects.explorer.x && col < rects.explorer.x + rects.explorer.width
-                && row >= rects.explorer.y && row < rects.explorer.y + rects.explorer.height
+            if col >= rects.explorer.x
+                && col < rects.explorer.x + rects.explorer.width
+                && row >= rects.explorer.y
+                && row < rects.explorer.y + rects.explorer.height
             {
                 let rel_row = (row - rects.explorer.y) as usize;
                 let idx = app.file_tree_scroll + rel_row;
@@ -469,8 +554,10 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
                 return;
             }
             // ── Click on text area ──
-            if col >= rects.text_area.x && col < rects.text_area.x + rects.text_area.width
-                && row >= rects.text_area.y && row < rects.text_area.y + rects.text_area.height
+            if col >= rects.text_area.x
+                && col < rects.text_area.x + rects.text_area.width
+                && row >= rects.text_area.y
+                && row < rects.text_area.y + rects.text_area.height
             {
                 let r = (row - rects.text_area.y) as usize;
                 let c = (col - rects.text_area.x) as usize;
@@ -478,8 +565,10 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
             }
         }
         MouseEventKind::Drag(MouseButton::Left) => {
-            if col >= rects.text_area.x && col < rects.text_area.x + rects.text_area.width
-                && row >= rects.text_area.y && row < rects.text_area.y + rects.text_area.height
+            if col >= rects.text_area.x
+                && col < rects.text_area.x + rects.text_area.width
+                && row >= rects.text_area.y
+                && row < rects.text_area.y + rects.text_area.height
             {
                 let r = (row - rects.text_area.y) as usize;
                 let c = (col - rects.text_area.x) as usize;

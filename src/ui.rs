@@ -94,14 +94,21 @@ impl Highlighter {
             return;
         }
 
-        let ext = tab.file_path.as_ref()
+        let ext = tab
+            .file_path
+            .as_ref()
             .and_then(|p| p.extension())
             .and_then(|e| e.to_str())
             .unwrap_or("rs");
 
-        let syntax = self.ss.find_syntax_by_extension(ext)
+        let syntax = self
+            .ss
+            .find_syntax_by_extension(ext)
             .unwrap_or_else(|| self.ss.find_syntax_plain_text());
-        let tm = self.ts.themes.get(&app.current_theme)
+        let tm = self
+            .ts
+            .themes
+            .get(&app.current_theme)
             .unwrap_or_else(|| &self.ts.themes["base16-ocean.dark"]);
 
         let mut h = HighlightLines::new(syntax, tm);
@@ -110,13 +117,24 @@ impl Highlighter {
         self.cache.clear();
         for line_str in LinesWithEndings::from(&full_text) {
             let ranges = h.highlight_line(line_str, &self.ss).unwrap_or_default();
-            let spans: Vec<HlSpan> = ranges.iter().map(|(style, text)| {
-                let fg = Color::Rgb(style.foreground.r, style.foreground.g, style.foreground.b);
-                let mut m = Modifier::empty();
-                if style.font_style.contains(FontStyle::BOLD) { m |= Modifier::BOLD; }
-                if style.font_style.contains(FontStyle::ITALIC) { m |= Modifier::ITALIC; }
-                HlSpan { fg, modifier: m, text: text.trim_end_matches('\n').to_string() }
-            }).collect();
+            let spans: Vec<HlSpan> = ranges
+                .iter()
+                .map(|(style, text)| {
+                    let fg = Color::Rgb(style.foreground.r, style.foreground.g, style.foreground.b);
+                    let mut m = Modifier::empty();
+                    if style.font_style.contains(FontStyle::BOLD) {
+                        m |= Modifier::BOLD;
+                    }
+                    if style.font_style.contains(FontStyle::ITALIC) {
+                        m |= Modifier::ITALIC;
+                    }
+                    HlSpan {
+                        fg,
+                        modifier: m,
+                        text: text.trim_end_matches('\n').to_string(),
+                    }
+                })
+                .collect();
             self.cache.push(spans);
         }
 
@@ -136,7 +154,7 @@ pub fn draw(f: &mut Frame, app: &App, hl: &mut Highlighter) -> UiRects {
         .direction(Direction::Vertical)
         .constraints([
             Constraint::Length(1), // tab bar
-            Constraint::Min(1),   // main
+            Constraint::Min(1),    // main
             Constraint::Length(1), // status
         ])
         .split(size);
@@ -149,8 +167,12 @@ pub fn draw(f: &mut Frame, app: &App, hl: &mut Highlighter) -> UiRects {
         .direction(Direction::Horizontal)
         .constraints([
             Constraint::Length(7), // Activity Bar
-            Constraint::Length(if app.config.show_explorer { explorer_w } else { 0 }),
-            Constraint::Min(1),    // Editor
+            Constraint::Length(if app.config.show_explorer {
+                explorer_w
+            } else {
+                0
+            }),
+            Constraint::Min(1),             // Editor
             Constraint::Length(ai_panel_w), // AI Panel (right)
         ])
         .split(outer[1]);
@@ -174,7 +196,12 @@ pub fn draw(f: &mut Frame, app: &App, hl: &mut Highlighter) -> UiRects {
         }
         _ => {
             if app.config.show_explorer {
-                f.render_widget(Block::default().borders(Borders::RIGHT).border_style(Style::default().fg(theme::BORDER)), main_area[1]);
+                f.render_widget(
+                    Block::default()
+                        .borders(Borders::RIGHT)
+                        .border_style(Style::default().fg(theme::BORDER)),
+                    main_area[1],
+                );
             }
             (0, 0, 0, 0)
         }
@@ -211,26 +238,46 @@ pub fn draw(f: &mut Frame, app: &App, hl: &mut Highlighter) -> UiRects {
 
     // Modal overlays
     let mut theme_modal_rect = crate::events::ModalRect::default();
-    if app.show_help { draw_help_overlay(f, size); }
-    if app.show_theme_picker { theme_modal_rect = draw_theme_picker(f, app, size); }
-    if app.show_plugin_manager { draw_plugin_manager(f, app, size); }
-    if app.show_fuzzy_finder { draw_fuzzy_finder(f, app, size); }
-    if app.input_mode == InputMode::FolderPrompt { draw_folder_prompt(f, app, outer[2]); }
-    if app.show_settings { draw_settings_modal(f, app, size); }
-    if app.input_mode == InputMode::Prompt { draw_generic_prompt(f, app, size); }
+    if app.show_help {
+        draw_help_overlay(f, size);
+    }
+    if app.show_theme_picker {
+        theme_modal_rect = draw_theme_picker(f, app, size);
+    }
+    if app.show_plugin_manager {
+        draw_plugin_manager(f, app, size);
+    }
+    if app.show_fuzzy_finder {
+        draw_fuzzy_finder(f, app, size);
+    }
+    if app.input_mode == InputMode::FolderPrompt {
+        draw_folder_prompt(f, app, outer[2]);
+    }
+    if app.show_settings {
+        draw_settings_modal(f, app, size);
+    }
+    if app.input_mode == InputMode::Prompt {
+        draw_generic_prompt(f, app, size);
+    }
 
     UiRects {
         text_area: crate::events::TextAreaRect {
-            x: text_area_rect.0, y: text_area_rect.1,
-            width: text_area_rect.2, height: text_area_rect.3,
+            x: text_area_rect.0,
+            y: text_area_rect.1,
+            width: text_area_rect.2,
+            height: text_area_rect.3,
         },
         explorer: crate::events::ExplorerRect {
-            x: _explorer_rect.0, y: _explorer_rect.1,
-            width: _explorer_rect.2, height: _explorer_rect.3,
+            x: _explorer_rect.0,
+            y: _explorer_rect.1,
+            width: _explorer_rect.2,
+            height: _explorer_rect.3,
         },
         tab_bar: crate::events::TabBarRect {
-            x: outer[0].x, y: outer[0].y,
-            width: outer[0].width, height: outer[0].height,
+            x: outer[0].x,
+            y: outer[0].y,
+            width: outer[0].width,
+            height: outer[0].height,
         },
         theme_modal: theme_modal_rect,
         terminal: crate::events::TerminalRect {
@@ -238,8 +285,10 @@ pub fn draw(f: &mut Frame, app: &App, hl: &mut Highlighter) -> UiRects {
             height: terminal_area.height,
         },
         activity_bar: crate::events::ActivityBarRect {
-            x: main_area[0].x, y: main_area[0].y,
-            width: main_area[0].width, height: main_area[0].height,
+            x: main_area[0].x,
+            y: main_area[0].y,
+            width: main_area[0].width,
+            height: main_area[0].height,
         },
         ai_panel: ai_panel_rect,
     }
@@ -248,23 +297,41 @@ pub fn draw(f: &mut Frame, app: &App, hl: &mut Highlighter) -> UiRects {
 // ─── Tab bar ────────────────────────────────────────────────────────
 
 fn draw_tab_bar(f: &mut Frame, app: &App, area: Rect) {
-    let titles: Vec<Line> = app.tabs.iter().enumerate().map(|(i, tab)| {
-        let marker = if tab.dirty { " ●" } else { "" };
-        let label = format!(" {}{} ", tab.name, marker);
-        if i == app.active_tab {
-            Line::from(Span::styled(label, Style::default()
-                .fg(theme::TEXT).bg(theme::TAB_ACTIVE_BG).add_modifier(Modifier::BOLD)))
-        } else {
-            Line::from(Span::styled(label, Style::default()
-                .fg(theme::TEXT_DIM).bg(theme::TAB_INACTIVE_BG)))
-        }
-    }).collect();
+    let titles: Vec<Line> = app
+        .tabs
+        .iter()
+        .enumerate()
+        .map(|(i, tab)| {
+            let marker = if tab.dirty { " ●" } else { "" };
+            let label = format!(" {}{} ", tab.name, marker);
+            if i == app.active_tab {
+                Line::from(Span::styled(
+                    label,
+                    Style::default()
+                        .fg(theme::TEXT)
+                        .bg(theme::TAB_ACTIVE_BG)
+                        .add_modifier(Modifier::BOLD),
+                ))
+            } else {
+                Line::from(Span::styled(
+                    label,
+                    Style::default()
+                        .fg(theme::TEXT_DIM)
+                        .bg(theme::TAB_INACTIVE_BG),
+                ))
+            }
+        })
+        .collect();
 
     let tabs = Tabs::new(titles)
         .select(app.active_tab)
         .style(Style::default().bg(theme::TAB_INACTIVE_BG))
-        .highlight_style(Style::default().fg(theme::TEXT).bg(theme::TAB_ACTIVE_BG)
-            .add_modifier(Modifier::BOLD))
+        .highlight_style(
+            Style::default()
+                .fg(theme::TEXT)
+                .bg(theme::TAB_ACTIVE_BG)
+                .add_modifier(Modifier::BOLD),
+        )
         .divider("│");
     f.render_widget(tabs, area);
 }
@@ -300,45 +367,68 @@ fn draw_activity_bar(f: &mut Frame, app: &App, area: Rect) {
 
     for (i, (panel, icon)) in items.into_iter().enumerate() {
         let style = if app.sidebar_panel == panel {
-            Style::default().fg(theme::ACCENT).add_modifier(Modifier::BOLD)
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD)
         } else {
             Style::default().fg(theme::TEXT_DIM)
         };
         // Vertical centering within the 3-line cell
         let rows = Layout::default()
             .direction(Direction::Vertical)
-            .constraints([Constraint::Length(1), Constraint::Length(1), Constraint::Length(1)])
+            .constraints([
+                Constraint::Length(1),
+                Constraint::Length(1),
+                Constraint::Length(1),
+            ])
             .split(layout[i]);
-            
-        f.render_widget(Paragraph::new(format!("  {}", icon.trim())).style(style), rows[1]);
+
+        f.render_widget(
+            Paragraph::new(format!("  {}", icon.trim())).style(style),
+            rows[1],
+        );
     }
 
     // Settings icon at bottom
     let settings_rows = Layout::default()
         .direction(Direction::Vertical)
-        .constraints([Constraint::Length(1), Constraint::Length(1), Constraint::Length(1)])
+        .constraints([
+            Constraint::Length(1),
+            Constraint::Length(1),
+            Constraint::Length(1),
+        ])
         .split(layout[5]);
     f.render_widget(
         Paragraph::new("  󰒓").style(Style::default().fg(theme::TEXT_DIM)),
-        settings_rows[1]
+        settings_rows[1],
     );
 
     // Help icon at bottom
     let help_rows = Layout::default()
         .direction(Direction::Vertical)
-        .constraints([Constraint::Length(1), Constraint::Length(1), Constraint::Length(1)])
+        .constraints([
+            Constraint::Length(1),
+            Constraint::Length(1),
+            Constraint::Length(1),
+        ])
         .split(layout[6]);
     f.render_widget(
         Paragraph::new("  󰞋").style(Style::default().fg(theme::TEXT_DIM)),
-        help_rows[1]
+        help_rows[1],
     );
 }
 
 // ─── File explorer ──────────────────────────────────────────────────
 
 fn draw_explorer(f: &mut Frame, app: &App, area: Rect) -> (u16, u16, u16, u16) {
-    let bc = if app.focus == crate::app::Focus::Explorer { theme::BORDER_ACTIVE } else { theme::BORDER };
-    let cwd_name = app.cwd.file_name()
+    let bc = if app.focus == crate::app::Focus::Explorer {
+        theme::BORDER_ACTIVE
+    } else {
+        theme::BORDER
+    };
+    let cwd_name = app
+        .cwd
+        .file_name()
         .map(|n| n.to_string_lossy().to_string())
         .unwrap_or_else(|| app.cwd.to_string_lossy().to_string());
 
@@ -360,11 +450,23 @@ fn draw_explorer(f: &mut Frame, app: &App, area: Rect) -> (u16, u16, u16, u16) {
         app.file_tree_scroll
     };
 
-    let items: Vec<ListItem> = app.file_tree.iter().enumerate()
-        .skip(scroll).take(vh)
+    let items: Vec<ListItem> = app
+        .file_tree
+        .iter()
+        .enumerate()
+        .skip(scroll)
+        .take(vh)
         .map(|(i, entry)| {
-            let icon = if entry.is_dir { "󰉋 " } else { file_icon(&entry.name) };
-            let color = if entry.is_dir { theme::DIR_COLOR } else { theme::FILE_COLOR };
+            let icon = if entry.is_dir {
+                "󰉋 "
+            } else {
+                file_icon(&entry.name)
+            };
+            let color = if entry.is_dir {
+                theme::DIR_COLOR
+            } else {
+                theme::FILE_COLOR
+            };
             let style = if i == app.file_tree_selected {
                 Style::default().fg(color).bg(theme::EXPLORER_SEL)
             } else {
@@ -374,7 +476,8 @@ fn draw_explorer(f: &mut Frame, app: &App, area: Rect) -> (u16, u16, u16, u16) {
                 Span::styled(icon, style),
                 Span::styled(&entry.name, style),
             ]))
-        }).collect();
+        })
+        .collect();
 
     f.render_widget(List::new(items), inner);
     (inner.x, inner.y, inner.width, inner.height)
@@ -383,7 +486,11 @@ fn draw_explorer(f: &mut Frame, app: &App, area: Rect) -> (u16, u16, u16, u16) {
 // ─── Git Panel ──────────────────────────────────────────────────────
 
 fn draw_git_panel(f: &mut Frame, app: &App, area: Rect) -> (u16, u16, u16, u16) {
-    let bc = if app.focus == crate::app::Focus::Explorer { theme::BORDER_ACTIVE } else { theme::BORDER };
+    let bc = if app.focus == crate::app::Focus::Explorer {
+        theme::BORDER_ACTIVE
+    } else {
+        theme::BORDER
+    };
     let block = Block::default()
         .title(" SOURCE CONTROL ")
         .borders(Borders::RIGHT)
@@ -394,34 +501,48 @@ fn draw_git_panel(f: &mut Frame, app: &App, area: Rect) -> (u16, u16, u16, u16) 
     f.render_widget(block, area);
 
     if app.git_repo.is_none() {
-        f.render_widget(Paragraph::new("No git repo found").style(Style::default().fg(theme::TEXT_DIM)), inner);
+        f.render_widget(
+            Paragraph::new("No git repo found").style(Style::default().fg(theme::TEXT_DIM)),
+            inner,
+        );
         return (inner.x, inner.y, inner.width, inner.height);
     }
 
     if app.git_changes.is_empty() {
-        f.render_widget(Paragraph::new(" No changes detected").style(Style::default().fg(theme::TEXT_DIM)), inner);
+        f.render_widget(
+            Paragraph::new(" No changes detected").style(Style::default().fg(theme::TEXT_DIM)),
+            inner,
+        );
         return (inner.x, inner.y, inner.width, inner.height);
     }
 
-    let items: Vec<ListItem> = app.git_changes.iter().enumerate().map(|(i, change)| {
-        let style = if i == app.git_selected {
-            Style::default().fg(theme::BG).bg(theme::ACCENT).add_modifier(Modifier::BOLD)
-        } else {
-            Style::default().fg(theme::TEXT)
-        };
+    let items: Vec<ListItem> = app
+        .git_changes
+        .iter()
+        .enumerate()
+        .map(|(i, change)| {
+            let style = if i == app.git_selected {
+                Style::default()
+                    .fg(theme::BG)
+                    .bg(theme::ACCENT)
+                    .add_modifier(Modifier::BOLD)
+            } else {
+                Style::default().fg(theme::TEXT)
+            };
 
-        let status_style = match change.status.as_str() {
-            "M" => Style::default().fg(theme::YELLOW),
-            "A" => Style::default().fg(theme::GREEN),
-            "D" => Style::default().fg(theme::RED),
-            _ => Style::default().fg(theme::TEXT_DIM),
-        };
+            let status_style = match change.status.as_str() {
+                "M" => Style::default().fg(theme::YELLOW),
+                "A" => Style::default().fg(theme::GREEN),
+                "D" => Style::default().fg(theme::RED),
+                _ => Style::default().fg(theme::TEXT_DIM),
+            };
 
-        ListItem::new(Line::from(vec![
-            Span::styled(format!(" {} ", change.status), status_style),
-            Span::styled(&change.path, style),
-        ]))
-    }).collect();
+            ListItem::new(Line::from(vec![
+                Span::styled(format!(" {} ", change.status), status_style),
+                Span::styled(&change.path, style),
+            ]))
+        })
+        .collect();
 
     f.render_widget(List::new(items), inner);
 
@@ -453,15 +574,25 @@ fn is_selected(r: usize, c: usize, start: (usize, usize), end: (usize, usize)) -
     } else {
         (end.0, end.1, start.0, start.1)
     };
-    if r < s_r || r > e_r { return false; }
-    if s_r == e_r { return c >= s_c && c < e_c; }
-    if r == s_r { return c >= s_c; }
-    if r == e_r { return c < e_c; }
+    if r < s_r || r > e_r {
+        return false;
+    }
+    if s_r == e_r {
+        return c >= s_c && c < e_c;
+    }
+    if r == s_r {
+        return c >= s_c;
+    }
+    if r == e_r {
+        return c < e_c;
+    }
     true
 }
 
 fn draw_editor(
-    f: &mut Frame, app: &App, area: Rect,
+    f: &mut Frame,
+    app: &App,
+    area: Rect,
     hl_cache: &[Vec<HlSpan>],
 ) -> (u16, u16, u16, u16) {
     let block = Block::default().style(Style::default().bg(theme::BG));
@@ -483,93 +614,130 @@ fn draw_editor(
     let vw = text_area.width as usize;
 
     // ── Gutter ──
-    let gutter_lines: Vec<Line> = (0..vh).map(|vi| {
-        let li = tab.scroll_offset + vi;
-        if li < total {
-            let has_error = app.lsp_diagnostics.iter().any(|d| {
-                li >= d.range.start.line as usize && li <= d.range.end.line as usize
-            });
-            let mark = if has_error {
-                Some('E')
-            } else if li < tab.git_marks.len() {
-                tab.git_marks[li]
+    let gutter_lines: Vec<Line> = (0..vh)
+        .map(|vi| {
+            let li = tab.scroll_offset + vi;
+            if li < total {
+                let has_error = app
+                    .lsp_diagnostics
+                    .iter()
+                    .any(|d| li >= d.range.start.line as usize && li <= d.range.end.line as usize);
+                let mark = if has_error {
+                    Some('E')
+                } else if li < tab.git_marks.len() {
+                    tab.git_marks[li]
+                } else {
+                    None
+                };
+                let (m_char, m_color) = match mark {
+                    Some('E') => ("E", theme::RED),
+                    Some('+') => ("+", theme::GREEN),
+                    Some('~') => ("~", theme::YELLOW),
+                    Some('|') => ("|", theme::RED),
+                    _ => (" ", theme::BG),
+                };
+                let num = format!("{:>w$} ", li + 1, w = (gw - 3) as usize);
+                let color = if li == tab.cursor_row {
+                    theme::LINE_NUM_ACTIVE
+                } else {
+                    theme::LINE_NUM
+                };
+                let bg = if li == tab.cursor_row {
+                    theme::CURSOR_LINE_BG
+                } else {
+                    theme::BG
+                };
+                Line::from(vec![
+                    Span::styled(m_char, Style::default().fg(m_color).bg(bg)),
+                    Span::styled(num, Style::default().fg(color).bg(bg)),
+                ])
             } else {
-                None
-            };
-            let (m_char, m_color) = match mark {
-                Some('E') => ("E", theme::RED),
-                Some('+') => ("+", theme::GREEN),
-                Some('~') => ("~", theme::YELLOW),
-                Some('|') => ("|", theme::RED),
-                _ => (" ", theme::BG),
-            };
-            let num = format!("{:>w$} ", li + 1, w = (gw - 3) as usize);
-            let color = if li == tab.cursor_row { theme::LINE_NUM_ACTIVE } else { theme::LINE_NUM };
-            let bg = if li == tab.cursor_row { theme::CURSOR_LINE_BG } else { theme::BG };
-            Line::from(vec![
-                Span::styled(m_char, Style::default().fg(m_color).bg(bg)),
-                Span::styled(num, Style::default().fg(color).bg(bg)),
-            ])
-        } else {
-            Line::from(Span::styled(
-                format!("{:>w$} ", "~", w = (gw - 1) as usize),
-                Style::default().fg(theme::LINE_NUM).bg(theme::BG),
-            ))
-        }
-    }).collect();
+                Line::from(Span::styled(
+                    format!("{:>w$} ", "~", w = (gw - 1) as usize),
+                    Style::default().fg(theme::LINE_NUM).bg(theme::BG),
+                ))
+            }
+        })
+        .collect();
     f.render_widget(Paragraph::new(gutter_lines), gutter_area);
 
     // ── Text with cached syntax highlighting ──
-    let text_lines: Vec<Line> = (0..vh).map(|vi| {
-        let li = tab.scroll_offset + vi;
-        let bg = if li == tab.cursor_row { theme::CURSOR_LINE_BG } else { theme::BG };
+    let text_lines: Vec<Line> = (0..vh)
+        .map(|vi| {
+            let li = tab.scroll_offset + vi;
+            let bg = if li == tab.cursor_row {
+                theme::CURSOR_LINE_BG
+            } else {
+                theme::BG
+            };
 
-        if li < total && li < hl_cache.len() {
-            let mut spans: Vec<Span> = Vec::new();
-            let mut col_offset: usize = 0;
+            if li < total && li < hl_cache.len() {
+                let mut spans: Vec<Span> = Vec::new();
+                let mut col_offset: usize = 0;
 
-            for hl_span in &hl_cache[li] {
-                let text_len = hl_span.text.len();
-                if text_len == 0 { continue; }
-
-                if col_offset + text_len <= tab.scroll_x {
-                    col_offset += text_len;
-                    continue;
-                }
-
-                let start_in_span = if tab.scroll_x > col_offset { tab.scroll_x - col_offset } else { 0 };
-                let visible_text = &hl_span.text[start_in_span..];
-                
-                for (char_idx, ch) in visible_text.chars().enumerate() {
-                    let absolute_col = col_offset + start_in_span + char_idx;
-                    let mut final_style = Style::default().fg(hl_span.fg).bg(bg).add_modifier(hl_span.modifier);
-                    
-                    if let Some(sel_start) = tab.selection_start {
-                        if is_selected(li, absolute_col, sel_start, (tab.cursor_row, tab.cursor_col)) {
-                            final_style = final_style.bg(theme::ACCENT).fg(theme::BG);
-                        }
+                for hl_span in &hl_cache[li] {
+                    let text_len = hl_span.text.len();
+                    if text_len == 0 {
+                        continue;
                     }
-                    spans.push(Span::styled(ch.to_string(), final_style));
+
+                    if col_offset + text_len <= tab.scroll_x {
+                        col_offset += text_len;
+                        continue;
+                    }
+
+                    let start_in_span = if tab.scroll_x > col_offset {
+                        tab.scroll_x - col_offset
+                    } else {
+                        0
+                    };
+                    let visible_text = &hl_span.text[start_in_span..];
+
+                    for (char_idx, ch) in visible_text.chars().enumerate() {
+                        let absolute_col = col_offset + start_in_span + char_idx;
+                        let mut final_style = Style::default()
+                            .fg(hl_span.fg)
+                            .bg(bg)
+                            .add_modifier(hl_span.modifier);
+
+                        if let Some(sel_start) = tab.selection_start {
+                            if is_selected(
+                                li,
+                                absolute_col,
+                                sel_start,
+                                (tab.cursor_row, tab.cursor_col),
+                            ) {
+                                final_style = final_style.bg(theme::ACCENT).fg(theme::BG);
+                            }
+                        }
+                        spans.push(Span::styled(ch.to_string(), final_style));
+                    }
+                    col_offset += text_len;
                 }
-                col_offset += text_len;
-            }
 
-            // Pad to fill width
-            let visible_len: usize = spans.iter().map(|s| s.content.len()).sum();
-            if visible_len < vw {
-                spans.push(Span::styled(" ".repeat(vw - visible_len), Style::default().bg(bg)));
-            }
+                // Pad to fill width
+                let visible_len: usize = spans.iter().map(|s| s.content.len()).sum();
+                if visible_len < vw {
+                    spans.push(Span::styled(
+                        " ".repeat(vw - visible_len),
+                        Style::default().bg(bg),
+                    ));
+                }
 
-            Line::from(spans)
-        } else {
-            Line::from(Span::styled(" ".repeat(vw), Style::default().bg(bg)))
-        }
-    }).collect();
+                Line::from(spans)
+            } else {
+                Line::from(Span::styled(" ".repeat(vw), Style::default().bg(bg)))
+            }
+        })
+        .collect();
 
     f.render_widget(Paragraph::new(text_lines), text_area);
 
     // ── Cursor ──
-    if app.focus == crate::app::Focus::Editor && app.input_mode == InputMode::Editing && !app.show_help {
+    if app.focus == crate::app::Focus::Editor
+        && app.input_mode == InputMode::Editing
+        && !app.show_help
+    {
         let cr = tab.cursor_row as i64 - tab.scroll_offset as i64;
         let cc = tab.cursor_col as i64 - tab.scroll_x as i64;
         if cr >= 0 && (cr as u16) < text_area.height && cc >= 0 && (cc as u16) < text_area.width {
@@ -585,38 +753,62 @@ fn draw_editor(
                 let max_h = 10u16;
                 let items_len = completions.len() as u16;
                 let h = items_len.min(max_h) + 2;
-                
+
                 let cr = tab.cursor_row as i64 - tab.scroll_offset as i64;
                 let cc = tab.cursor_col as i64 - tab.scroll_x as i64;
-                
-                if cr >= 0 && (cr as u16) < text_area.height && cc >= 0 && (cc as u16) < text_area.width {
+
+                if cr >= 0
+                    && (cr as u16) < text_area.height
+                    && cc >= 0
+                    && (cc as u16) < text_area.width
+                {
                     let mut cx = text_area.x + cc as u16;
                     let mut cy = text_area.y + cr as u16 + 1;
-                    
-                    if cx + max_w > text_area.right() { cx = text_area.right().saturating_sub(max_w); }
-                    if cy + h > text_area.bottom() { cy = text_area.y + (cr as u16).saturating_sub(h); }
-                    
+
+                    if cx + max_w > text_area.right() {
+                        cx = text_area.right().saturating_sub(max_w);
+                    }
+                    if cy + h > text_area.bottom() {
+                        cy = text_area.y + (cr as u16).saturating_sub(h);
+                    }
+
                     let rect = Rect::new(cx, cy, max_w, h);
                     f.render_widget(Clear, rect);
                     let block = Block::default()
                         .borders(Borders::ALL)
                         .border_style(Style::default().fg(theme::BORDER_ACTIVE))
                         .style(Style::default().bg(theme::OVERLAY_BG));
-                        
-                    let scroll = app.lsp_completion_selected.saturating_sub((max_h/2) as usize);
-                    let items: Vec<ListItem> = completions.iter().enumerate()
-                        .skip(scroll).take(max_h as usize)
+
+                    let scroll = app
+                        .lsp_completion_selected
+                        .saturating_sub((max_h / 2) as usize);
+                    let items: Vec<ListItem> = completions
+                        .iter()
+                        .enumerate()
+                        .skip(scroll)
+                        .take(max_h as usize)
                         .map(|(i, c)| {
                             let style = if i == app.lsp_completion_selected {
-                                Style::default().fg(theme::BG).bg(theme::ACCENT).add_modifier(Modifier::BOLD)
+                                Style::default()
+                                    .fg(theme::BG)
+                                    .bg(theme::ACCENT)
+                                    .add_modifier(Modifier::BOLD)
                             } else {
                                 Style::default().fg(theme::TEXT)
                             };
                             let label = c.label.as_str();
-                            let truncated = if label.len() > 36 { &label[..36] } else { label };
-                            ListItem::new(Line::from(Span::styled(format!(" {}", truncated), style)))
-                        }).collect();
-                        
+                            let truncated = if label.len() > 36 {
+                                &label[..36]
+                            } else {
+                                label
+                            };
+                            ListItem::new(Line::from(Span::styled(
+                                format!(" {}", truncated),
+                                style,
+                            )))
+                        })
+                        .collect();
+
                     f.render_widget(List::new(items).block(block), rect);
                 }
             }
@@ -645,27 +837,47 @@ fn draw_status_bar(f: &mut Frame, app: &App, area: Rect) {
         String::new()
     };
 
-    let mode = Span::styled(" INSERT ", Style::default()
-        .fg(theme::BG).bg(theme::GREEN).add_modifier(Modifier::BOLD));
-    let file = Span::styled(format!(" {} ", tab.name),
-        Style::default().fg(theme::TEXT).bg(theme::STATUS_BG));
-    let git = Span::styled(git_branch.clone(),
-        Style::default().fg(theme::GREEN).bg(theme::STATUS_BG));
+    let mode = Span::styled(
+        " INSERT ",
+        Style::default()
+            .fg(theme::BG)
+            .bg(theme::GREEN)
+            .add_modifier(Modifier::BOLD),
+    );
+    let file = Span::styled(
+        format!(" {} ", tab.name),
+        Style::default().fg(theme::TEXT).bg(theme::STATUS_BG),
+    );
+    let git = Span::styled(
+        git_branch.clone(),
+        Style::default().fg(theme::GREEN).bg(theme::STATUS_BG),
+    );
     let pos = format!(" Ln {}, Col {} ", tab.cursor_row + 1, tab.cursor_col + 1);
     let pos_len = pos.len();
-    let pos_span = Span::styled(pos, Style::default().fg(theme::TEXT_DIM).bg(theme::STATUS_BG));
-    let status = Span::styled(format!(" {} ", app.status_msg),
-        Style::default().fg(theme::YELLOW).bg(theme::STATUS_BG));
+    let pos_span = Span::styled(
+        pos,
+        Style::default().fg(theme::TEXT_DIM).bg(theme::STATUS_BG),
+    );
+    let status = Span::styled(
+        format!(" {} ", app.status_msg),
+        Style::default().fg(theme::YELLOW).bg(theme::STATUS_BG),
+    );
 
     let shortcuts = " ^H Help │ ^O Folder │ ^P Fuzzy │ ^N Tabs ";
-    let sc = Span::styled(shortcuts, Style::default().fg(theme::TEXT_DIM).bg(theme::STATUS_BG));
+    let sc = Span::styled(
+        shortcuts,
+        Style::default().fg(theme::TEXT_DIM).bg(theme::STATUS_BG),
+    );
 
     let left = 8 + tab.name.len() + 2 + git_branch.len() + pos_len + app.status_msg.len() + 2;
     let gap = (area.width as usize).saturating_sub(left + shortcuts.len());
     let gap_span = Span::styled(" ".repeat(gap), Style::default().bg(theme::STATUS_BG));
 
     let line = Line::from(vec![mode, file, git, pos_span, status, gap_span, sc]);
-    f.render_widget(Paragraph::new(line).style(Style::default().bg(theme::STATUS_BG)), area);
+    f.render_widget(
+        Paragraph::new(line).style(Style::default().bg(theme::STATUS_BG)),
+        area,
+    );
 }
 
 // ─── Help overlay ───────────────────────────────────────────────────
@@ -687,7 +899,12 @@ fn draw_help_overlay(f: &mut Frame, size: Rect) {
 
     let s = |key: &str, desc: &str| -> Line<'static> {
         Line::from(vec![
-            Span::styled(format!("  {:10}", key), Style::default().fg(theme::ACCENT).add_modifier(Modifier::BOLD)),
+            Span::styled(
+                format!("  {:10}", key),
+                Style::default()
+                    .fg(theme::ACCENT)
+                    .add_modifier(Modifier::BOLD),
+            ),
             Span::styled(desc.to_string(), Style::default().fg(theme::TEXT)),
         ])
     };
@@ -706,31 +923,60 @@ fn draw_help_overlay(f: &mut Frame, size: Rect) {
         s("Ctrl+~ / J", "Toggle terminal"),
         s("Ctrl+P", "Fuzzy Finder (Files)"),
         Line::from(""),
-        Line::from(Span::styled("  ── Tabs ──", Style::default().fg(theme::YELLOW))),
+        Line::from(Span::styled(
+            "  ── Tabs ──",
+            Style::default().fg(theme::YELLOW),
+        )),
         s("Ctrl+N", "Next tab"),
         s("Ctrl+W", "Close tab"),
         s("Alt+←/→", "Switch tabs"),
         Line::from(""),
-        Line::from(Span::styled("  ── Editor ──", Style::default().fg(theme::YELLOW))),
+        Line::from(Span::styled(
+            "  ── Editor ──",
+            Style::default().fg(theme::YELLOW),
+        )),
         s("Arrows", "Move cursor"),
         s("Home/End", "Start / end of line"),
         s("Esc", "Focus explorer"),
         Line::from(""),
-        Line::from(Span::styled("  ── Terminal ──", Style::default().fg(theme::YELLOW))),
+        Line::from(Span::styled(
+            "  ── Terminal ──",
+            Style::default().fg(theme::YELLOW),
+        )),
         s("Ctrl+~ / J", "Toggle"),
         s("Shift+Up/Dn", "Scrollback"),
         Line::from(""),
-        Line::from(Span::styled("  ── LSP / IDE ──", Style::default().fg(theme::YELLOW))),
+        Line::from(Span::styled(
+            "  ── LSP / IDE ──",
+            Style::default().fg(theme::YELLOW),
+        )),
         s("Up/Dn/Ent", "Autocomplete (when active)"),
         s("Gutter 'E'", "Diagnostic markers"),
         Line::from(""),
-        Line::from(Span::styled("  ── Mouse ──", Style::default().fg(theme::YELLOW))),
-        Line::from(Span::styled("  Click editor / explorer / tabs", Style::default().fg(theme::TEXT))),
-        Line::from(Span::styled("  Middle-click tab to close it", Style::default().fg(theme::TEXT))),
-        Line::from(Span::styled("  Scroll wheel to scroll buffer", Style::default().fg(theme::TEXT))),
+        Line::from(Span::styled(
+            "  ── Mouse ──",
+            Style::default().fg(theme::YELLOW),
+        )),
+        Line::from(Span::styled(
+            "  Click editor / explorer / tabs",
+            Style::default().fg(theme::TEXT),
+        )),
+        Line::from(Span::styled(
+            "  Middle-click tab to close it",
+            Style::default().fg(theme::TEXT),
+        )),
+        Line::from(Span::styled(
+            "  Scroll wheel to scroll buffer",
+            Style::default().fg(theme::TEXT),
+        )),
     ];
 
-    f.render_widget(Paragraph::new(help_text).block(block).wrap(Wrap { trim: false }), area);
+    f.render_widget(
+        Paragraph::new(help_text)
+            .block(block)
+            .wrap(Wrap { trim: false }),
+        area,
+    );
 }
 
 // ─── Folder prompt ──────────────────────────────────────────────────
@@ -739,14 +985,24 @@ fn draw_folder_prompt(f: &mut Frame, app: &App, status_area: Rect) {
     let prompt_area = Rect::new(0, status_area.y, f.area().width, 1);
     f.render_widget(Clear, prompt_area);
 
-    let label = Span::styled(" Open Folder: ", Style::default()
-        .fg(theme::BG).bg(theme::ACCENT).add_modifier(Modifier::BOLD));
-    let input = Span::styled(&app.input_buffer, Style::default()
-        .fg(theme::TEXT).bg(theme::STATUS_BG));
+    let label = Span::styled(
+        " Open Folder: ",
+        Style::default()
+            .fg(theme::BG)
+            .bg(theme::ACCENT)
+            .add_modifier(Modifier::BOLD),
+    );
+    let input = Span::styled(
+        &app.input_buffer,
+        Style::default().fg(theme::TEXT).bg(theme::STATUS_BG),
+    );
     let pad_len = (prompt_area.width as usize).saturating_sub(14 + app.input_buffer.len());
     let pad = Span::styled(" ".repeat(pad_len), Style::default().bg(theme::STATUS_BG));
 
-    f.render_widget(Paragraph::new(Line::from(vec![label, input, pad])), prompt_area);
+    f.render_widget(
+        Paragraph::new(Line::from(vec![label, input, pad])),
+        prompt_area,
+    );
 
     let cx = 14 + app.input_cursor as u16;
     if cx < prompt_area.width {
@@ -775,24 +1031,41 @@ fn draw_theme_picker(f: &mut Frame, app: &App, size: Rect) -> crate::events::Mod
     let inner = block.inner(area);
     f.render_widget(block, area);
 
-    let items: Vec<ListItem> = app.theme_list.iter().enumerate().map(|(i, name)| {
-        let marker = if *name == app.current_theme { " ● " } else { "   " };
-        let style = if i == app.theme_selected {
-            Style::default().fg(theme::BG).bg(theme::ACCENT).add_modifier(Modifier::BOLD)
-        } else if *name == app.current_theme {
-            Style::default().fg(theme::GREEN)
-        } else {
-            Style::default().fg(theme::TEXT)
-        };
-        ListItem::new(Line::from(Span::styled(
-            format!("{}{}", marker, name), style,
-        )))
-    }).collect();
+    let items: Vec<ListItem> = app
+        .theme_list
+        .iter()
+        .enumerate()
+        .map(|(i, name)| {
+            let marker = if *name == app.current_theme {
+                " ● "
+            } else {
+                "   "
+            };
+            let style = if i == app.theme_selected {
+                Style::default()
+                    .fg(theme::BG)
+                    .bg(theme::ACCENT)
+                    .add_modifier(Modifier::BOLD)
+            } else if *name == app.current_theme {
+                Style::default().fg(theme::GREEN)
+            } else {
+                Style::default().fg(theme::TEXT)
+            };
+            ListItem::new(Line::from(Span::styled(
+                format!("{}{}", marker, name),
+                style,
+            )))
+        })
+        .collect();
 
     f.render_widget(List::new(items), inner);
 
     crate::events::ModalRect {
-        x: inner.x, y: inner.y, width: inner.width, height: inner.height, active: true,
+        x: inner.x,
+        y: inner.y,
+        width: inner.width,
+        height: inner.height,
+        active: true,
     }
 }
 
@@ -819,20 +1092,25 @@ fn draw_plugin_manager(f: &mut Frame, app: &App, size: Rect) {
 
     if app.plugin_info.is_empty() {
         let msg = Line::from(Span::styled(
-            "  No plugins found in plugins/", Style::default().fg(theme::TEXT_DIM),
+            "  No plugins found in plugins/",
+            Style::default().fg(theme::TEXT_DIM),
         ));
         f.render_widget(Paragraph::new(vec![Line::from(""), msg]), inner);
         return;
     }
 
-    let items: Vec<ListItem> = app.plugin_info.iter().map(|(name, loaded)| {
-        let status = if *loaded { "✓ Loaded" } else { "✗ Error" };
-        let status_color = if *loaded { theme::GREEN } else { theme::RED };
-        ListItem::new(Line::from(vec![
-            Span::styled(format!("  {:<28}", name), Style::default().fg(theme::TEXT)),
-            Span::styled(status.to_string(), Style::default().fg(status_color)),
-        ]))
-    }).collect();
+    let items: Vec<ListItem> = app
+        .plugin_info
+        .iter()
+        .map(|(name, loaded)| {
+            let status = if *loaded { "✓ Loaded" } else { "✗ Error" };
+            let status_color = if *loaded { theme::GREEN } else { theme::RED };
+            ListItem::new(Line::from(vec![
+                Span::styled(format!("  {:<28}", name), Style::default().fg(theme::TEXT)),
+                Span::styled(status.to_string(), Style::default().fg(status_color)),
+            ]))
+        })
+        .collect();
 
     f.render_widget(List::new(items), inner);
 }
@@ -843,15 +1121,21 @@ fn draw_terminal(f: &mut Frame, app: &App, area: Rect) {
     let block = Block::default()
         .title(" Terminal (Ctrl+~) ")
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(if app.focus == crate::app::Focus::Terminal { theme::BORDER_ACTIVE } else { theme::BORDER }))
+        .border_style(
+            Style::default().fg(if app.focus == crate::app::Focus::Terminal {
+                theme::BORDER_ACTIVE
+            } else {
+                theme::BORDER
+            }),
+        )
         .style(Style::default().bg(theme::BG));
-    
+
     let inner = block.inner(area);
     f.render_widget(block, area);
 
     let ts = &app.terminal;
     let mut lines = Vec::new();
-    
+
     // Compute visible range
     let max_lines = inner.height as usize;
     let start_idx = if ts.scroll_offset == 0 {
@@ -860,7 +1144,7 @@ fn draw_terminal(f: &mut Frame, app: &App, area: Rect) {
         ts.lines.len().saturating_sub(max_lines + ts.scroll_offset)
     };
     let end_idx = (start_idx + max_lines).min(ts.lines.len());
-    
+
     for i in start_idx..end_idx {
         if i < ts.lines.len() {
             let row = &ts.lines[i];
@@ -871,9 +1155,9 @@ fn draw_terminal(f: &mut Frame, app: &App, area: Rect) {
             lines.push(Line::from(spans));
         }
     }
-    
+
     f.render_widget(Paragraph::new(lines), inner);
-    
+
     if app.focus == crate::app::Focus::Terminal {
         let cursor_y = ts.cursor_y.saturating_sub(start_idx) as u16;
         let cursor_x = ts.cursor_x as u16;
@@ -908,20 +1192,30 @@ fn draw_fuzzy_finder(f: &mut Frame, app: &App, size: Rect) {
         .constraints([Constraint::Length(3), Constraint::Min(1)])
         .split(inner);
 
-    let input_block = Block::default().borders(Borders::BOTTOM).border_style(Style::default().fg(theme::BORDER));
+    let input_block = Block::default()
+        .borders(Borders::BOTTOM)
+        .border_style(Style::default().fg(theme::BORDER));
     let input = Paragraph::new(format!("> {}_", app.fuzzy_query))
         .style(Style::default().fg(theme::TEXT).bg(theme::OVERLAY_BG))
         .block(input_block);
     f.render_widget(input, chunks[0]);
 
-    let items: Vec<ListItem> = app.fuzzy_results.iter().enumerate().map(|(i, res)| {
-        let style = if i == app.fuzzy_selected {
-            Style::default().fg(theme::BG).bg(theme::GREEN).add_modifier(Modifier::BOLD)
-        } else {
-            Style::default().fg(theme::TEXT).bg(theme::OVERLAY_BG)
-        };
-        ListItem::new(Line::from(Span::styled(format!("  {}", res), style)))
-    }).collect();
+    let items: Vec<ListItem> = app
+        .fuzzy_results
+        .iter()
+        .enumerate()
+        .map(|(i, res)| {
+            let style = if i == app.fuzzy_selected {
+                Style::default()
+                    .fg(theme::BG)
+                    .bg(theme::GREEN)
+                    .add_modifier(Modifier::BOLD)
+            } else {
+                Style::default().fg(theme::TEXT).bg(theme::OVERLAY_BG)
+            };
+            ListItem::new(Line::from(Span::styled(format!("  {}", res), style)))
+        })
+        .collect();
 
     let list = List::new(items).highlight_style(Style::default().add_modifier(Modifier::BOLD));
     f.render_widget(list, chunks[1]);
@@ -945,22 +1239,32 @@ fn draw_settings_modal(f: &mut Frame, app: &App, size: Rect) {
 
     let items = vec![
         ("Tab Size", app.config.tab_size.to_string()),
-        ("Autosave Interval", format!("{}ms", app.config.autosave_interval_ms)),
+        (
+            "Autosave Interval",
+            format!("{}ms", app.config.autosave_interval_ms),
+        ),
         ("Show Explorer", app.config.show_explorer.to_string()),
         ("Current Theme", app.config.theme.clone()),
     ];
 
-    let list_items: Vec<ListItem> = items.into_iter().enumerate().map(|(i, (name, val))| {
-        let style = if i == app.settings_selected {
-            Style::default().fg(theme::BG).bg(theme::ACCENT).add_modifier(Modifier::BOLD)
-        } else {
-            Style::default().fg(theme::TEXT)
-        };
-        ListItem::new(Line::from(vec![
-            Span::styled(format!(" {:20}", name), style),
-            Span::styled(format!(": {}", val), Style::default().fg(theme::TEXT_DIM)),
-        ]))
-    }).collect();
+    let list_items: Vec<ListItem> = items
+        .into_iter()
+        .enumerate()
+        .map(|(i, (name, val))| {
+            let style = if i == app.settings_selected {
+                Style::default()
+                    .fg(theme::BG)
+                    .bg(theme::ACCENT)
+                    .add_modifier(Modifier::BOLD)
+            } else {
+                Style::default().fg(theme::TEXT)
+            };
+            ListItem::new(Line::from(vec![
+                Span::styled(format!(" {:20}", name), style),
+                Span::styled(format!(": {}", val), Style::default().fg(theme::TEXT_DIM)),
+            ]))
+        })
+        .collect();
 
     f.render_widget(List::new(list_items).block(block), area);
 }
@@ -995,7 +1299,11 @@ fn draw_generic_prompt(f: &mut Frame, app: &App, size: Rect) {
 // ─── AI Panel (Right Sidebar) ───────────────────────────────────────
 
 fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanelRect {
-    let bc = if app.focus == crate::app::Focus::AiChat { theme::BORDER_ACTIVE } else { theme::BORDER };
+    let bc = if app.focus == crate::app::Focus::AiChat {
+        theme::BORDER_ACTIVE
+    } else {
+        theme::BORDER
+    };
     let title = if app.ai_state.is_streaming {
         let dots = match app.ai_state.stream_tick % 4 {
             0 => "●○○",
@@ -1018,15 +1326,20 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
     f.render_widget(block, area);
 
     if inner.width < 5 || inner.height < 4 {
-        return crate::events::AiPanelRect { x: inner.x, y: inner.y, width: inner.width, height: inner.height };
+        return crate::events::AiPanelRect {
+            x: inner.x,
+            y: inner.y,
+            width: inner.width,
+            height: inner.height,
+        };
     }
 
     // Split: messages area + input area (3 lines)
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
-            Constraint::Min(1),     // chat messages
-            Constraint::Length(3),  // input field
+            Constraint::Min(1),    // chat messages
+            Constraint::Length(3), // input field
         ])
         .split(inner);
 
@@ -1041,7 +1354,9 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
         rendered_lines.push(Line::from(""));
         rendered_lines.push(Line::from(Span::styled(
             " ⚙ AI not configured",
-            Style::default().fg(theme::YELLOW).add_modifier(Modifier::BOLD),
+            Style::default()
+                .fg(theme::YELLOW)
+                .add_modifier(Modifier::BOLD),
         )));
         rendered_lines.push(Line::from(""));
         rendered_lines.push(Line::from(Span::styled(
@@ -1069,7 +1384,9 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
         rendered_lines.push(Line::from(""));
         rendered_lines.push(Line::from(Span::styled(
             " 🤖 AI Agent ready",
-            Style::default().fg(theme::ACCENT).add_modifier(Modifier::BOLD),
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
         )));
         rendered_lines.push(Line::from(""));
         rendered_lines.push(Line::from(Span::styled(
@@ -1104,7 +1421,9 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
                     rendered_lines.push(Line::from(""));
                     rendered_lines.push(Line::from(Span::styled(
                         " 👤 You",
-                        Style::default().fg(theme::ACCENT).add_modifier(Modifier::BOLD),
+                        Style::default()
+                            .fg(theme::ACCENT)
+                            .add_modifier(Modifier::BOLD),
                     )));
                     for line in wrap_text(text, content_w.saturating_sub(2)) {
                         rendered_lines.push(Line::from(Span::styled(
@@ -1117,13 +1436,19 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
                     rendered_lines.push(Line::from(""));
                     rendered_lines.push(Line::from(Span::styled(
                         " 🤖 Agent",
-                        Style::default().fg(theme::MAUVE).add_modifier(Modifier::BOLD),
+                        Style::default()
+                            .fg(theme::MAUVE)
+                            .add_modifier(Modifier::BOLD),
                     )));
                     render_markdown_lines(text, content_w.saturating_sub(2), &mut rendered_lines);
                 }
                 ai::DisplayMessage::ToolUse(exec) => {
                     let icon = if exec.success { "✓" } else { "✗" };
-                    let color = if exec.success { theme::GREEN } else { theme::RED };
+                    let color = if exec.success {
+                        theme::GREEN
+                    } else {
+                        theme::RED
+                    };
                     let tool_icon = match exec.tool_name.as_str() {
                         "read_file" => "📄",
                         "write_file" => "✏️",
@@ -1154,9 +1479,15 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
             rendered_lines.push(Line::from(""));
             rendered_lines.push(Line::from(Span::styled(
                 " 🤖 Agent",
-                Style::default().fg(theme::MAUVE).add_modifier(Modifier::BOLD),
+                Style::default()
+                    .fg(theme::MAUVE)
+                    .add_modifier(Modifier::BOLD),
             )));
-            render_markdown_lines(&app.ai_state.streaming_buffer, content_w.saturating_sub(2), &mut rendered_lines);
+            render_markdown_lines(
+                &app.ai_state.streaming_buffer,
+                content_w.saturating_sub(2),
+                &mut rendered_lines,
+            );
             // Blinking cursor
             rendered_lines.push(Line::from(Span::styled(
                 " █",
@@ -1182,10 +1513,7 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
     let max_scroll = total_lines.saturating_sub(vh);
     let scroll = app.ai_state.scroll_offset.min(max_scroll);
 
-    let visible: Vec<Line> = rendered_lines.into_iter()
-        .skip(scroll)
-        .take(vh)
-        .collect();
+    let visible: Vec<Line> = rendered_lines.into_iter().skip(scroll).take(vh).collect();
 
     f.render_widget(Paragraph::new(visible), messages_area);
 
@@ -1215,10 +1543,7 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
         Style::default().fg(theme::TEXT)
     };
 
-    f.render_widget(
-        Paragraph::new(prompt_text).style(input_style),
-        input_inner,
-    );
+    f.render_widget(Paragraph::new(prompt_text).style(input_style), input_inner);
 
     // Cursor in input
     if app.focus == crate::app::Focus::AiChat && !app.ai_state.is_streaming {
@@ -1229,7 +1554,12 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
         }
     }
 
-    crate::events::AiPanelRect { x: inner.x, y: inner.y, width: inner.width, height: inner.height }
+    crate::events::AiPanelRect {
+        x: inner.x,
+        y: inner.y,
+        width: inner.width,
+        height: inner.height,
+    }
 }
 
 /// Render markdown-ish text with code block highlighting into line buffer.
@@ -1268,8 +1598,12 @@ fn render_markdown_lines(text: &str, max_w: usize, lines: &mut Vec<Line<'static>
 
 /// Simple word-wrap for text.
 fn wrap_text(text: &str, max_w: usize) -> Vec<String> {
-    if max_w == 0 { return vec![text.to_string()]; }
-    if text.is_empty() { return vec![String::new()]; }
+    if max_w == 0 {
+        return vec![text.to_string()];
+    }
+    if text.is_empty() {
+        return vec![String::new()];
+    }
 
     let mut result = Vec::new();
     let mut current_line = String::new();
@@ -1295,5 +1629,9 @@ fn wrap_text(text: &str, max_w: usize) -> Vec<String> {
 }
 
 fn truncate_display(s: &str, max: usize) -> String {
-    if s.len() <= max { s.to_string() } else { format!("{}…", &s[..max]) }
+    if s.len() <= max {
+        s.to_string()
+    } else {
+        format!("{}…", &s[..max])
+    }
 }

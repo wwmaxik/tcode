@@ -1,6 +1,5 @@
 /// Plugin system for tcode — loads and executes .rhai scripts from a plugins/ directory.
-
-use rhai::{Dynamic, Engine, Scope, AST};
+use rhai::{AST, Dynamic, Engine, Scope};
 use std::cell::RefCell;
 use std::fs;
 use std::path::Path;
@@ -80,14 +79,18 @@ impl PluginEngine {
         if !dir.is_dir() {
             return;
         }
-        let Ok(entries) = fs::read_dir(dir) else { return };
+        let Ok(entries) = fs::read_dir(dir) else {
+            return;
+        };
 
         for entry in entries.flatten() {
             let path = entry.path();
             if path.extension().and_then(|e| e.to_str()) != Some("rhai") {
                 continue;
             }
-            let Ok(source) = fs::read_to_string(&path) else { continue };
+            let Ok(source) = fs::read_to_string(&path) else {
+                continue;
+            };
             match self.engine.compile(&source) {
                 Ok(ast) => {
                     let name = path
@@ -96,8 +99,12 @@ impl PluginEngine {
                         .unwrap_or_default();
                     let has_on_init = source.contains("fn on_init(");
                     let has_on_save = source.contains("fn on_save(");
-                    self.plugins
-                        .push(LoadedPlugin { name, ast, has_on_init, has_on_save });
+                    self.plugins.push(LoadedPlugin {
+                        name,
+                        ast,
+                        has_on_init,
+                        has_on_save,
+                    });
                 }
                 Err(e) => {
                     eprintln!("Plugin compile error {}: {}", path.display(), e);
@@ -148,7 +155,10 @@ impl PluginEngine {
             }
             let (api, cmds) = Self::make_api(app);
             let mut scope = Scope::new();
-            match self.engine.call_fn::<Dynamic>(&mut scope, &plugin.ast, hook_name, (api,)) {
+            match self
+                .engine
+                .call_fn::<Dynamic>(&mut scope, &plugin.ast, hook_name, (api,))
+            {
                 Ok(_) => {}
                 Err(e) => {
                     app.status_msg = format!("Plugin '{}': {}", plugin.name, e);

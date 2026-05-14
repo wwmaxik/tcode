@@ -45,7 +45,7 @@ impl LspClient {
 
         let mut stdin = child.stdin.take().unwrap();
         let mut stdout = BufReader::new(child.stdout.take().unwrap());
-        
+
         let (msg_tx, msg_rx) = mpsc::channel(100);
         let (req_tx, mut req_rx) = mpsc::channel::<String>(100);
 
@@ -56,12 +56,15 @@ impl LspClient {
                 if stdout.read_line(&mut header).await.unwrap_or(0usize) == 0 {
                     break;
                 }
-                
+
                 let mut content_length = 0;
                 if header.starts_with("Content-Length: ") {
-                    content_length = header["Content-Length: ".len()..].trim().parse().unwrap_or(0);
+                    content_length = header["Content-Length: ".len()..]
+                        .trim()
+                        .parse()
+                        .unwrap_or(0);
                 }
-                
+
                 // Read headers until empty line
                 loop {
                     let mut line = String::new();
@@ -70,7 +73,8 @@ impl LspClient {
                         break;
                     }
                     if line.starts_with("Content-Length: ") {
-                        content_length = line["Content-Length: ".len()..].trim().parse().unwrap_or(0);
+                        content_length =
+                            line["Content-Length: ".len()..].trim().parse().unwrap_or(0);
                     }
                 }
 
@@ -80,7 +84,6 @@ impl LspClient {
                         break;
                     }
                     if let Ok(payload) = serde_json::from_slice::<Value>(&buf) {
-                        
                         if payload.get("id").is_some() && payload.get("method").is_some() {
                             // Request from server, typically ignore for MVP
                         } else if payload.get("id").is_some() {
@@ -174,7 +177,10 @@ impl LspClient {
                 text,
             },
         };
-        self.send_notification("textDocument/didOpen", serde_json::to_value(params).unwrap());
+        self.send_notification(
+            "textDocument/didOpen",
+            serde_json::to_value(params).unwrap(),
+        );
     }
 
     pub fn did_change(&self, url: url::Url, text: String, version: i32) {
@@ -187,9 +193,12 @@ impl LspClient {
                 text,
             }],
         };
-        self.send_notification("textDocument/didChange", serde_json::to_value(params).unwrap());
+        self.send_notification(
+            "textDocument/didChange",
+            serde_json::to_value(params).unwrap(),
+        );
     }
-    
+
     pub fn completion(&mut self, url: url::Url, line: u32, character: u32) -> i64 {
         let uri = lsp_types::Uri::from_str(&url.to_string()).unwrap();
         let params = CompletionParams {
@@ -201,7 +210,10 @@ impl LspClient {
             partial_result_params: Default::default(),
             context: None,
         };
-        self.send_request("textDocument/completion", serde_json::to_value(params).unwrap())
+        self.send_request(
+            "textDocument/completion",
+            serde_json::to_value(params).unwrap(),
+        )
     }
 
     pub fn definition(&mut self, uri: lsp_types::Uri, line: u32, character: u32) -> i64 {
@@ -213,6 +225,9 @@ impl LspClient {
             work_done_progress_params: WorkDoneProgressParams::default(),
             partial_result_params: PartialResultParams::default(),
         };
-        self.send_request("textDocument/definition", serde_json::to_value(params).unwrap())
+        self.send_request(
+            "textDocument/definition",
+            serde_json::to_value(params).unwrap(),
+        )
     }
 }

@@ -9,8 +9,11 @@ pub fn scan_directory(dir: &Path) -> Vec<String> {
             for entry in entries.flatten() {
                 let path = entry.path();
                 let file_name = path.file_name().unwrap_or_default().to_string_lossy();
-                
-                if file_name.starts_with('.') || file_name == "target" || file_name == "node_modules" {
+
+                if file_name.starts_with('.')
+                    || file_name == "target"
+                    || file_name == "node_modules"
+                {
                     continue;
                 }
 
@@ -41,7 +44,11 @@ pub fn match_files(query: &str, files: Vec<String>) -> Vec<String> {
             query,
             nucleo::pattern::CaseMatching::Ignore,
             nucleo::pattern::Normalization::Smart,
-        ).score(nucleo::Utf32Str::new(file.as_str(), &mut scratch), &mut matcher) {
+        )
+        .score(
+            nucleo::Utf32Str::new(file.as_str(), &mut scratch),
+            &mut matcher,
+        ) {
             matches.push((score, file));
         }
     }

@@ -7,7 +7,6 @@
 /// - List directory contents
 ///
 /// Uses OpenAI-compatible function calling API.
-
 use serde::{Deserialize, Serialize};
 use std::sync::mpsc;
 
@@ -72,19 +71,44 @@ pub struct FunctionCall {
 
 impl ChatMessage {
     pub fn system(content: &str) -> Self {
-        Self { role: "system".into(), content: Some(content.into()), tool_calls: None, tool_call_id: None }
+        Self {
+            role: "system".into(),
+            content: Some(content.into()),
+            tool_calls: None,
+            tool_call_id: None,
+        }
     }
     pub fn user(content: &str) -> Self {
-        Self { role: "user".into(), content: Some(content.into()), tool_calls: None, tool_call_id: None }
+        Self {
+            role: "user".into(),
+            content: Some(content.into()),
+            tool_calls: None,
+            tool_call_id: None,
+        }
     }
     pub fn assistant(content: &str) -> Self {
-        Self { role: "assistant".into(), content: Some(content.into()), tool_calls: None, tool_call_id: None }
+        Self {
+            role: "assistant".into(),
+            content: Some(content.into()),
+            tool_calls: None,
+            tool_call_id: None,
+        }
     }
     pub fn assistant_tool_calls(tool_calls: Vec<ToolCall>) -> Self {
-        Self { role: "assistant".into(), content: None, tool_calls: Some(tool_calls), tool_call_id: None }
+        Self {
+            role: "assistant".into(),
+            content: None,
+            tool_calls: Some(tool_calls),
+            tool_call_id: None,
+        }
     }
     pub fn tool_result(tool_call_id: &str, content: &str) -> Self {
-        Self { role: "tool".into(), content: Some(content.into()), tool_calls: None, tool_call_id: Some(tool_call_id.into()) }
+        Self {
+            role: "tool".into(),
+            content: Some(content.into()),
+            tool_calls: None,
+            tool_call_id: Some(tool_call_id.into()),
+        }
     }
 }
 
@@ -178,8 +202,13 @@ pub struct ToolExecution {
     pub success: bool,
 }
 
-async fn execute_tool(name: &str, arguments: &str, cwd: &std::path::Path) -> (String, ToolExecution) {
-    let args: serde_json::Value = serde_json::from_str(arguments).unwrap_or(serde_json::Value::Null);
+async fn execute_tool(
+    name: &str,
+    arguments: &str,
+    cwd: &std::path::Path,
+) -> (String, ToolExecution) {
+    let args: serde_json::Value =
+        serde_json::from_str(arguments).unwrap_or(serde_json::Value::Null);
 
     match name {
         "read_file" => {
@@ -236,7 +265,10 @@ async fn execute_tool(name: &str, arguments: &str, cwd: &std::path::Path) -> (St
                         result_summary: format!("✓ Wrote {} lines", lines),
                         success: true,
                     };
-                    (format!("Successfully wrote {} lines to {}", lines, path_str), exec)
+                    (
+                        format!("Successfully wrote {} lines to {}", lines, path_str),
+                        exec,
+                    )
                 }
                 Err(e) => {
                     let exec = ToolExecution {
@@ -273,7 +305,11 @@ async fn execute_tool(name: &str, arguments: &str, cwd: &std::path::Path) -> (St
                     let exec = ToolExecution {
                         tool_name: "run_command".into(),
                         arguments_summary: truncate_str(cmd, 60),
-                        result_summary: format!("{} exit code {}", if success { "✓" } else { "✗" }, exit_code),
+                        result_summary: format!(
+                            "{} exit code {}",
+                            if success { "✓" } else { "✗" },
+                            exit_code
+                        ),
                         success,
                     };
                     (combined, exec)
@@ -527,7 +563,10 @@ pub fn run_agent(
                 }
             };
 
-            let finish_reason = choice.get("finish_reason").and_then(|v| v.as_str()).unwrap_or("");
+            let finish_reason = choice
+                .get("finish_reason")
+                .and_then(|v| v.as_str())
+                .unwrap_or("");
             let message = match choice.get("message") {
                 Some(m) => m,
                 None => {
@@ -541,29 +580,43 @@ pub fn run_agent(
             if finish_reason == "tool_calls" || message.get("tool_calls").is_some() {
                 if let Some(tool_calls) = message.get("tool_calls").and_then(|v| v.as_array()) {
                     // Add the assistant message with tool_calls to history
-                    let tc_parsed: Vec<ToolCall> = tool_calls.iter().filter_map(|tc| {
-                        Some(ToolCall {
-                            id: tc.get("id")?.as_str()?.to_string(),
-                            call_type: tc.get("type").and_then(|v| v.as_str()).unwrap_or("function").to_string(),
-                            function: FunctionCall {
-                                name: tc.get("function")?.get("name")?.as_str()?.to_string(),
-                                arguments: tc.get("function")?.get("arguments")?.as_str()?.to_string(),
-                            },
+                    let tc_parsed: Vec<ToolCall> = tool_calls
+                        .iter()
+                        .filter_map(|tc| {
+                            Some(ToolCall {
+                                id: tc.get("id")?.as_str()?.to_string(),
+                                call_type: tc
+                                    .get("type")
+                                    .and_then(|v| v.as_str())
+                                    .unwrap_or("function")
+                                    .to_string(),
+                                function: FunctionCall {
+                                    name: tc.get("function")?.get("name")?.as_str()?.to_string(),
+                                    arguments: tc
+                                        .get("function")?
+                                        .get("arguments")?
+                                        .as_str()?
+                                        .to_string(),
+                                },
+                            })
                         })
-                    }).collect();
+                        .collect();
 
                     current_messages.push(ChatMessage::assistant_tool_calls(tc_parsed.clone()));
 
                     // Execute each tool call
                     for tc in &tc_parsed {
-                        let (result, exec) = execute_tool(&tc.function.name, &tc.function.arguments, &cwd).await;
+                        let (result, exec) =
+                            execute_tool(&tc.function.name, &tc.function.arguments, &cwd).await;
 
                         // Notify UI about the tool execution
                         let _ = tx.send(AiEvent::ToolUse(exec));
 
                         // If file was modified, notify UI to refresh
                         if tc.function.name == "write_file" {
-                            if let Ok(args) = serde_json::from_str::<serde_json::Value>(&tc.function.arguments) {
+                            if let Ok(args) =
+                                serde_json::from_str::<serde_json::Value>(&tc.function.arguments)
+                            {
                                 if let Some(path) = args.get("path").and_then(|v| v.as_str()) {
                                     let _ = tx.send(AiEvent::FileModified(path.to_string()));
                                 }
@@ -596,7 +649,9 @@ pub fn run_agent(
         }
 
         // If we hit the iteration limit
-        let _ = tx.send(AiEvent::Error("Agent reached max iteration limit (15)".into()));
+        let _ = tx.send(AiEvent::Error(
+            "Agent reached max iteration limit (15)".into(),
+        ));
         let _ = tx.send(AiEvent::Done);
     });
 }
