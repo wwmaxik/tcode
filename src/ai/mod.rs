@@ -417,7 +417,6 @@ pub struct AiState {
     pub stream_tick: u8,
 }
 
-
 impl AiState {
     /// Extract code blocks from the last assistant message.
     pub fn extract_last_code_block(&self) -> Option<String> {
@@ -565,55 +564,57 @@ pub fn run_agent(
 
             // Check if the model wants to call tools
             if (finish_reason == "tool_calls" || message.get("tool_calls").is_some())
-                && let Some(tool_calls) = message.get("tool_calls").and_then(|v| v.as_array()) {
-                    // Add the assistant message with tool_calls to history
-                    let tc_parsed: Vec<ToolCall> = tool_calls
-                        .iter()
-                        .filter_map(|tc| {
-                            Some(ToolCall {
-                                id: tc.get("id")?.as_str()?.to_string(),
-                                call_type: tc
-                                    .get("type")
-                                    .and_then(|v| v.as_str())
-                                    .unwrap_or("function")
+                && let Some(tool_calls) = message.get("tool_calls").and_then(|v| v.as_array())
+            {
+                // Add the assistant message with tool_calls to history
+                let tc_parsed: Vec<ToolCall> = tool_calls
+                    .iter()
+                    .filter_map(|tc| {
+                        Some(ToolCall {
+                            id: tc.get("id")?.as_str()?.to_string(),
+                            call_type: tc
+                                .get("type")
+                                .and_then(|v| v.as_str())
+                                .unwrap_or("function")
+                                .to_string(),
+                            function: FunctionCall {
+                                name: tc.get("function")?.get("name")?.as_str()?.to_string(),
+                                arguments: tc
+                                    .get("function")?
+                                    .get("arguments")?
+                                    .as_str()?
                                     .to_string(),
-                                function: FunctionCall {
-                                    name: tc.get("function")?.get("name")?.as_str()?.to_string(),
-                                    arguments: tc
-                                        .get("function")?
-                                        .get("arguments")?
-                                        .as_str()?
-                                        .to_string(),
-                                },
-                            })
+                            },
                         })
-                        .collect();
+                    })
+                    .collect();
 
-                    current_messages.push(ChatMessage::assistant_tool_calls(tc_parsed.clone()));
+                current_messages.push(ChatMessage::assistant_tool_calls(tc_parsed.clone()));
 
-                    // Execute each tool call
-                    for tc in &tc_parsed {
-                        let (result, exec) =
-                            execute_tool(&tc.function.name, &tc.function.arguments, &cwd).await;
+                // Execute each tool call
+                for tc in &tc_parsed {
+                    let (result, exec) =
+                        execute_tool(&tc.function.name, &tc.function.arguments, &cwd).await;
 
-                        // Notify UI about the tool execution
-                        let _ = tx.send(AiEvent::ToolUse(exec));
+                    // Notify UI about the tool execution
+                    let _ = tx.send(AiEvent::ToolUse(exec));
 
-                        // If file was modified, notify UI to refresh
-                        if tc.function.name == "write_file"
-                            && let Ok(args) =
-                                serde_json::from_str::<serde_json::Value>(&tc.function.arguments)
-                                && let Some(path) = args.get("path").and_then(|v| v.as_str()) {
-                                    let _ = tx.send(AiEvent::FileModified(path.to_string()));
-                                }
-
-                        // Add tool result to messages
-                        current_messages.push(ChatMessage::tool_result(&tc.id, &result));
+                    // If file was modified, notify UI to refresh
+                    if tc.function.name == "write_file"
+                        && let Ok(args) =
+                            serde_json::from_str::<serde_json::Value>(&tc.function.arguments)
+                        && let Some(path) = args.get("path").and_then(|v| v.as_str())
+                    {
+                        let _ = tx.send(AiEvent::FileModified(path.to_string()));
                     }
 
-                    // Continue the loop — the model will process tool results
-                    continue;
+                    // Add tool result to messages
+                    current_messages.push(ChatMessage::tool_result(&tc.id, &result));
                 }
+
+                // Continue the loop — the model will process tool results
+                continue;
+            }
 
             // No tool calls — this is the final text response
             if let Some(content) = message.get("content").and_then(|v| v.as_str()) {

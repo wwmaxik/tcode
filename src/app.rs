@@ -96,55 +96,53 @@ impl Tab {
     pub fn update_git_marks(&mut self, repo: Option<&git2::Repository>, cwd: &Path) {
         if let Some(repo) = repo
             && let Some(path) = &self.file_path
-                && let Ok(rel_path) = path.strip_prefix(cwd) {
-                    let mut original_content = Vec::new();
-                    if let Ok(head) = repo.head()
-                        && let Ok(tree) = head.peel_to_tree()
-                            && let Ok(entry) = tree.get_path(rel_path)
-                                && let Ok(obj) = entry.to_object(repo)
-                                    && let Some(blob) = obj.as_blob() {
-                                        original_content = blob.content().to_vec();
-                                    }
+            && let Ok(rel_path) = path.strip_prefix(cwd)
+        {
+            let mut original_content = Vec::new();
+            if let Ok(head) = repo.head()
+                && let Ok(tree) = head.peel_to_tree()
+                && let Ok(entry) = tree.get_path(rel_path)
+                && let Ok(obj) = entry.to_object(repo)
+                && let Some(blob) = obj.as_blob()
+            {
+                original_content = blob.content().to_vec();
+            }
 
-                    let current_content = self.lines.join("\n").into_bytes();
-                    if let Ok(patch) = git2::Patch::from_buffers(
-                        &original_content,
-                        None,
-                        &current_content,
-                        None,
-                        None,
-                    ) {
-                        let mut marks = vec![None; self.lines.len()];
-                        for h in 0..patch.num_hunks() {
-                            if let Ok((hunk, _)) = patch.hunk(h) {
-                                let old_lines = hunk.old_lines();
-                                let new_lines = hunk.new_lines();
-                                let new_start = hunk.new_start() as usize;
+            let current_content = self.lines.join("\n").into_bytes();
+            if let Ok(patch) =
+                git2::Patch::from_buffers(&original_content, None, &current_content, None, None)
+            {
+                let mut marks = vec![None; self.lines.len()];
+                for h in 0..patch.num_hunks() {
+                    if let Ok((hunk, _)) = patch.hunk(h) {
+                        let old_lines = hunk.old_lines();
+                        let new_lines = hunk.new_lines();
+                        let new_start = hunk.new_start() as usize;
 
-                                if old_lines > 0 && new_lines > 0 {
-                                    for i in 0..new_lines as usize {
-                                        if new_start + i > 0 && new_start + i - 1 < marks.len() {
-                                            marks[new_start + i - 1] = Some('~');
-                                        }
-                                    }
-                                } else if old_lines == 0 && new_lines > 0 {
-                                    for i in 0..new_lines as usize {
-                                        if new_start + i > 0 && new_start + i - 1 < marks.len() {
-                                            marks[new_start + i - 1] = Some('+');
-                                        }
-                                    }
-                                } else if new_lines == 0 && old_lines > 0 {
-                                    if new_start > 0 && new_start - 1 < marks.len() {
-                                        marks[new_start - 1] = Some('|');
-                                    } else if !marks.is_empty() {
-                                        marks[0] = Some('|');
-                                    }
+                        if old_lines > 0 && new_lines > 0 {
+                            for i in 0..new_lines as usize {
+                                if new_start + i > 0 && new_start + i - 1 < marks.len() {
+                                    marks[new_start + i - 1] = Some('~');
                                 }
                             }
+                        } else if old_lines == 0 && new_lines > 0 {
+                            for i in 0..new_lines as usize {
+                                if new_start + i > 0 && new_start + i - 1 < marks.len() {
+                                    marks[new_start + i - 1] = Some('+');
+                                }
+                            }
+                        } else if new_lines == 0 && old_lines > 0 {
+                            if new_start > 0 && new_start - 1 < marks.len() {
+                                marks[new_start - 1] = Some('|');
+                            } else if !marks.is_empty() {
+                                marks[0] = Some('|');
+                            }
                         }
-                        self.git_marks = marks;
                     }
                 }
+                self.git_marks = marks;
+            }
+        }
     }
 }
 
@@ -338,13 +336,14 @@ impl App {
     pub fn save_all(&mut self) {
         for tab in &mut self.tabs {
             if tab.dirty
-                && let Some(path) = &tab.file_path {
-                    let content = tab.lines.join("\n");
-                    if std::fs::write(path, content).is_ok() {
-                        tab.dirty = false;
-                        self.just_saved = true;
-                    }
+                && let Some(path) = &tab.file_path
+            {
+                let content = tab.lines.join("\n");
+                if std::fs::write(path, content).is_ok() {
+                    tab.dirty = false;
+                    self.just_saved = true;
                 }
+            }
         }
     }
 
@@ -388,38 +387,39 @@ impl App {
 
     pub fn apply_completion(&mut self) {
         if let Some(completions) = self.lsp_completions.take()
-            && self.lsp_completion_selected < completions.len() {
-                let item = &completions[self.lsp_completion_selected];
-                let text_to_insert = item
-                    .insert_text
-                    .clone()
-                    .unwrap_or_else(|| item.label.clone());
+            && self.lsp_completion_selected < completions.len()
+        {
+            let item = &completions[self.lsp_completion_selected];
+            let text_to_insert = item
+                .insert_text
+                .clone()
+                .unwrap_or_else(|| item.label.clone());
 
-                let t = &mut self.tabs[self.active_tab];
-                // Simple MVP: backspace until we hit a non-alphanumeric char
-                while t.cursor_col > 0 {
-                    let prev_idx = t.lines[t.cursor_row][..t.cursor_col]
-                        .char_indices()
-                        .last()
-                        .map(|(i, _)| i)
-                        .unwrap_or(0);
-                    let ch = t.lines[t.cursor_row][prev_idx..].chars().next().unwrap();
-                    if ch.is_alphanumeric() || ch == '_' {
-                        t.lines[t.cursor_row].remove(prev_idx);
-                        t.cursor_col = prev_idx;
-                    } else {
-                        break;
-                    }
+            let t = &mut self.tabs[self.active_tab];
+            // Simple MVP: backspace until we hit a non-alphanumeric char
+            while t.cursor_col > 0 {
+                let prev_idx = t.lines[t.cursor_row][..t.cursor_col]
+                    .char_indices()
+                    .last()
+                    .map(|(i, _)| i)
+                    .unwrap_or(0);
+                let ch = t.lines[t.cursor_row][prev_idx..].chars().next().unwrap();
+                if ch.is_alphanumeric() || ch == '_' {
+                    t.lines[t.cursor_row].remove(prev_idx);
+                    t.cursor_col = prev_idx;
+                } else {
+                    break;
                 }
-
-                for ch in text_to_insert.chars() {
-                    t.lines[t.cursor_row].insert(t.cursor_col, ch);
-                    t.cursor_col += ch.len_utf8();
-                }
-                t.dirty = true;
-                t.text_version += 1;
-                self.sync_lsp_active_tab();
             }
+
+            for ch in text_to_insert.chars() {
+                t.lines[t.cursor_row].insert(t.cursor_col, ch);
+                t.cursor_col += ch.len_utf8();
+            }
+            t.dirty = true;
+            t.text_version += 1;
+            self.sync_lsp_active_tab();
+        }
         self.lsp_completion_selected = 0;
     }
 

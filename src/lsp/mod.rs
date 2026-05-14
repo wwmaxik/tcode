@@ -58,11 +58,8 @@ impl LspClient {
                 }
 
                 let mut content_length = 0;
-                if header.starts_with("Content-Length: ") {
-                    content_length = header["Content-Length: ".len()..]
-                        .trim()
-                        .parse()
-                        .unwrap_or(0);
+                if let Some(stripped) = header.strip_prefix("Content-Length: ") {
+                    content_length = stripped.trim().parse().unwrap_or(0);
                 }
 
                 // Read headers until empty line

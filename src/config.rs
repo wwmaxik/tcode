@@ -35,9 +35,10 @@ impl Config {
     pub fn load() -> Self {
         let path = Self::config_path();
         if let Ok(content) = fs::read_to_string(&path)
-            && let Ok(config) = toml::from_str(&content) {
-                return config;
-            }
+            && let Ok(config) = toml::from_str(&content)
+        {
+            return config;
+        }
         let default_config = Self::default();
         default_config.save();
         default_config
@@ -67,9 +68,10 @@ impl Session {
     pub fn load() -> Self {
         let path = Self::session_path();
         if let Ok(content) = fs::read_to_string(&path)
-            && let Ok(session) = serde_json::from_str(&content) {
-                return session;
-            }
+            && let Ok(session) = serde_json::from_str(&content)
+        {
+            return session;
+        }
         Self::default()
     }
 

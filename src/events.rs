@@ -347,36 +347,37 @@ fn handle_key(app: &mut App, key: KeyEvent, rects: UiRects) {
 
     // ── Autocomplete Menu ──
     if let Some(completions) = &app.lsp_completions
-        && !completions.is_empty() {
-            match key.code {
-                KeyCode::Up => {
-                    if app.lsp_completion_selected > 0 {
-                        app.lsp_completion_selected -= 1;
-                    }
-                    return;
+        && !completions.is_empty()
+    {
+        match key.code {
+            KeyCode::Up => {
+                if app.lsp_completion_selected > 0 {
+                    app.lsp_completion_selected -= 1;
                 }
-                KeyCode::Down => {
-                    if app.lsp_completion_selected + 1 < completions.len() {
-                        app.lsp_completion_selected += 1;
-                    }
-                    return;
+                return;
+            }
+            KeyCode::Down => {
+                if app.lsp_completion_selected + 1 < completions.len() {
+                    app.lsp_completion_selected += 1;
                 }
-                KeyCode::Enter => {
-                    app.apply_completion();
-                    return;
-                }
-                KeyCode::Esc => {
-                    app.lsp_completions = None;
-                    return;
-                }
-                _ => {
-                    // Let typing continue, but dismiss completions unless it's a typed char?
-                    // Actually, if they type, we should just dismiss the old completions
-                    // and wait for the new one from did_change.
-                    app.lsp_completions = None;
-                }
+                return;
+            }
+            KeyCode::Enter => {
+                app.apply_completion();
+                return;
+            }
+            KeyCode::Esc => {
+                app.lsp_completions = None;
+                return;
+            }
+            _ => {
+                // Let typing continue, but dismiss completions unless it's a typed char?
+                // Actually, if they type, we should just dismiss the old completions
+                // and wait for the new one from did_change.
+                app.lsp_completions = None;
             }
         }
+    }
 
     // ── Normal editor keys ──
     let has_shift = key.modifiers.contains(KeyModifiers::SHIFT);
@@ -569,17 +570,20 @@ fn handle_mouse(app: &mut App, mouse: MouseEvent, rects: UiRects) {
         MouseEventKind::Up(MouseButton::Left) => {
             if let Some(t) = app.get_active_tab_mut()
                 && let Some(start) = t.selection_start
-                    && start == (t.cursor_row, t.cursor_col) {
-                        t.selection_start = None;
-                    }
+                && start == (t.cursor_row, t.cursor_col)
+            {
+                t.selection_start = None;
+            }
         }
 
         // ── Middle-click on tab bar → close that tab ──
         MouseEventKind::Down(MouseButton::Middle) => {
-            if row >= rects.tab_bar.y && row < rects.tab_bar.y + rects.tab_bar.height
-                && let Some(idx) = tab_index_at(app, col) {
-                    app.close_tab_at(idx);
-                }
+            if row >= rects.tab_bar.y
+                && row < rects.tab_bar.y + rects.tab_bar.height
+                && let Some(idx) = tab_index_at(app, col)
+            {
+                app.close_tab_at(idx);
+            }
         }
 
         MouseEventKind::ScrollUp => app.scroll_up(3),

@@ -103,7 +103,7 @@ impl Perform for TerminalState {
                     return;
                 }
                 for param in params {
-                    let mut iter = param.iter();
+                    let iter = param.iter();
                     for &code in iter {
                         match code {
                             0 => self.current_style = Style::default(),

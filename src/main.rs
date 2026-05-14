@@ -107,9 +107,9 @@ async fn main() -> io::Result<()> {
                     if method == "textDocument/publishDiagnostics"
                         && let Ok(params) =
                             serde_json::from_value::<lsp_types::PublishDiagnosticsParams>(params)
-                        {
-                            app.lsp_diagnostics = params.diagnostics;
-                        }
+                    {
+                        app.lsp_diagnostics = params.diagnostics;
+                    }
                 }
                 lsp::LspMessage::Response(id, result) => {
                     if id == 1 {
@@ -198,14 +198,15 @@ async fn main() -> io::Result<()> {
                         // Reload the file if it's already open in a tab
                         for tab in &mut app.tabs {
                             if tab.file_path.as_deref() == Some(full_path.as_path())
-                                && let Ok(content) = std::fs::read_to_string(&full_path) {
-                                    tab.lines = content.lines().map(String::from).collect();
-                                    if tab.lines.is_empty() {
-                                        tab.lines.push(String::new());
-                                    }
-                                    tab.dirty = false;
-                                    tab.text_version += 1;
+                                && let Ok(content) = std::fs::read_to_string(&full_path)
+                            {
+                                tab.lines = content.lines().map(String::from).collect();
+                                if tab.lines.is_empty() {
+                                    tab.lines.push(String::new());
                                 }
+                                tab.dirty = false;
+                                tab.text_version += 1;
+                            }
                         }
                         app.status_msg = format!("AI: Modified {}", path);
                     }

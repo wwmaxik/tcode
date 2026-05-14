@@ -702,9 +702,10 @@ fn draw_editor(
                                 absolute_col,
                                 sel_start,
                                 (tab.cursor_row, tab.cursor_col),
-                            ) {
-                                final_style = final_style.bg(theme::ACCENT).fg(theme::BG);
-                            }
+                            )
+                        {
+                            final_style = final_style.bg(theme::ACCENT).fg(theme::BG);
+                        }
                         spans.push(Span::styled(ch.to_string(), final_style));
                     }
                     col_offset += text_len;
@@ -741,72 +742,67 @@ fn draw_editor(
     }
 
     // ── Autocomplete Modal ──
-    if app.focus == crate::app::Focus::Editor && app.input_mode == InputMode::Editing
+    if app.focus == crate::app::Focus::Editor
+        && app.input_mode == InputMode::Editing
         && let Some(completions) = &app.lsp_completions
-            && !completions.is_empty() {
-                let max_w = 40u16;
-                let max_h = 10u16;
-                let items_len = completions.len() as u16;
-                let h = items_len.min(max_h) + 2;
+        && !completions.is_empty()
+    {
+        let max_w = 40u16;
+        let max_h = 10u16;
+        let items_len = completions.len() as u16;
+        let h = items_len.min(max_h) + 2;
 
-                let cr = tab.cursor_row as i64 - tab.scroll_offset as i64;
-                let cc = tab.cursor_col as i64 - tab.scroll_x as i64;
+        let cr = tab.cursor_row as i64 - tab.scroll_offset as i64;
+        let cc = tab.cursor_col as i64 - tab.scroll_x as i64;
 
-                if cr >= 0
-                    && (cr as u16) < text_area.height
-                    && cc >= 0
-                    && (cc as u16) < text_area.width
-                {
-                    let mut cx = text_area.x + cc as u16;
-                    let mut cy = text_area.y + cr as u16 + 1;
+        if cr >= 0 && (cr as u16) < text_area.height && cc >= 0 && (cc as u16) < text_area.width {
+            let mut cx = text_area.x + cc as u16;
+            let mut cy = text_area.y + cr as u16 + 1;
 
-                    if cx + max_w > text_area.right() {
-                        cx = text_area.right().saturating_sub(max_w);
-                    }
-                    if cy + h > text_area.bottom() {
-                        cy = text_area.y + (cr as u16).saturating_sub(h);
-                    }
-
-                    let rect = Rect::new(cx, cy, max_w, h);
-                    f.render_widget(Clear, rect);
-                    let block = Block::default()
-                        .borders(Borders::ALL)
-                        .border_style(Style::default().fg(theme::BORDER_ACTIVE))
-                        .style(Style::default().bg(theme::OVERLAY_BG));
-
-                    let scroll = app
-                        .lsp_completion_selected
-                        .saturating_sub((max_h / 2) as usize);
-                    let items: Vec<ListItem> = completions
-                        .iter()
-                        .enumerate()
-                        .skip(scroll)
-                        .take(max_h as usize)
-                        .map(|(i, c)| {
-                            let style = if i == app.lsp_completion_selected {
-                                Style::default()
-                                    .fg(theme::BG)
-                                    .bg(theme::ACCENT)
-                                    .add_modifier(Modifier::BOLD)
-                            } else {
-                                Style::default().fg(theme::TEXT)
-                            };
-                            let label = c.label.as_str();
-                            let truncated = if label.len() > 36 {
-                                &label[..36]
-                            } else {
-                                label
-                            };
-                            ListItem::new(Line::from(Span::styled(
-                                format!(" {}", truncated),
-                                style,
-                            )))
-                        })
-                        .collect();
-
-                    f.render_widget(List::new(items).block(block), rect);
-                }
+            if cx + max_w > text_area.right() {
+                cx = text_area.right().saturating_sub(max_w);
             }
+            if cy + h > text_area.bottom() {
+                cy = text_area.y + (cr as u16).saturating_sub(h);
+            }
+
+            let rect = Rect::new(cx, cy, max_w, h);
+            f.render_widget(Clear, rect);
+            let block = Block::default()
+                .borders(Borders::ALL)
+                .border_style(Style::default().fg(theme::BORDER_ACTIVE))
+                .style(Style::default().bg(theme::OVERLAY_BG));
+
+            let scroll = app
+                .lsp_completion_selected
+                .saturating_sub((max_h / 2) as usize);
+            let items: Vec<ListItem> = completions
+                .iter()
+                .enumerate()
+                .skip(scroll)
+                .take(max_h as usize)
+                .map(|(i, c)| {
+                    let style = if i == app.lsp_completion_selected {
+                        Style::default()
+                            .fg(theme::BG)
+                            .bg(theme::ACCENT)
+                            .add_modifier(Modifier::BOLD)
+                    } else {
+                        Style::default().fg(theme::TEXT)
+                    };
+                    let label = c.label.as_str();
+                    let truncated = if label.len() > 36 {
+                        &label[..36]
+                    } else {
+                        label
+                    };
+                    ListItem::new(Line::from(Span::styled(format!(" {}", truncated), style)))
+                })
+                .collect();
+
+            f.render_widget(List::new(items).block(block), rect);
+        }
+    }
 
     (text_area.x, text_area.y, text_area.width, text_area.height)
 }
@@ -1522,7 +1518,6 @@ fn draw_ai_panel(f: &mut Frame, app: &App, area: Rect) -> crate::events::AiPanel
     let prompt_text = if app.ai_state.is_streaming {
         " ⏳ Agent working...".to_string()
     } else {
-        
         if app.ai_state.input_buffer.is_empty() {
             " Ask the AI agent...".to_string()
         } else {
@@ -1562,17 +1557,10 @@ fn render_markdown_lines(text: &str, max_w: usize, lines: &mut Vec<Line<'static>
     for line in text.lines() {
         if line.trim_start().starts_with("```") {
             in_code_block = !in_code_block;
-            if in_code_block {
-                lines.push(Line::from(Span::styled(
-                    format!(" {}", line),
-                    Style::default().fg(theme::TEXT_DIM).bg(theme::AI_CODE_BG),
-                )));
-            } else {
-                lines.push(Line::from(Span::styled(
-                    format!(" {}", line),
-                    Style::default().fg(theme::TEXT_DIM).bg(theme::AI_CODE_BG),
-                )));
-            }
+            lines.push(Line::from(Span::styled(
+                format!(" {}", line),
+                Style::default().fg(theme::TEXT_DIM).bg(theme::AI_CODE_BG),
+            )));
         } else if in_code_block {
             lines.push(Line::from(Span::styled(
                 format!(" {}", line),
